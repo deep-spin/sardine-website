@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SARDINE Lab</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%22100%22>🐟</text></svg>">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/style.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'sardine-blue': '#1e40af',
+                        'sardine-light': '#3b82f6',
+                        'ocean': '#0369a1'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', ui-sans-serif, system-ui, sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+    <!-- Navigation -->
+    <header class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-slate-200">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex items-center justify-between h-16">
+                <a href="index.html" class="flex items-center gap-2 group">
+                    <!-- <span class="text-2xl">🐟</span> -->
+                    <img width="128" src="assets/logo-sardine.png" alt="🐟">
+                    <span class="font-semibold text-slate-900 group-hover:text-sardine-blue transition-colors">SARDINE Lab</span>
+                </a>
+                <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+                    <a href="index.html" class="navlink active text-slate-600 hover:text-slate-900 transition-colors">Home</a>
+                    <!-- <a href="#team" class="navlink text-slate-600 hover:text-slate-900 transition-colors">Team</a> -->
+                    <a href="news.html" class="navlink text-slate-600 hover:text-slate-900 transition-colors">News</a>
+                    <a href="publications.html" class="navlink text-slate-600 hover:text-slate-900 transition-colors">Publications</a>
+                    <a href="projects.html" class="navlink text-slate-600 hover:text-slate-900 transition-colors">Projects</a>
+                </nav>
+                <!-- Mobile menu button -->
+                <button id="mobileMenuBtn" class="md:hidden inline-flex items-center justify-center p-2 rounded-lg border border-slate-300 text-slate-700">
+                    <i class="fas fa-bars text-lg"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobileMenu" class="hidden md:hidden">
+            <nav class="px-4 pb-3">
+                <a href="index.html" class="block px-3 py-2 rounded-lg hover:bg-slate-100 active">Home</a>
+                <a href="news.html" class="block px-3 py-2 rounded-lg hover:bg-slate-100">News</a>
+                <a href="publications.html" class="block px-3 py-2 rounded-lg hover:bg-slate-100">Publications</a>
+                <a href="projects.html" class="block px-3 py-2 rounded-lg bg-slate-100 hover:bg-slate-100">Projects</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-b from-sardine-blue/5 to-white border-b border-slate-200/60">
+        <div class="max-w-6xl mx-auto px-4 py-16 grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <h1 class="text-3xl md:text-4xl font-extrabold leading-tight text-slate-900 mb-4">SARDINE Lab</h1>
+                <p class="text-lg text-slate-700 mb-4">
+                    Structure AwaRe moDelIng for Natural LanguagE — a research group focused on Natural Language Processing, Deep Learning, Structured Prediction, and Sparse Modeling.
+                </p>
+                <p class="text-slate-700 mb-6">
+                    We are based at <a class="text-sardine-blue hover:underline font-medium" href="https://www.it.pt/" target="_blank">Instituto de Telecomunicações</a> and <a class="text-sardine-blue hover:underline font-medium" href="https://tecnico.ulisboa.pt/" target="_blank">Instituto Superior Técnico</a> in the sunny Lisbon ☀️, Portugal 🇵🇹, led by <a class="text-sardine-blue hover:underline font-medium" href="https://andre-martins.github.io/" target="_blank">André Martins</a> 🧙‍♂️.
+                </p>
+                <div class="flex flex-wrap gap-3">
+                    <a href="#team" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white text-sardine-blue font-semibold border border-sardine-blue/20 hover:bg-sardine-blue/5 transition">
+                        <span>Meet the team</span>
+                        <i class="fas fa-users"></i>
+                    </a>
+                    <a href="#projects" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white text-sardine-blue font-semibold border border-sardine-blue/20 hover:bg-sardine-blue/5 transition">
+                        <span>Check out our projects</span>
+                        <i class="fas fa-microscope"></i>
+                    </a>
+                    <!-- <a href="#publications" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white text-sardine-blue font-semibold border border-sardine-blue/20 hover:bg-sardine-blue/5 transition">
+                        <span>See publications</span>
+                        <i class="fas fa-book"></i>
+                    </a> -->
+                </div>
+            </div>
+            <div class="relative">
+                <img class="rounded-2xl shadow-lg ring-1 ring-slate-200" alt="Lisbon illustration" src="assets/figs/lisbon.webp" />
+                <div class="absolute -bottom-4 -right-4 bg-white/90 backdrop-blur px-4 py-2 rounded-xl shadow border border-slate-200 text-sm">Olá from Lisbon 🇵🇹</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About SARDINE Section -->
+    <section id="about" class="max-w-6xl mx-auto px-4 py-16">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Why SARDINE?</h2>
+            <div class="w-24 h-1 bg-sardine-blue mx-auto mb-8"></div>
+        </div>
+        <div class="grid lg:grid-cols-1 items-center">
+            <div class="text-center">
+                <center>
+                    <img width="512" src="assets/sardinha.png" alt="Bordallo Pinheiro's sardine" title="Bordallo Pinheiro's sardine">
+                </center>
+                <p class="text-lg text-slate-700 mb-6 leading-relaxed">
+                    A <a class="underline" href="https://en.wikipedia.org/wiki/Sardine" target="_blank">sardine</a> (<i>sardina pilchardus</i>, "sardinha" in Portuguese) is a fish commonly found in the Northeast Atlantic and Mediterranean. Sardines are a much appreciated delicacy in Portugal, most prominently at city summer festivals such as the <a class="underline" href="https://beportugal.com/lisbon-sardine-festival" target="_blank">Santo António festival</a>.
+                </p>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest News Section -->
+    <section id="news" class="bg-white py-16">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-slate-900 mb-4">Latest News</h2>
+                <div class="w-24 h-1 bg-sardine-blue mx-auto mb-8"></div>
+                <!-- <a href="news.html" class="text-sm text-sardine-blue hover:underline font-medium">View all news</a> -->
+            </div>
+            <div id="latestNews" class="space-y-6 mb-12">
+                <!-- News items will be populated by JavaScript -->
+                <div class="text-center py-8 text-slate-500">
+                    <i class="fas fa-spinner fa-spin text-2xl mb-2"></i>
+                    <p>Loading latest news...</p>
+                </div>
+            </div>
+            <div class="text-center">
+                <a href="news.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white text-sardine-blue font-semibold border border-sardine-blue hover:bg-sardine-blue/5 transition-colors">
+                    <span>View All News</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Publications Section -->
+    <section id="publications" class="py-16 bg-slate-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-slate-900 mb-4">Recent Publications</h2>
+                <div class="w-24 h-1 bg-sardine-blue mx-auto mb-8"></div>
+            </div>
+            <div id="recentPublications" class="grid md:grid-cols-3 gap-6 mb-12">
+                <!-- Publications will be populated by JavaScript -->
+                <div class="text-center py-8 text-slate-500 col-span-full">
+                    <i class="fas fa-spinner fa-spin text-2xl mb-2"></i>
+                    <p>Loading recent publications...</p>
+                </div>
+            </div>
+            <div class="text-center">
+                <a href="publications.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-sardine-blue text-white font-semibold shadow hover:bg-sardine-light transition-colors">
+                    <span>View All Publications</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Current Projects Section -->
+    <section id="projects" class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-slate-900 mb-4">Current Projects</h2>
+                <div class="w-24 h-1 bg-sardine-blue mx-auto mb-8"></div>
+            </div>
+            <div id="currentProjects" class="space-y-8">
+                <!-- Projects will be populated by JavaScript -->
+                <div class="text-center py-8 text-slate-500">
+                    <i class="fas fa-spinner fa-spin text-2xl mb-2"></i>
+                    <p>Loading current projects...</p>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <a href="projects.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white text-sardine-blue font-semibold border border-sardine-blue hover:bg-sardine-blue/5 transition-colors">
+                    <span>View All Projects</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Team Section -->
+    <section id="team" class="py-16 bg-slate-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-slate-900 mb-4">Our Team</h2>
+                <div class="w-24 h-1 bg-sardine-blue mx-auto mb-8"></div>
+            </div>
+            
+            <!-- Team Photo -->
+            <!-- <div class="text-center mb-16">
+                <div class="bg-gradient-to-r from-sardine-blue to-ocean p-1 rounded-2xl inline-block">
+                    <div class="bg-slate-200 rounded-xl p-8 text-slate-500">
+                        <i class="fas fa-users text-6xl mb-4"></i>
+                        <p class="text-lg">Team Photo</p>
+                        <p class="text-sm">Group photo will be displayed here</p>
+                    </div>
+                </div>
+            </div> -->
+            <div class="team-photo-slider mb-8">
+                <div class="slider-container">
+                    <!-- Main photo display -->
+                    <div class="main-photo-container">
+                        <button class="nav-btn prev-btn" onclick="changePhoto(-1)">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        
+                        <div class="main-photo">
+                            <img id="currentPhoto" src="assets/figs/group1.jpg" alt="SARDINE Lab Group Photo">
+                            <div class="photo-caption">
+                                <span id="photoDate">2018</span>
+                                <span id="photoDescription">Early days of SARDINE Lab</span>
+                            </div>
+                        </div>
+                        
+                        <button class="nav-btn next-btn" onclick="changePhoto(1)">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    
+                    <!-- Thumbnail navigation -->
+                    <div class="thumbnails">
+                        <div class="thumbnail-track text-center" id="thumbnailTrack">
+                            <!-- Thumbnails will be generated by JavaScript -->
+                        </div>
+                    </div>
+                    
+                    <!-- Photo counter -->
+                    <div class="photo-counter">
+                        <span id="currentIndex">1</span> / <span id="totalPhotos">8</span>
+                    </div>
+                </div>
+            </div>
+
+            <hr />
+
+            <!-- Team Members -->
+            <div id="teamMembers" class="space-y-12 mt-8">
+                <!-- Team members will be populated by JavaScript -->
+                <div class="text-center py-8 text-slate-500">
+                    <i class="fas fa-spinner fa-spin text-2xl mb-2"></i>
+                    <p>Loading team members...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- World Map Section -->
+    <section id="origin-map" class="py-16 bg-slate-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-slate-900 mb-4">Our Global Team</h2>
+                <div class="w-24 h-1 bg-sardine-blue mx-auto mb-8"></div>
+                <p class="text-lg text-slate-600">Team members come from around the world!</p>
+            </div>
+            <div class="relative aspect-[2/1] w-full rounded-2xl border border-slate-200 overflow-hidden bg-slate-100">
+                <img id="worldMap" alt="World map" class="absolute inset-0 w-full h-full object-cover opacity-90" 
+                     src="https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg">
+                <div id="pins" class="absolute inset-0">
+                    <!-- Loading indicator -->
+                    <div class="absolute inset-0 flex items-center justify-center text-slate-500">
+                        <div class="text-center">
+                            <i class="fas fa-spinner fa-spin text-2xl mb-2"></i>
+                            <p class="text-sm">Loading world map...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="text-xs text-slate-500 mt-2">Dots indicate the hometown or country of origin of current and former members.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-white py-12">
+        <div class="max-w-6xl mx-auto px-4 grid gap-8 md:grid-cols-3">
+            <div>
+                <div class="flex items-center gap-2 mb-3">
+                    <span class="text-2xl">🐟</span>
+                    <span class="font-semibold">SARDINE Lab</span>
+                </div>
+                <p class="text-sm text-slate-400">Structure AwaRe moDelIng for Natural LanguagE</p>
+                <p class="text-sm text-slate-400 mt-2">Instituto de Telecomunicações &amp; Instituto Superior Técnico<br>Lisbon, Portugal</p>
+            </div>
+            <div>
+                <h3 class="text-sm font-semibold text-slate-100 mb-3">Research Areas</h3>
+                <ul class="space-y-2 text-sm text-slate-400">
+                    <li>Natural Language Processing</li>
+                    <li>Deep Learning</li>
+                    <li>Structured Prediction</li>
+                    <li>Sparse Modeling</li>
+                    <li>Machine Translation</li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-sm font-semibold text-slate-100 mb-3">Contact & Links</h3>
+                <div class="space-y-2 text-sm text-slate-400">
+                    <p>Email: <a class="underline hover:text-white transition-colors" href="mailto:contact@sardine-lab.org">contact@sardine-lab.org</a></p>
+                    <p>Address: Av. Rovisco Pais 1, 1049-001 Lisboa</p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="https://github.com/sardine-lab" class="text-slate-400 hover:text-white transition-colors" target="_blank">
+                            <i class="fab fa-github text-lg"></i>
+                        </a>
+                        <a href="#" class="text-slate-400 hover:text-white transition-colors">
+                            <i class="fab fa-twitter text-lg"></i>
+                        </a>
+                        <a href="#" class="text-slate-400 hover:text-white transition-colors">
+                            <i class="fab fa-linkedin text-lg"></i>
+                        </a>
+                        <a href="mailto:contact@sardine-lab.org" class="text-slate-400 hover:text-white transition-colors">
+                            <i class="fas fa-envelope text-lg"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="border-t border-slate-800 mt-8 pt-8 text-center text-sm text-slate-500">
+            <div class="max-w-6xl mx-auto px-4 flex items-center justify-between">
+                <span>&copy; 2025 SARDINE Lab. All rights reserved.</span>
+                <span>Made with 🐟 in Lisbon.</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="data/news.js"></script>
+    <script src="data/publications.js"></script>
+    <script src="data/projects.js"></script>
+    <script src="data/team.js"></script>
+    <script src="assets/main.js"></script>
+    
+    <script>
+
+        // Group photos data
+        const groupPhotos = [
+            { id: 1, year: "2018", description: "Early days of SARDINE Lab (aka DeepSPIN)", filename: "group0.jpg" },
+            { id: 2, year: "2019", description: "SARDINEs at Quinta da Regaleira", filename: "group1.jpg" },
+            { id: 3, year: "2020", description: "Enjoying EMNLP at Punta Cana", filename: "group2.jpg" },
+            { id: 4, year: "2022", description: "Summer lab retreat", filename: "group4.jpg" },
+            { id: 5, year: "2023", description: "Post-pandemic reunion", filename: "group3.jpg" },
+            { id: 6, year: "2023", description: "Project milestone celebration", filename: "group5.jpg" },
+            { id: 7, year: "2024", description: "Gathering at ACL in Miami", filename: "group6.jpg" },
+            { id: 8, year: "2024", description: "End of year gathering", filename: "group7.jpg" }
+        ];
+
+        let currentPhotoIndex = 0;
+
+        // Initialize page content when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize news manager and render latest news
+            if (typeof newsData !== 'undefined') {
+                const newsManager = new NewsManager(newsData);
+                const latestNewsContainer = document.getElementById('latestNews');
+                newsManager.renderLatestNews(latestNewsContainer, 3);
+            }
+
+            // Initialize publications manager and render recent publications
+            if (typeof publicationsData !== 'undefined') {
+                const publicationsManager = new PublicationsManager(publicationsData);
+                const recentPubsContainer = document.getElementById('recentPublications');
+                publicationsManager.renderRecentPublications(recentPubsContainer, 3);
+                
+                // Update publication count
+                // document.getElementById('pubCount').textContent = publicationsData.length;
+            }
+
+            // Render current projects
+            if (typeof projectsData !== 'undefined') {
+                renderCurrentProjects();
+            }
+
+            // Render team members and world map
+            if (typeof teamData !== 'undefined') {
+                renderTeam();
+                
+                // Update team count
+                const totalMembers = Object.values(teamData).reduce((total, group) => {
+                    return total + (Array.isArray(group) ? group.length : 0);
+                }, 0);
+                // document.getElementById('teamCount').textContent = totalMembers;
+            }
+        });
+
+        // Projects rendering function
+        function renderCurrentProjects() {
+            const projectsContainer = document.getElementById('currentProjects');
+            const currentProjects = getCurrentProjects();
+            
+            projectsContainer.innerHTML = '';
+
+            currentProjects.forEach(project => {
+                const projectCard = document.createElement('div');
+                projectCard.className = 'bg-slate-50 p-8 rounded-2xl border border-slate-200 hover:shadow-lg transition-shadow';
+                
+                const teamMembers = project.team_members ? 
+                    `<p class="text-sm text-slate-600 mb-3"><strong>Team:</strong> ${project.team_members.join(', ')}</p>` : '';
+                
+                const collaborators = project.collaborators ? 
+                    `<p class="text-sm text-slate-600 mb-3"><strong>Collaborators:</strong> ${project.collaborators.join(', ')}</p>` : '';
+                
+                const website = project.website ? 
+                    `<a href="${project.website}" target="_blank" rel="noopener" class="inline-flex items-center gap-1 text-sardine-blue hover:underline text-sm font-medium">
+                        <span>Project Website</span>
+                        <i class="fas fa-external-link-alt text-xs"></i>
+                    </a>` : '';
+
+                projectCard.innerHTML = `
+                    <div class="grid lg:grid-cols-3 gap-6">
+                        <div class="lg:col-span-2">
+                            <div class="flex items-start justify-between mb-4">
+                                <div>
+                                    <h3 class="text-2xl font-bold text-slate-900 mb-2">${project.name}</h3>
+                                    <h4 class="text-lg text-slate-700 mb-3">${project.title}</h4>
+                                </div>
+                                <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">Current</span>
+                            </div>
+                            <p class="text-slate-700 leading-relaxed mb-4">${project.description}</p>
+                            ${website}
+                        </div>
+                        <div class="bg-white p-6 rounded-xl border border-slate-200">
+                            <h5 class="font-semibold text-slate-900 mb-3">Project Details</h5>
+                            <div class="space-y-2 text-sm">
+                                <p><strong>Funding:</strong> ${project.funding}</p>
+                                <p><strong>Period:</strong> ${project.period}</p>
+                                <p><strong>PI:</strong> ${project.pi}</p>
+                                ${teamMembers}
+                                ${collaborators}
+                            </div>
+                            <div class="mt-4">
+                                <h6 class="font-medium text-slate-700 mb-2">Keywords</h6>
+                                <div class="flex flex-wrap gap-1">
+                                    ${project.keywords.map(keyword => 
+                                        `<span class="px-2 py-1 bg-sardine-blue/10 text-sardine-blue rounded text-xs">${keyword}</span>`
+                                    ).join('')}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                projectsContainer.appendChild(projectCard);
+            });
+        }
+
+        // Team rendering function
+        function renderTeam() {
+            const teamContainer = document.getElementById('teamMembers');
+            const currentTeam = getCurrentTeam();
+            
+            teamContainer.innerHTML = '';
+
+            // Principal Investigator
+            if (currentTeam.pi && currentTeam.pi.length > 0) {
+                const piSection = createTeamSection('Principal Investigator', currentTeam.pi, 'large');
+                teamContainer.appendChild(piSection);
+            }
+
+            // Postdocs
+            if (currentTeam.postdocs && currentTeam.postdocs.length > 0) {
+                const postdocSection = createTeamSection('Postdocs', currentTeam.postdocs, 'medium');
+                teamContainer.appendChild(postdocSection);
+            }
+
+            // PhD Students
+            if (currentTeam.phds && currentTeam.phds.length > 0) {
+                const phdSection = createTeamSection('PhD Students', currentTeam.phds, 'small');
+                teamContainer.appendChild(phdSection);
+            }
+
+            // MSc Students
+            if (currentTeam.mscs && currentTeam.mscs.length > 0) {
+                const mscSection = createTeamSection('MSc Students', currentTeam.mscs, 'tiny');
+                teamContainer.appendChild(mscSection);
+            }
+
+            // Alumni
+            const alumni = getAlumni();
+            if (alumni && alumni.length > 0) {
+                const alumniSection = createAlumniSection('Alumni', alumni);
+                teamContainer.appendChild(alumniSection);
+            }
+
+            // Render world map
+            setTimeout(renderWorldMap, 100);
+        }
+
+        function createTeamSection(title, members, size) {
+            const section = document.createElement('div');
+            section.innerHTML = `
+                <h3 class="text-2xl font-bold text-center mb-8 text-sardine-blue">${title}</h3>
+                <div class="grid ${getGridClasses(size, members.length)} gap-6" id="${title.toLowerCase().replace(/\s+/g, '-')}-grid">
+                </div>
+            `;
+
+            const grid = section.querySelector(`#${title.toLowerCase().replace(/\s+/g, '-')}-grid`);
+            
+            members.forEach(member => {
+                const memberCard = createMemberCard(member, size);
+                grid.appendChild(memberCard);
+            });
+
+            return section;
+        }
+
+        function createAlumniSection(title, alumni) {
+            const section = document.createElement('div');
+            section.innerHTML = `
+                <h3 class="text-2xl font-bold text-center mb-8 text-sardine-blue">${title}</h3>
+                <div class="bg-white p-6 rounded-lg shadow-lg border border-slate-200">
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 text-sm" id="alumni-grid">
+                    </div>
+                </div>
+            `;
+
+            const grid = section.querySelector('#alumni-grid');
+            
+            alumni.forEach(member => {
+                const alumniItem = document.createElement('div');
+                alumniItem.className = 'flex items-center space-x-3';
+                alumniItem.innerHTML = `
+                    <div class="w-8 h-8 bg-slate-300 rounded-full flex items-center justify-center text-slate-500">
+                        <i class="fas fa-user text-xs"></i>
+                    </div>
+                    <div>
+                        <p class="font-medium">${member.name}</p>
+                        <p class="text-xs text-slate-500">${member.degree} ${member.graduation_year} → ${member.current_position}</p>
+                    </div>
+                `;
+                grid.appendChild(alumniItem);
+            });
+
+            return section;
+        }
+
+        function createMemberCard(member, size) {
+            const card = document.createElement('div');
+            card.className = 'team-card';
+
+            const sizeClasses = {
+                large: { avatar: 'w-24 h-24', name: 'text-lg', spacing: 'p-6' },
+                medium: { avatar: 'w-20 h-20', name: 'text-lg', spacing: 'p-6' },
+                small: { avatar: 'w-16 h-16', name: 'text-base', spacing: 'p-6' },
+                tiny: { avatar: 'w-12 h-12', name: 'text-sm', spacing: 'p-4' }
+            };
+
+            const classes = sizeClasses[size];
+            
+            const links = Object.entries(member.links || {}).map(([type, url]) => {
+                const icons = {
+                    website: 'fas fa-globe',
+                    github: 'fab fa-github',
+                    linkedin: 'fab fa-linkedin',
+                    scholar: 'fas fa-graduation-cap'
+                };
+                
+                return `<a href="${url}" class="text-slate-400 hover:text-sardine-blue transition-colors" target="_blank" rel="noopener">
+                    <i class="${icons[type]} ${size === 'tiny' ? 'text-xs' : 'text-sm'}"></i>
+                </a>`;
+            }).join('');
+
+            card.innerHTML = `
+                <div class="${classes.avatar} bg-slate-300 rounded-full mx-auto mb-4 flex items-center justify-center text-slate-500">
+                    <i class="fas fa-user"></i>
+                </div>
+                <h4 class="font-semibold ${classes.name} mb-1">${member.name}</h4>
+                ${member.advisor ? `<p class="text-xs text-slate-500 mb-2">Advisor: ${member.advisor}</p>` : ''}
+                ${member.research_interests ? `<p class="text-sm text-slate-600 mb-3">${member.research_interests[0]}</p>` : ''}
+                ${member.current_position ? `<p class="text-sm text-slate-600 mb-3">${member.current_position}</p>` : ''}
+                <div class="flex justify-center space-x-2">
+                    ${links}
+                </div>
+            `;
+
+            return card;
+        }
+
+        function getGridClasses(size, count) {
+            if (size === 'large') {
+                return 'flex justify-center';
+            } else if (size === 'medium') {
+                return 'md:grid-cols-2 lg:grid-cols-3';
+            } else if (size === 'small') {
+                return 'md:grid-cols-2 lg:grid-cols-4';
+            } else {
+                return 'md:grid-cols-3 lg:grid-cols-5';
+            }
+        }
+
+
+        // Initialize slider
+        function initPhotoSlider() {
+            generateThumbnails();
+            updatePhoto(0);
+            updateCounter();
+            
+            // Add touch/swipe support
+            addSwipeSupport();
+        }
+
+        // Generate thumbnail navigation
+        function generateThumbnails() {
+            const thumbnailTrack = document.getElementById('thumbnailTrack');
+            thumbnailTrack.innerHTML = '';
+            
+            groupPhotos.forEach((photo, index) => {
+                const thumbnail = document.createElement('div');
+                thumbnail.className = `thumbnail ${index === 0 ? 'active' : ''}`;
+                thumbnail.onclick = () => updatePhoto(index);
+                
+                thumbnail.innerHTML = `
+                    <img src="assets/figs/${photo.filename}" alt="Group photo ${photo.year}" loading="lazy">
+                `;
+                
+                thumbnailTrack.appendChild(thumbnail);
+            });
+        }
+
+        // Update main photo
+        function updatePhoto(index) {
+            currentPhotoIndex = index;
+            const photo = groupPhotos[index];
+            
+            // Update main image
+            const mainImg = document.getElementById('currentPhoto');
+            mainImg.src = `assets/figs/${photo.filename}`;
+            mainImg.alt = `SARDINE Lab Group Photo - ${photo.year}`;
+            
+            // Update caption
+            document.getElementById('photoDate').textContent = photo.year;
+            document.getElementById('photoDescription').textContent = photo.description;
+            
+            // Update thumbnails
+            document.querySelectorAll('.thumbnail').forEach((thumb, i) => {
+                thumb.classList.toggle('active', i === index);
+            });
+            
+            updateCounter();
+            scrollThumbnailIntoView(index);
+        }
+
+        // Navigation functions
+        function changePhoto(direction) {
+            const newIndex = currentPhotoIndex + direction;
+            
+            if (newIndex >= 0 && newIndex < groupPhotos.length) {
+                updatePhoto(newIndex);
+            } else if (newIndex < 0) {
+                updatePhoto(groupPhotos.length - 1); // Loop to last
+            } else {
+                updatePhoto(0); // Loop to first
+            }
+        }
+
+        // Update counter
+        function updateCounter() {
+            document.getElementById('currentIndex').textContent = currentPhotoIndex + 1;
+            document.getElementById('totalPhotos').textContent = groupPhotos.length;
+        }
+
+        // Scroll thumbnail into view
+        function scrollThumbnailIntoView(index) {
+            const thumbnailTrack = document.getElementById('thumbnailTrack');
+            const thumbnail = thumbnailTrack.children[index];
+            
+            if (thumbnail) {
+                thumbnail.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'nearest',
+                    inline: 'center'
+                });
+            }
+        }
+
+        // Add swipe support for mobile
+        function addSwipeSupport() {
+            const photoContainer = document.querySelector('.main-photo-container');
+            let startX = 0;
+            let startY = 0;
+            
+            photoContainer.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+                startY = e.touches[0].clientY;
+            });
+            
+            photoContainer.addEventListener('touchend', (e) => {
+                const endX = e.changedTouches[0].clientX;
+                const endY = e.changedTouches[0].clientY;
+                
+                const deltaX = startX - endX;
+                const deltaY = startY - endY;
+                
+                // Only trigger if horizontal swipe is more significant than vertical
+                if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 50) {
+                    if (deltaX > 0) {
+                        changePhoto(1); // Swipe left - next photo
+                    } else {
+                        changePhoto(-1); // Swipe right - previous photo
+                    }
+                }
+            });
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                changePhoto(-1);
+            } else if (e.key === 'ArrowRight') {
+                changePhoto(1);
+            }
+        });
+
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', initPhotoSlider);
+
+        // World map rendering function
+        function renderWorldMap() {
+            const mapImg = document.getElementById('worldMap');
+            const pinsWrap = document.getElementById('pins');
+            
+            if (!mapImg || !pinsWrap || typeof teamData === 'undefined') return;
+
+            // Collect all team members with location data
+            const allMembers = [];
+            Object.keys(teamData).forEach(role => {
+                if (teamData[role] && Array.isArray(teamData[role])) {
+                    teamData[role].forEach(member => {
+                        if (member.location && member.location.coordinates) {
+                            allMembers.push({
+                                ...member,
+                                role: role,
+                                lat: member.location.coordinates[0],
+                                lon: member.location.coordinates[1]
+                            });
+                        }
+                    });
+                }
+            });
+
+            // Country color mapping
+            const countryColors = {
+                'Portugal': '#ef4444',
+                'Spain': '#f97316', 
+                'France': '#3b82f6',
+                'Italy': '#22c55e',
+                'Germany': '#8b5cf6',
+                'Japan': '#f59e0b',
+                'South Korea': '#ec4899',
+                'Egypt': '#06b6d4',
+                'Poland': '#84cc16',
+                'India': '#f43f5e',
+                'China': '#6366f1'
+            };
+
+            // Geographic projection function - Fixed for better accuracy
+            function project(lat, lon, width, height) {
+                // Convert to more accurate map projection
+                
+                // This accounts for the specific world map image being used
+                const mapLeft = -170;
+                const mapRight = 180;
+                const mapTop = 80;
+                const mapBottom = -60;
+                
+                // Clamp coordinates to map bounds
+                lat = Math.max(mapBottom, Math.min(mapTop, lat));
+                lon = Math.max(mapLeft, Math.min(mapRight, lon));
+
+                // Simple equirectangular projection with adjustments
+                const x = ((lon - mapLeft) / (mapRight - mapLeft)) * width;
+                const y = ((mapTop - lat) / (mapTop - mapBottom)) * height;
+                
+                return { x, y };
+            }
+
+            function placePins() {
+                if (!mapImg || !pinsWrap) return;
+                
+                // Clear loading indicator
+                pinsWrap.innerHTML = '';
+                
+                const rect = pinsWrap.getBoundingClientRect();
+                const width = rect.width;
+                const height = rect.height;
+
+                // Group members by location
+                const locationGroups = {};
+                allMembers.forEach(member => {
+                    const key = `${member.lat},${member.lon}`;
+                    if (!locationGroups[key]) {
+                        locationGroups[key] = {
+                            lat: member.lat,
+                            lon: member.lon,
+                            country: member.location.country,
+                            city: member.location.city,
+                            members: []
+                        };
+                    }
+                    locationGroups[key].members.push(member);
+                });
+
+                // Create pins
+                Object.values(locationGroups).forEach((group) => {
+                    const { x, y } = project(group.lat, group.lon, width, height);
+                    
+                    if (x < 0 || x > width || y < 0 || y > height) return;
+                    
+                    const pin = document.createElement('div');
+                    pin.className = 'absolute group cursor-pointer';
+                    pin.style.left = `${x}px`;
+                    pin.style.top = `${y}px`;
+                    pin.style.transform = 'translate(-50%, -50%)';
+                    pin.style.zIndex = '10';
+                    
+                    const color = countryColors[group.country] || '#64748b';
+                    const memberCount = group.members.length;
+                    
+                    pin.innerHTML = `
+                        <div class="relative">
+                            <!-- Pin dot -->
+                            <div class="map-pin" style="background-color: ${color};">
+                            </div>
+                            
+                            <!-- Member count badge for multiple members -->
+                            ${memberCount > 1 ? `
+                                <div class="member-count-badge">
+                                    ${memberCount}
+                                </div>
+                            ` : ''}
+                            
+                            <!-- Tooltip -->
+                            <div class="pin-tooltip">
+                                <div class="font-semibold mb-1">${group.city}, ${group.country}</div>
+                                ${group.members.map(m => `<div class="text-xs">${m.name} (${m.role.slice(0, -1)})</div>`).join('')}
+                            </div>
+                        </div>
+                    `;
+                    
+                    pinsWrap.appendChild(pin);
+                });
+
+                // Create legend
+                createMapLegend(locationGroups);
+            }
+
+            function createMapLegend(locationGroups) {
+                const existingLegend = document.querySelector('.map-legend');
+                if (existingLegend) existingLegend.remove();
+
+                const countryCounts = {};
+                Object.values(locationGroups).forEach(group => {
+                    countryCounts[group.country] = (countryCounts[group.country] || 0) + group.members.length;
+                });
+
+                legend.className = 'map-legend absolute bottom-4 right-4 bg-white/95 backdrop-blur-sm p-4 rounded-lg border border-slate-200 shadow-lg max-w-xs';
+                legend.innerHTML = `
+                    <h3 class="font-semibold text-sm mb-3 text-slate-900">Team Origins</h3>
+                    <div class="space-y-2">
+                        ${Object.entries(countryCounts).map(([country, count]) => `
+                            <div class="flex items-center gap-2 text-xs">
+                                <div class="w-3 h-3 rounded-full border border-white shadow-sm" style="background-color: ${countryColors[country] || '#64748b'}"></div>
+                                <span class="text-slate-700">${country} (${count})</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                    <div class="mt-3 pt-2 border-t border-slate-200">
+                        <div class="text-xs text-slate-500">
+                            <strong>${Object.keys(countryCounts).length}</strong> countries • 
+                            <strong>${Object.values(countryCounts).reduce((a, b) => a + b, 0)}</strong> members
+                        </div>
+                    </div>
+                `;
+
+                pinsWrap.appendChild(legend);
+            }
+
+            // Place pins when map loads
+            if (mapImg.complete) {
+                setTimeout(placePins, 100);
+            } else {
+                mapImg.addEventListener('load', () => {
+                    setTimeout(placePins, 100);
+                });
+            }
+
+            // Re-place pins on window resize
+            let resizeTimeout;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(placePins, 250);
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SARDINE Lab — Publications</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%22100%22>🐟</text></svg>">
+    <meta name="description" content="SARDINE Lab — Structure AwaRe moDelIng for Natural LanguagE">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'sardine-blue': '#1e40af',
+                        'sardine-light': '#3b82f6',
+                        'ocean': '#0369a1'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800">
+    <!-- Navigation -->
+    <header class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-slate-200">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex items-center justify-between h-16">
+                <a href="index.html" class="flex items-center gap-2 group">
+                    <!-- <span class="text-2xl">🐟</span> -->
+                    <img width="128" src="assets/logo-sardine.png" alt="🐟">
+                    <span class="font-semibold text-slate-900 group-hover:text-sardine-blue transition-colors">SARDINE Lab</span>
+                </a>
+                <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+                    <a href="index.html" class="navlink text-slate-600 hover:text-slate-900 transition-colors">Home</a>
+                    <a href="news.html" class="navlink text-slate-600 hover:text-slate-900 transition-colors">News</a>
+                    <a href="publications.html" class="navlink active text-slate-600 hover:text-slate-900 transition-colors">Publications</a>
+                    <a href="projects.html" class="navlink text-slate-600 hover:text-slate-900 transition-colors">Projects</a>
+                </nav>
+                <button id="mobileMenuBtn" class="md:hidden inline-flex items-center justify-center p-2 rounded-lg border border-slate-300 text-slate-700">
+                    <i class="fas fa-bars text-lg"></i>
+                </button>
+            </div>
+        </div>
+        <div id="mobileMenu" class="hidden md:hidden pb-3">
+            <nav class="px-4 pb-3">
+                <a href="index.html" class="block px-3 py-2 rounded-lg hover:bg-slate-100">Home</a>
+                <a href="news.html" class="block px-3 py-2 rounded-lg hover:bg-slate-100">News</a>
+                <a href="publications.html" class="block px-3 py-2 rounded-lg hover:bg-slate-100 active">Publications</a>
+                <a href="projects.html" class="block px-3 py-2 rounded-lg bg-slate-100 hover:bg-slate-100">Projects</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="bg-gradient-to-b from-sardine-blue/5 to-white border-b border-slate-200/60">
+        <div class="max-w-6xl mx-auto px-4 py-12">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">📚 Publications</h1>
+                    <p class="text-lg text-slate-700">Research output from SARDINE Lab</p>
+                </div>
+                <a href="index.html" class="text-sm text-sardine-blue hover:underline">← Back to home</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filters and Search -->
+    <section class="bg-white border-b border-slate-200">
+        <div class="max-w-6xl mx-auto px-4 py-6">
+            <div class="flex flex-wrap gap-4 items-center justify-between">
+                <!-- Type and Year Filters -->
+                <div class="flex flex-wrap gap-4">
+                    <!-- Type Filters -->
+                    <div class="flex flex-wrap gap-2">
+                        <button id="type-all" class="filter-btn active" onclick="filterByType('all')">All Types</button>
+                        <button id="type-conference" class="filter-btn" onclick="filterByType('conference')">Conferences</button>
+                        <button id="type-journal" class="filter-btn" onclick="filterByType('journal')">Journals</button>
+                        <button id="type-preprint" class="filter-btn" onclick="filterByType('preprint')">Preprints</button>
+                    </div>
+                    <!-- Year Filters -->
+                    <div class="flex flex-wrap gap-2">
+                        <button id="year-all" class="filter-btn active" onclick="filterByYear('all')">All Years</button>
+                        <button id="year-2025" class="filter-btn" onclick="filterByYear('2025')">2025</button>
+                        <button id="year-2024" class="filter-btn" onclick="filterByYear('2024')">2024</button>
+                        <button id="year-2023" class="filter-btn" onclick="filterByYear('2023')">2023</button>
+                    </div>
+                    <!-- Sort and Search -->
+                    <div class="flex flex-wrap gap-2">
+                        <select id="sortSelect" class="px-8 py-2 border border-slate-300 rounded text-sm">
+                            <option value="year-desc">Year (Newest)</option>
+                            <option value="year-asc">Year (Oldest)</option>
+                            <option value="title-asc">Title (A-Z)</option>
+                            <option value="title-desc">Title (Z-A)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="flex gap-4 items-center">
+                    <input type="text" id="searchInput" placeholder="Search publications..." class="search-input max-w-md">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications List -->
+    <main class="max-w-6xl mx-auto px-4 py-12">
+        <!-- Statistics -->
+        <div class="bg-white p-6 rounded-lg border border-slate-200 shadow-sm mb-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                <div>
+                    <div class="text-2xl font-bold text-sardine-blue" id="totalCount">0</div>
+                    <div class="text-sm text-slate-600">Total Publications</div>
+                </div>
+                <div>
+                    <div class="text-2xl font-bold text-sardine-blue" id="conferenceCount">0</div>
+                    <div class="text-sm text-slate-600">Conference Papers</div>
+                </div>
+                <div>
+                    <div class="text-2xl font-bold text-sardine-blue" id="journalCount">0</div>
+                    <div class="text-sm text-slate-600">Journal Articles</div>
+                </div>
+                <div>
+                    <div class="text-2xl font-bold text-sardine-blue" id="preprintCount">0</div>
+                    <div class="text-sm text-slate-600">Preprints</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Info -->
+        <div class="flex items-center justify-between mb-6">
+            <div id="resultsInfo" class="text-sm text-slate-600">
+                <!-- Results count will be populated by JavaScript -->
+            </div>
+        </div>
+
+        <div id="publicationsList" class="space-y-6">
+            <!-- Publications will be populated by JavaScript -->
+        </div>
+        
+        <!-- No Results -->
+        <div id="noResults" class="hidden text-center py-12">
+            <i class="fas fa-search text-4xl text-slate-400 mb-4"></i>
+            <p class="text-lg text-slate-600 mb-2">No publications found</p>
+            <p class="text-sm text-slate-500">Try adjusting your filters or search terms</p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-white py-12">
+        <div class="max-w-6xl mx-auto px-4 grid gap-8 md:grid-cols-3">
+            <div>
+                <div class="flex items-center gap-2 mb-3">
+                    <span class="text-2xl">🐟</span>
+                    <span class="font-semibold">SARDINE Lab</span>
+                </div>
+                <p class="text-sm text-slate-400">Structure AwaRe moDelIng for Natural LanguagE</p>
+                <p class="text-sm text-slate-400 mt-2">Instituto de Telecomunicações &amp; Instituto Superior Técnico<br>Lisbon, Portugal</p>
+            </div>
+            <div>
+                <h3 class="text-sm font-semibold text-slate-100 mb-3">Research Areas</h3>
+                <ul class="space-y-2 text-sm text-slate-400">
+                    <li>Natural Language Processing</li>
+                    <li>Deep Learning</li>
+                    <li>Structured Prediction</li>
+                    <li>Sparse Modeling</li>
+                    <li>Machine Translation</li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-sm font-semibold text-slate-100 mb-3">Contact & Links</h3>
+                <div class="space-y-2 text-sm text-slate-400">
+                    <p>Email: <a class="underline hover:text-white transition-colors" href="mailto:contact@sardine-lab.org">contact@sardine-lab.org</a></p>
+                    <p>Address: Av. Rovisco Pais 1, 1049-001 Lisboa</p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="https://github.com/sardine-lab" class="text-slate-400 hover:text-white transition-colors" target="_blank">
+                            <i class="fab fa-github text-lg"></i>
+                        </a>
+                        <a href="#" class="text-slate-400 hover:text-white transition-colors">
+                            <i class="fab fa-twitter text-lg"></i>
+                        </a>
+                        <a href="#" class="text-slate-400 hover:text-white transition-colors">
+                            <i class="fab fa-linkedin text-lg"></i>
+                        </a>
+                        <a href="mailto:contact@sardine-lab.org" class="text-slate-400 hover:text-white transition-colors">
+                            <i class="fas fa-envelope text-lg"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="border-t border-slate-800 mt-8 pt-8 text-center text-sm text-slate-500">
+            <div class="max-w-6xl mx-auto px-4 flex items-center justify-between">
+                <span>&copy; 2025 SARDINE Lab. All rights reserved.</span>
+                <span>Made with 🐟 in Lisbon.</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="data/publications.js"></script>
+    <script src="assets/main.js"></script>
+    <script>
+        // Publications page functionality
+        class PublicationsPage {
+            constructor() {
+                this.publicationsManager = new PublicationsManager(publicationsData);
+                this.currentTypeFilter = 'all';
+                this.currentYearFilter = 'all';
+                this.currentSearch = '';
+                this.currentSort = 'year-desc';
+                this.init();
+            }
+
+            init() {
+                this.setupEventListeners();
+                this.updateStatistics();
+                this.filterAndRender();
+            }
+
+            setupEventListeners() {
+                // Search input with debouncing
+                const searchInput = document.getElementById('searchInput');
+                const debouncedSearch = SardineWebsite.debounce((value) => {
+                    this.currentSearch = value;
+                    this.filterAndRender();
+                }, 300);
+
+                searchInput.addEventListener('input', (e) => {
+                    debouncedSearch(e.target.value);
+                });
+
+                // Sort dropdown
+                const sortSelect = document.getElementById('sortSelect');
+                sortSelect.addEventListener('change', (e) => {
+                    this.currentSort = e.target.value;
+                    this.sortAndRender();
+                });
+            }
+
+            updateStatistics() {
+                const stats = {
+                    total: publicationsData.length,
+                    conference: publicationsData.filter(p => p.type === 'conference').length,
+                    journal: publicationsData.filter(p => p.type === 'journal').length,
+                    preprint: publicationsData.filter(p => p.type === 'preprint').length
+                };
+
+                document.getElementById('totalCount').textContent = stats.total;
+                document.getElementById('conferenceCount').textContent = stats.conference;
+                document.getElementById('journalCount').textContent = stats.journal;
+                document.getElementById('preprintCount').textContent = stats.preprint;
+            }
+
+            filterAndRender() {
+                this.publicationsManager.filterPublications(
+                    this.currentSearch,
+                    this.currentTypeFilter,
+                    this.currentYearFilter
+                );
+                
+                this.setSortCriteria();
+                this.renderPublications();
+                this.updateResultsInfo();
+            }
+
+            sortAndRender() {
+                this.setSortCriteria();
+                this.publicationsManager.sortPublications();
+                this.renderPublications();
+            }
+
+            setSortCriteria() {
+                const [field, order] = this.currentSort.split('-');
+                this.publicationsManager.sortBy = field;
+                this.publicationsManager.sortOrder = order;
+            }
+
+            updateResultsInfo() {
+                const resultsInfo = document.getElementById('resultsInfo');
+                const count = this.publicationsManager.filteredPublications.length;
+                const total = publicationsData.length;
+                
+                if (count === total) {
+                    resultsInfo.textContent = `Showing all ${total} publications`;
+                } else {
+                    resultsInfo.textContent = `Showing ${count} of ${total} publications`;
+                }
+            }
+
+            renderPublications() {
+                const publicationsContainer = document.getElementById('publicationsList');
+                const noResults = document.getElementById('noResults');
+
+                if (this.publicationsManager.filteredPublications.length === 0) {
+                    publicationsContainer.innerHTML = '';
+                    noResults.classList.remove('hidden');
+                    return;
+                }
+
+                noResults.classList.add('hidden');
+                this.renderPublicationCards(publicationsContainer);
+            }
+
+            renderPublicationCards(container) {
+                container.innerHTML = '';
+                
+                this.publicationsManager.filteredPublications.forEach(pub => {
+                    const pubElement = document.createElement('div');
+                    pubElement.className = 'publication-card bg-white p-6 rounded-lg shadow-sm border border-slate-200';
+                    
+                    const typeColors = {
+                        'conference': 'badge-conference',
+                        'journal': 'badge-journal',
+                        'preprint': 'badge-preprint'
+                    };
+
+                    const links = Object.entries(pub.links || {}).map(([type, url]) => {
+                        const icons = {
+                            'paper': 'fas fa-file-pdf',
+                            'code': 'fab fa-github',
+                            'demo': 'fas fa-play',
+                            'bibtex': 'fas fa-quote-right'
+                        };
+                        
+                        return `
+                            <a href="${url}" class="inline-flex items-center px-3 py-1 bg-slate-100 text-slate-700 rounded text-sm hover:bg-slate-200 transition-colors" target="_blank" rel="noopener">
+                                <i class="${icons[type]} mr-1"></i>
+                                ${type.charAt(0).toUpperCase() + type.slice(1)}
+                            </a>
+                        `;
+                    }).join('');
+
+                    const keywords = pub.keywords.map(keyword => 
+                        `<span class="px-2 py-1 bg-slate-100 text-slate-600 rounded text-xs">${keyword}</span>`
+                    ).join('');
+
+                    pubElement.innerHTML = `
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="flex-1">
+                                <h3 class="text-xl font-semibold text-slate-900 mb-2">${pub.title}</h3>
+                                <p class="text-slate-700 mb-2">${pub.authors}</p>
+                                <p class="text-slate-600 mb-2"><strong>${pub.venue}</strong> • ${pub.year}</p>
+                            </div>
+                            <span class="badge ${typeColors[pub.type]} ml-4">
+                                ${pub.type.charAt(0).toUpperCase() + pub.type.slice(1)}
+                            </span>
+                        </div>
+                        
+                        <p class="text-slate-700 mb-4 leading-relaxed">${pub.abstract}</p>
+                        
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            ${keywords}
+                        </div>
+                        
+                        <div class="flex flex-wrap gap-2">
+                            ${links}
+                        </div>
+                    `;
+                    
+                    container.appendChild(pubElement);
+                });
+            }
+        }
+
+        // Filter functions called by buttons
+        function filterByType(type) {
+            // Update button states
+            document.querySelectorAll('[id^="type-"]').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.getElementById(`type-${type}`).classList.add('active');
+
+            // Update filter and render
+            publicationsPage.currentTypeFilter = type;
+            publicationsPage.filterAndRender();
+        }
+
+        function filterByYear(year) {
+            // Update button states
+            document.querySelectorAll('[id^="year-"]').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.getElementById(`year-${year}`).classList.add('active');
+
+            // Update filter and render
+            publicationsPage.currentYearFilter = year;
+            publicationsPage.filterAndRender();
+        }
+
+        // Initialize publications page
+        let publicationsPage;
+        document.addEventListener('DOMContentLoaded', () => {
+            publicationsPage = new PublicationsPage();
+        });
+    </script>
+</body>
+</html>

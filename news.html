@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SARDINE Lab — News</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%22100%22>🐟</text></svg>">
+    <meta name="description" content="SARDINE Lab — Structure AwaRe moDelIng for Natural LanguagE">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'sardine-blue': '#1e40af',
+                        'sardine-light': '#3b82f6',
+                        'ocean': '#0369a1'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800">
+    <!-- Navigation -->
+    <header class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-slate-200">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex items-center justify-between h-16">
+                <a href="index.html" class="flex items-center gap-2 group">
+                    <!-- <span class="text-2xl">🐟</span> -->
+                    <img width="128" src="assets/logo-sardine.png" alt="🐟">
+                    <span class="font-semibold text-slate-900 group-hover:text-sardine-blue transition-colors">SARDINE Lab</span>
+                </a>
+                <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+                    <a href="index.html" class="navlink text-slate-600 hover:text-slate-900 transition-colors">Home</a>
+                    <a href="news.html" class="navlink active text-slate-600 hover:text-slate-900 transition-colors">News</a>
+                    <a href="publications.html" class="navlink text-slate-600 hover:text-slate-900 transition-colors">Publications</a>
+                    <a href="projects.html" class="navlink text-slate-600 hover:text-slate-900 transition-colors">Projects</a>
+                </nav>
+                <button id="mobileMenuBtn" class="md:hidden inline-flex items-center justify-center p-2 rounded-lg border border-slate-300 text-slate-700">
+                    <i class="fas fa-bars text-lg"></i>
+                </button>
+            </div>
+        </div>
+        <div id="mobileMenu" class="hidden md:hidden pb-3">
+            <nav class="px-4 pb-3">
+                <a href="index.html" class="block px-3 py-2 rounded-lg hover:bg-slate-100">Home</a>
+                <a href="news.html" class="block px-3 py-2 rounded-lg hover:bg-slate-100 active">News</a>
+                <a href="publications.html" class="block px-3 py-2 rounded-lg hover:bg-slate-100">Publications</a>
+                <a href="projects.html" class="block px-3 py-2 rounded-lg bg-slate-100 hover:bg-slate-100">Projects</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="bg-gradient-to-b from-sardine-blue/5 to-white border-b border-slate-200/60">
+        <div class="max-w-6xl mx-auto px-4 py-12">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">📰 News</h1>
+                    <p class="text-lg text-slate-700">Latest updates from SARDINE Lab</p>
+                </div>
+                <a href="index.html" class="text-sm text-sardine-blue hover:underline">← Back to home</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filters and Search -->
+    <section class="bg-white border-b border-slate-200">
+        <div class="max-w-6xl mx-auto px-4 py-6">
+            <div class="flex flex-wrap gap-4 items-center justify-between">
+                <!-- Type Filters -->
+                <div class="flex flex-wrap gap-2">
+                    <button id="filter-all" class="filter-btn active" onclick="filterNews('all')">All News</button>
+                    <button id="filter-publication" class="filter-btn" onclick="filterNews('publication')">Publications</button>
+                    <button id="filter-award" class="filter-btn" onclick="filterNews('award')">Awards</button>
+                    <button id="filter-funding" class="filter-btn" onclick="filterNews('funding')">Funding</button>
+                    <button id="filter-event" class="filter-btn" onclick="filterNews('event')">Events</button>
+                    <button id="filter-team" class="filter-btn" onclick="filterNews('team')">Team</button>
+                </div>
+                <!-- Search -->
+                <div class="flex-grow max-w-md">
+                    <input type="text" id="searchInput" placeholder="Search news..." class="search-input">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News List -->
+    <main class="max-w-6xl mx-auto px-4 py-12">
+        <div id="newsList" class="space-y-6">
+            <!-- News items will be populated by JavaScript -->
+        </div>
+        
+        <!-- No Results -->
+        <div id="noResults" class="hidden text-center py-12">
+            <i class="fas fa-search text-4xl text-slate-400 mb-4"></i>
+            <p class="text-lg text-slate-600 mb-2">No news found</p>
+            <p class="text-sm text-slate-500">Try adjusting your filters or search terms</p>
+        </div>
+
+        <!-- Pagination -->
+        <nav id="pagination" class="mt-12 flex items-center justify-center">
+            <!-- Pagination will be populated by JavaScript -->
+        </nav>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-white py-12">
+        <div class="max-w-6xl mx-auto px-4 grid gap-8 md:grid-cols-3">
+            <div>
+                <div class="flex items-center gap-2 mb-3">
+                    <span class="text-2xl">🐟</span>
+                    <span class="font-semibold">SARDINE Lab</span>
+                </div>
+                <p class="text-sm text-slate-400">Structure AwaRe moDelIng for Natural LanguagE</p>
+                <p class="text-sm text-slate-400 mt-2">Instituto de Telecomunicações &amp; Instituto Superior Técnico<br>Lisbon, Portugal</p>
+            </div>
+            <div>
+                <h3 class="text-sm font-semibold text-slate-100 mb-3">Research Areas</h3>
+                <ul class="space-y-2 text-sm text-slate-400">
+                    <li>Natural Language Processing</li>
+                    <li>Deep Learning</li>
+                    <li>Structured Prediction</li>
+                    <li>Sparse Modeling</li>
+                    <li>Machine Translation</li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-sm font-semibold text-slate-100 mb-3">Contact & Links</h3>
+                <div class="space-y-2 text-sm text-slate-400">
+                    <p>Email: <a class="underline hover:text-white transition-colors" href="mailto:contact@sardine-lab.org">contact@sardine-lab.org</a></p>
+                    <p>Address: Av. Rovisco Pais 1, 1049-001 Lisboa</p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="https://github.com/sardine-lab" class="text-slate-400 hover:text-white transition-colors" target="_blank">
+                            <i class="fab fa-github text-lg"></i>
+                        </a>
+                        <a href="#" class="text-slate-400 hover:text-white transition-colors">
+                            <i class="fab fa-twitter text-lg"></i>
+                        </a>
+                        <a href="#" class="text-slate-400 hover:text-white transition-colors">
+                            <i class="fab fa-linkedin text-lg"></i>
+                        </a>
+                        <a href="mailto:contact@sardine-lab.org" class="text-slate-400 hover:text-white transition-colors">
+                            <i class="fas fa-envelope text-lg"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="border-t border-slate-800 mt-8 pt-8 text-center text-sm text-slate-500">
+            <div class="max-w-6xl mx-auto px-4 flex items-center justify-between">
+                <span>&copy; 2025 SARDINE Lab. All rights reserved.</span>
+                <span>Made with 🐟 in Lisbon.</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="data/news.js"></script>
+    <script src="assets/main.js"></script>
+    <script>
+        // News page functionality
+        class NewsPage {
+            constructor() {
+                this.newsManager = new NewsManager(newsData);
+                this.currentFilter = 'all';
+                this.currentSearch = '';
+                this.init();
+            }
+
+            init() {
+                this.setupEventListeners();
+                this.renderNews();
+            }
+
+            setupEventListeners() {
+                // Search input with debouncing
+                const searchInput = document.getElementById('searchInput');
+                const debouncedSearch = SardineWebsite.debounce((value) => {
+                    this.currentSearch = value;
+                    this.filterAndRender();
+                }, 300);
+
+                searchInput.addEventListener('input', (e) => {
+                    debouncedSearch(e.target.value);
+                });
+            }
+
+            filterAndRender() {
+                // Apply filters
+                let filteredNews = newsData;
+
+                // Filter by type
+                if (this.currentFilter !== 'all') {
+                    filteredNews = filteredNews.filter(news => news.type === this.currentFilter);
+                }
+
+                // Filter by search term
+                if (this.currentSearch) {
+                    const searchTerm = this.currentSearch.toLowerCase();
+                    filteredNews = filteredNews.filter(news => 
+                        news.title.toLowerCase().includes(searchTerm) ||
+                        news.content.toLowerCase().includes(searchTerm) ||
+                        news.tags.some(tag => tag.toLowerCase().includes(searchTerm))
+                    );
+                }
+
+                this.newsManager.filteredNews = filteredNews;
+                this.newsManager.currentPage = 1;
+                this.renderNews();
+            }
+
+            renderNews() {
+                const newsContainer = document.getElementById('newsList');
+                const paginationContainer = document.getElementById('pagination');
+                const noResults = document.getElementById('noResults');
+
+                if (this.newsManager.filteredNews.length === 0) {
+                    newsContainer.innerHTML = '';
+                    paginationContainer.innerHTML = '';
+                    noResults.classList.remove('hidden');
+                    return;
+                }
+
+                noResults.classList.add('hidden');
+                this.newsManager.renderAllNews(newsContainer, paginationContainer);
+            }
+        }
+
+        // Filter function called by buttons
+        function filterNews(type) {
+            // Update button states
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.getElementById(`filter-${type}`).classList.add('active');
+
+            // Update filter and render
+            newsPage.currentFilter = type;
+            newsPage.filterAndRender();
+        }
+
+        // Initialize news page
+        let newsPage;
+        document.addEventListener('DOMContentLoaded', () => {
+            newsPage = new NewsPage();
+        });
+    </script>
+</body>
+</html>

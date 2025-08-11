@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SARDINE Lab — Projects</title>
+    <meta name="description" content="SARDINE Lab — Structure AwaRe moDelIng for Natural LanguagE">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'sardine-blue': '#1e40af',
+                        'sardine-light': '#3b82f6',
+                        'ocean': '#0369a1'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', ui-sans-serif, system-ui, sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+    <!-- Navigation -->
+    <header class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-slate-200">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex items-center justify-between h-16">
+                <a href="index.html" class="flex items-center gap-2 group">
+                    <!-- <span class="text-2xl">🐟</span> -->
+                    <img width="128" src="assets/logo-sardine.png" alt="🐟">
+                    <span class="font-semibold text-slate-900 group-hover:text-sardine-blue transition-colors">SARDINE Lab</span>
+                </a>
+                <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+                    <a href="index.html" class="navlink text-slate-600 hover:text-slate-900 transition-colors">Home</a>
+                    <a href="news.html" class="navlink text-slate-600 hover:text-slate-900 transition-colors">News</a>
+                    <a href="publications.html" class="navlink text-slate-600 hover:text-slate-900 transition-colors">Publications</a>
+                    <a href="projects.html" class="navlink active text-slate-600 hover:text-slate-900 transition-colors">Projects</a>
+                </nav>
+                <button id="mobileMenuBtn" class="md:hidden inline-flex items-center justify-center p-2 rounded-lg border border-slate-300 text-slate-700">
+                    <i class="fas fa-bars text-lg"></i>
+                </button>
+            </div>
+        </div>
+        <div id="mobileMenu" class="hidden md:hidden">
+            <nav class="px-4 pb-3">
+                <a href="index.html" class="block px-3 py-2 rounded-lg hover:bg-slate-100">Home</a>
+                <a href="news.html" class="block px-3 py-2 rounded-lg hover:bg-slate-100">News</a>
+                <a href="publications.html" class="block px-3 py-2 rounded-lg hover:bg-slate-100">Publications</a>
+                <a href="projects.html" class="block px-3 py-2 rounded-lg bg-slate-100 hover:bg-slate-100 active">Projects</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="bg-gradient-to-b from-sardine-blue/5 to-white border-b border-slate-200/60">
+        <div class="max-w-6xl mx-auto px-4 py-12">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">🔬 Projects</h1>
+                    <p class="text-lg text-slate-700">Research projects from SARDINE Lab</p>
+                </div>
+                <a href="index.html" class="text-sm text-sardine-blue hover:underline">← Back to home</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Content -->
+    <main class="max-w-6xl mx-auto px-4 py-12">
+        <!-- Current Projects -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold text-slate-900 mb-8">Current Projects</h2>
+            <div id="currentProjectsList" class="space-y-8">
+                <!-- Current projects will be populated by JavaScript -->
+                <div class="text-center py-8 text-slate-500">
+                    <i class="fas fa-spinner fa-spin text-2xl mb-2"></i>
+                    <p>Loading current projects...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Past Projects -->
+        <section>
+            <h2 class="text-2xl font-bold text-slate-900 mb-8">Past Projects</h2>
+            <div id="pastProjectsList" class="space-y-8">
+                <!-- Past projects will be populated by JavaScript -->
+                <div class="text-center py-8 text-slate-500">
+                    <i class="fas fa-spinner fa-spin text-2xl mb-2"></i>
+                    <p>Loading past projects...</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-white py-12">
+        <div class="max-w-6xl mx-auto px-4 grid gap-8 md:grid-cols-3">
+            <div>
+                <div class="flex items-center gap-2 mb-3">
+                    <span class="text-2xl">🐟</span>
+                    <span class="font-semibold">SARDINE Lab</span>
+                </div>
+                <p class="text-sm text-slate-400">Structure AwaRe moDelIng for Natural LanguagE</p>
+                <p class="text-sm text-slate-400 mt-2">Instituto de Telecomunicações &amp; Instituto Superior Técnico<br>Lisbon, Portugal</p>
+            </div>
+            <div>
+                <h3 class="text-sm font-semibold text-slate-100 mb-3">Research Areas</h3>
+                <ul class="space-y-2 text-sm text-slate-400">
+                    <li>Natural Language Processing</li>
+                    <li>Deep Learning</li>
+                    <li>Structured Prediction</li>
+                    <li>Sparse Modeling</li>
+                    <li>Machine Translation</li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-sm font-semibold text-slate-100 mb-3">Contact & Links</h3>
+                <div class="space-y-2 text-sm text-slate-400">
+                    <p>Email: <a class="underline hover:text-white transition-colors" href="mailto:contact@sardine-lab.org">contact@sardine-lab.org</a></p>
+                    <p>Address: Av. Rovisco Pais 1, 1049-001 Lisboa</p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="https://github.com/sardine-lab" class="text-slate-400 hover:text-white transition-colors" target="_blank">
+                            <i class="fab fa-github text-lg"></i>
+                        </a>
+                        <a href="#" class="text-slate-400 hover:text-white transition-colors">
+                            <i class="fab fa-twitter text-lg"></i>
+                        </a>
+                        <a href="#" class="text-slate-400 hover:text-white transition-colors">
+                            <i class="fab fa-linkedin text-lg"></i>
+                        </a>
+                        <a href="mailto:contact@sardine-lab.org" class="text-slate-400 hover:text-white transition-colors">
+                            <i class="fas fa-envelope text-lg"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="border-t border-slate-800 mt-8 pt-8 text-center text-sm text-slate-500">
+            <div class="max-w-6xl mx-auto px-4 flex items-center justify-between">
+                <span>&copy; 2025 SARDINE Lab. All rights reserved.</span>
+                <span>Made with 🐟 in Lisbon.</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="data/projects.js"></script>
+    <script src="assets/main.js"></script>
+    
+    <script>
+        // Projects page functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof projectsData !== 'undefined') {
+                renderAllProjects();
+            }
+        });
+
+        function renderAllProjects() {
+            renderProjectsList('currentProjectsList', getCurrentProjects(), 'current');
+            renderProjectsList('pastProjectsList', getPastProjects(), 'past');
+        }
+
+        function renderProjectsList(containerId, projects, status) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = '';
+
+            if (projects.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-8 text-slate-500">
+                        <i class="fas fa-folder-open text-4xl mb-4"></i>
+                        <p>No ${status} projects found</p>
+                    </div>
+                `;
+                return;
+            }
+
+            projects.forEach(project => {
+                const projectCard = document.createElement('div');
+                projectCard.className = 'bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-lg transition-shadow';
+                
+                const statusBadge = status === 'current' ? 
+                    '<span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">Current</span>' :
+                    '<span class="bg-slate-100 text-slate-600 px-3 py-1 rounded-full text-sm font-medium">Completed</span>';
+
+                const teamMembers = project.team_members ? 
+                    `<p class="text-sm text-slate-600 mb-2"><strong>Team:</strong> ${project.team_members.join(', ')}</p>` : '';
+                
+                const collaborators = project.collaborators ? 
+                    `<p class="text-sm text-slate-600 mb-2"><strong>Collaborators:</strong> ${project.collaborators.join(', ')}</p>` : '';
+                
+                const website = project.website ? 
+                    `<a href="${project.website}" target="_blank" rel="noopener" class="inline-flex items-center gap-1 text-sardine-blue hover:underline font-medium mr-4">
+                        <i class="fas fa-external-link-alt text-sm"></i>
+                        <span>Project Website</span>
+                    </a>` : '';
+
+                const publications = project.publications && project.publications.length > 0 ? 
+                    `<div class="mt-4">
+                        <h6 class="font-medium text-slate-700 mb-2">Key Publications</h6>
+                        <ul class="text-sm text-slate-600 space-y-1">
+                            ${project.publications.map(pub => `<li>• ${pub}</li>`).join('')}
+                        </ul>
+                    </div>` : '';
+
+                projectCard.innerHTML = `
+                    <div class="flex items-start justify-between mb-6">
+                        <div class="flex-1 mr-4">
+                            <h3 class="text-2xl font-bold text-slate-900 mb-2">${project.name}</h3>
+                            <h4 class="text-lg text-slate-700 mb-4">${project.title}</h4>
+                        </div>
+                        ${statusBadge}
+                    </div>
+                    
+                    <div class="grid lg:grid-cols-3 gap-8">
+                        <div class="lg:col-span-2">
+                            <p class="text-slate-700 leading-relaxed mb-6">${project.description}</p>
+                            
+                            <div class="flex flex-wrap items-center gap-4">
+                                ${website}
+                            </div>
+                            
+                            ${publications}
+                        </div>
+                        
+                        <div class="bg-slate-50 p-6 rounded-xl">
+                            <h5 class="font-semibold text-slate-900 mb-4">Project Details</h5>
+                            <div class="space-y-3 text-sm">
+                                <div>
+                                    <span class="font-medium text-slate-700">Funding:</span>
+                                    <p class="text-slate-600">${project.funding}</p>
+                                </div>
+                                <div>
+                                    <span class="font-medium text-slate-700">Period:</span>
+                                    <p class="text-slate-600">${project.period}</p>
+                                </div>
+                                <div>
+                                    <span class="font-medium text-slate-700">Principal Investigator:</span>
+                                    <p class="text-slate-600">${project.pi}</p>
+                                </div>
+                                ${teamMembers}
+                                ${collaborators}
+                            </div>
+                            
+                            <div class="mt-6">
+                                <h6 class="font-medium text-slate-700 mb-3">Keywords</h6>
+                                <div class="flex flex-wrap gap-2">
+                                    ${project.keywords.map(keyword => 
+                                        `<span class="px-2 py-1 bg-sardine-blue/10 text-sardine-blue rounded text-xs font-medium">${keyword}</span>`
+                                    ).join('')}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                container.appendChild(projectCard);
+            });
+        }
+
+        // Mobile menu functionality
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
