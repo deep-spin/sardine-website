@@ -169,6 +169,39 @@
   cursor: default;
 }
 
+/* Pagination styles for disabled buttons */
+.pagination-btn {
+    @apply px-4 py-2 text-sm font-medium rounded-lg border transition-all duration-200;
+    @apply border-slate-300 text-slate-700 bg-white hover:bg-slate-50;
+}
+
+.pagination-btn.active {
+    @apply bg-sardine-blue text-white border-sardine-blue;
+}
+
+.pagination-btn.disabled {
+    @apply bg-slate-100 text-slate-400 border-slate-200 cursor-not-allowed;
+    @apply opacity-60;
+}
+
+.pagination-btn.disabled:hover {
+    @apply bg-slate-100 text-slate-400;
+}
+
+.pagination-btn:hover:not(.disabled):not(.active) {
+    @apply bg-slate-50 border-slate-400;
+}
+
+.pagination-btn:focus:not(.disabled) {
+    @apply outline-none ring-2 ring-sardine-blue ring-opacity-50;
+}
+
+/* Ensure disabled buttons don't respond to clicks */
+.pagination-btn:disabled {
+    pointer-events: none;
+}
+
+
 /* Loading state */
 .loading {
   display: flex;
@@ -968,4 +1001,12 @@ html {
         width: 60px;
         height: 45px;
     }
+}
+
+#latestNews p a {
+  text-decoration: underline;
+}
+
+#newsList p a {
+  text-decoration: underline;
 }

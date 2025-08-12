@@ -32,28 +32,21 @@
         <div class="max-w-6xl mx-auto px-4">
             <div class="flex items-center justify-between h-16">
                 <a href="index.html" class="flex items-center gap-2 group">
-                    <!-- <span class="text-2xl">🐟</span> -->
-                    <img width="128" src="assets/logo-sardine.png" alt="🐟">
+                    <img width="128" src="assets/figs/logo-sardine.png" alt="SARDINE Lab Logo">
                     <span class="font-semibold text-slate-900 group-hover:text-sardine-blue transition-colors">SARDINE Lab</span>
                 </a>
                 <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
-                    <a href="index.html" class="navlink text-slate-600 hover:text-slate-900 transition-colors">Home</a>
-                    <a href="news.html" class="navlink active text-slate-600 hover:text-slate-900 transition-colors">News</a>
-                    <a href="publications.html" class="navlink text-slate-600 hover:text-slate-900 transition-colors">Publications</a>
-                    <a href="projects.html" class="navlink text-slate-600 hover:text-slate-900 transition-colors">Projects</a>
+                    <a href="index.html" class="navlink  text-slate-600 hover:text-slate-900 transition-colors">Home</a><a href="news.html" class="navlink active text-slate-600 hover:text-slate-900 transition-colors">News</a><a href="publications.html" class="navlink  text-slate-600 hover:text-slate-900 transition-colors">Publications</a><a href="projects.html" class="navlink  text-slate-600 hover:text-slate-900 transition-colors">Projects</a>
                 </nav>
                 <button id="mobileMenuBtn" class="md:hidden inline-flex items-center justify-center p-2 rounded-lg border border-slate-300 text-slate-700">
                     <i class="fas fa-bars text-lg"></i>
                 </button>
             </div>
-        </div>
-        <div id="mobileMenu" class="hidden md:hidden pb-3">
-            <nav class="px-4 pb-3">
-                <a href="index.html" class="block px-3 py-2 rounded-lg hover:bg-slate-100">Home</a>
-                <a href="news.html" class="block px-3 py-2 rounded-lg hover:bg-slate-100 active">News</a>
-                <a href="publications.html" class="block px-3 py-2 rounded-lg hover:bg-slate-100">Publications</a>
-                <a href="projects.html" class="block px-3 py-2 rounded-lg bg-slate-100 hover:bg-slate-100">Projects</a>
-            </nav>
+            <div id="mobileMenu" class="hidden md:hidden">
+                <nav class="px-4 pb-3">
+                    <a href="index.html" class="block px-3 py-2 rounded-lg hover:bg-slate-100 ">Home</a><a href="news.html" class="block px-3 py-2 rounded-lg hover:bg-slate-100 active">News</a><a href="publications.html" class="block px-3 py-2 rounded-lg hover:bg-slate-100 ">Publications</a><a href="projects.html" class="block px-3 py-2 rounded-lg hover:bg-slate-100 ">Projects</a>
+                </nav>
+            </div>
         </div>
     </header>
 
@@ -92,7 +85,7 @@
     </section>
 
     <!-- News List -->
-    <main class="max-w-6xl mx-auto px-4 py-12">
+    <main id="mainNewsContainer" class="max-w-6xl mx-auto px-4 py-12">
         <div id="newsList" class="space-y-6">
             <!-- News items will be populated by JavaScript -->
         </div>
@@ -112,56 +105,14 @@
 
     <!-- Footer -->
     <footer class="bg-slate-900 text-white py-12">
-        <div class="max-w-6xl mx-auto px-4 grid gap-8 md:grid-cols-3">
-            <div>
-                <div class="flex items-center gap-2 mb-3">
-                    <span class="text-2xl">🐟</span>
-                    <span class="font-semibold">SARDINE Lab</span>
-                </div>
-                <p class="text-sm text-slate-400">Structure AwaRe moDelIng for Natural LanguagE</p>
-                <p class="text-sm text-slate-400 mt-2">Instituto de Telecomunicações &amp; Instituto Superior Técnico<br>Lisbon, Portugal</p>
-            </div>
-            <div>
-                <h3 class="text-sm font-semibold text-slate-100 mb-3">Research Areas</h3>
-                <ul class="space-y-2 text-sm text-slate-400">
-                    <li>Natural Language Processing</li>
-                    <li>Deep Learning</li>
-                    <li>Structured Prediction</li>
-                    <li>Sparse Modeling</li>
-                    <li>Machine Translation</li>
-                </ul>
-            </div>
-            <div>
-                <h3 class="text-sm font-semibold text-slate-100 mb-3">Contact & Links</h3>
-                <div class="space-y-2 text-sm text-slate-400">
-                    <p>Email: <a class="underline hover:text-white transition-colors" href="mailto:contact@sardine-lab.org">contact@sardine-lab.org</a></p>
-                    <p>Address: Av. Rovisco Pais 1, 1049-001 Lisboa</p>
-                    <div class="flex space-x-4 mt-4">
-                        <a href="https://github.com/sardine-lab" class="text-slate-400 hover:text-white transition-colors" target="_blank">
-                            <i class="fab fa-github text-lg"></i>
-                        </a>
-                        <a href="#" class="text-slate-400 hover:text-white transition-colors">
-                            <i class="fab fa-twitter text-lg"></i>
-                        </a>
-                        <a href="#" class="text-slate-400 hover:text-white transition-colors">
-                            <i class="fab fa-linkedin text-lg"></i>
-                        </a>
-                        <a href="mailto:contact@sardine-lab.org" class="text-slate-400 hover:text-white transition-colors">
-                            <i class="fas fa-envelope text-lg"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="border-t border-slate-800 mt-8 pt-8 text-center text-sm text-slate-500">
-            <div class="max-w-6xl mx-auto px-4 flex items-center justify-between">
-                <span>&copy; 2025 SARDINE Lab. All rights reserved.</span>
-                <span>Made with 🐟 in Lisbon.</span>
-            </div>
+        <div class="max-w-6xl mx-auto">
+            <!-- Footer content will be populated by metadata.js -->
         </div>
     </footer>
 
     <!-- Scripts -->
+    <script src="assets/pagination.js"></script>
+    <script src="assets/metadata.js"></script>
     <script src="data/news.js"></script>
     <script src="assets/main.js"></script>
     <script>
@@ -171,6 +122,21 @@
                 this.newsManager = new NewsManager(newsData);
                 this.currentFilter = 'all';
                 this.currentSearch = '';
+                
+                // Initialize pagination
+                this.pagination = new PaginationManager({
+                    itemsPerPage: 10,
+                    onPageChange: (page) => {
+                        this.renderNews();
+                        // Scroll to top of news list
+                        document.getElementById('mainNewsContainer').scrollIntoView({ 
+                            behavior: 'smooth', 
+                            block: 'start' 
+                        });
+                    }
+                });
+                
+                this.newsManager.setPagination(this.pagination);
                 this.init();
             }
 
@@ -212,7 +178,7 @@
                 }
 
                 this.newsManager.filteredNews = filteredNews;
-                this.newsManager.currentPage = 1;
+                this.pagination.currentPage = 1;
                 this.renderNews();
             }
 

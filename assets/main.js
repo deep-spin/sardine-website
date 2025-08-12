@@ -6,29 +6,9 @@ class SardineWebsite {
     }
 
     init() {
-        this.setupMobileMenu();
         this.setupSmoothScrolling();
         this.setupScrollEffects();
         this.setActiveNavigation();
-    }
-
-    // Mobile menu toggle
-    setupMobileMenu() {
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
-
-        if (mobileMenuBtn && mobileMenu) {
-            mobileMenuBtn.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
-
-            // Close mobile menu when clicking outside
-            document.addEventListener('click', (e) => {
-                if (!mobileMenuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
-                    mobileMenu.classList.add('hidden');
-                }
-            });
-        }
     }
 
     // Smooth scrolling for anchor links
@@ -91,73 +71,6 @@ class SardineWebsite {
         });
     }
 
-    // Utility function to create pagination
-    static createPagination(container, currentPage, totalPages, onPageChange) {
-        container.innerHTML = '';
-
-        // Previous button
-        if (currentPage > 1) {
-            const prevBtn = document.createElement('button');
-            prevBtn.className = 'pagination-btn';
-            prevBtn.innerHTML = '← Previous';
-            prevBtn.onclick = () => onPageChange(currentPage - 1);
-            container.appendChild(prevBtn);
-        }
-
-        // Page numbers
-        const startPage = Math.max(1, currentPage - 2);
-        const endPage = Math.min(totalPages, currentPage + 2);
-
-        if (startPage > 1) {
-            const firstBtn = document.createElement('button');
-            firstBtn.className = 'pagination-btn';
-            firstBtn.textContent = '1';
-            firstBtn.onclick = () => onPageChange(1);
-            container.appendChild(firstBtn);
-
-            if (startPage > 2) {
-                const ellipsis = document.createElement('span');
-                ellipsis.className = 'pagination-btn';
-                ellipsis.textContent = '...';
-                ellipsis.style.cursor = 'default';
-                container.appendChild(ellipsis);
-            }
-        }
-
-        for (let i = startPage; i <= endPage; i++) {
-            const pageBtn = document.createElement('button');
-            pageBtn.className = `pagination-btn ${i === currentPage ? 'active' : ''}`;
-            pageBtn.textContent = i;
-            pageBtn.onclick = () => onPageChange(i);
-            container.appendChild(pageBtn);
-        }
-
-        if (endPage < totalPages) {
-            if (endPage < totalPages - 1) {
-                const ellipsis = document.createElement('span');
-                ellipsis.className = 'pagination-btn';
-                ellipsis.textContent = '...';
-                ellipsis.style.cursor = 'default';
-                container.appendChild(ellipsis);
-            }
-
-            const lastBtn = document.createElement('button');
-            lastBtn.className = 'pagination-btn';
-            lastBtn.textContent = totalPages;
-            lastBtn.onclick = () => onPageChange(totalPages);
-            container.appendChild(lastBtn);
-        }
-
-        // Next button
-        if (currentPage < totalPages) {
-            const nextBtn = document.createElement('button');
-            nextBtn.className = 'pagination-btn';
-            nextBtn.innerHTML = 'Next →';
-            nextBtn.onclick = () => onPageChange(currentPage + 1);
-            container.appendChild(nextBtn);
-        }
-    }
-
     // Utility function to create filter buttons
     static createFilterButtons(container, filters, activeFilter, onFilterChange) {
         container.innerHTML = '';
@@ -189,9 +102,12 @@ class SardineWebsite {
 class NewsManager {
     constructor(newsData) {
         this.newsData = newsData;
-        this.itemsPerPage = 10;
-        this.currentPage = 1;
         this.filteredNews = [...newsData];
+        this.pagination = null;
+    }
+
+    setPagination(paginationManager) {
+        this.pagination = paginationManager;
     }
 
     renderLatestNews(container, limit = 5) {
@@ -215,8 +131,13 @@ class NewsManager {
     }
 
     renderAllNews(container, paginationContainer) {
-        const startIndex = (this.currentPage - 1) * this.itemsPerPage;
-        const endIndex = startIndex + this.itemsPerPage;
+        if (!this.pagination) {
+            console.error('Pagination manager not set for NewsManager');
+            return;
+        }
+
+        this.pagination.setTotalItems(this.filteredNews.length);
+        const { startIndex, endIndex } = this.pagination.getCurrentPageItems();
         const pageNews = this.filteredNews.slice(startIndex, endIndex);
 
         container.innerHTML = '';
@@ -236,12 +157,8 @@ class NewsManager {
             container.appendChild(newsItem);
         });
 
-        // Update pagination
-        const totalPages = Math.ceil(this.filteredNews.length / this.itemsPerPage);
-        SardineWebsite.createPagination(paginationContainer, this.currentPage, totalPages, (page) => {
-            this.currentPage = page;
-            this.renderAllNews(container, paginationContainer);
-        });
+        // Render pagination
+        this.pagination.render(paginationContainer);
     }
 
     filterNews(searchTerm) {
@@ -249,7 +166,10 @@ class NewsManager {
             news.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
             news.content.toLowerCase().includes(searchTerm.toLowerCase())
         );
-        this.currentPage = 1;
+        
+        if (this.pagination) {
+            this.pagination.currentPage = 1;
+        }
     }
 }
 
@@ -260,6 +180,11 @@ class PublicationsManager {
         this.filteredPublications = [...publicationsData];
         this.sortBy = 'year';
         this.sortOrder = 'desc';
+        this.pagination = null;
+    }
+
+    setPagination(paginationManager) {
+        this.pagination = paginationManager;
     }
 
     renderRecentPublications(container, limit = 3) {
@@ -282,12 +207,12 @@ class PublicationsManager {
         });
     }
 
-    renderAllPublications(container) {
+    renderPublications(container, publications) {
         container.innerHTML = '';
 
-        this.filteredPublications.forEach(pub => {
+        publications.forEach(pub => {
             const pubElement = document.createElement('div');
-            pubElement.className = 'publication-card bg-white p-6 rounded-lg shadow-sm';
+            pubElement.className = 'publication-card bg-white p-6 rounded-lg shadow-sm border border-slate-200 hover:shadow-md transition-shadow';
             
             const typeColors = {
                 'conference': 'badge-conference',
@@ -304,12 +229,16 @@ class PublicationsManager {
                 };
                 
                 return `
-                    <a href="${url}" class="inline-flex items-center px-3 py-1 bg-slate-100 text-slate-700 rounded text-sm hover:bg-slate-200 transition-colors">
+                    <a href="${url}" class="inline-flex items-center px-3 py-1 bg-slate-100 text-slate-700 rounded text-sm hover:bg-slate-200 transition-colors" target="_blank" rel="noopener">
                         <i class="${icons[type]} mr-1"></i>
                         ${type.charAt(0).toUpperCase() + type.slice(1)}
                     </a>
                 `;
             }).join('');
+
+            const keywords = pub.keywords.map(keyword => 
+                `<span class="px-2 py-1 bg-slate-100 text-slate-600 rounded text-xs">${keyword}</span>`
+            ).join('');
 
             pubElement.innerHTML = `
                 <div class="flex justify-between items-start mb-4">
@@ -325,6 +254,10 @@ class PublicationsManager {
                 
                 <p class="text-slate-700 mb-4 leading-relaxed">${pub.abstract}</p>
                 
+                <div class="flex flex-wrap gap-2 mb-4">
+                    ${keywords}
+                </div>
+                
                 <div class="flex flex-wrap gap-2">
                     ${links}
                 </div>
@@ -332,6 +265,20 @@ class PublicationsManager {
             
             container.appendChild(pubElement);
         });
+    }
+
+    renderAllPublications(container, paginationContainer) {
+        if (!this.pagination) {
+            console.error('Pagination manager not set for PublicationsManager');
+            return;
+        }
+
+        this.pagination.setTotalItems(this.filteredPublications.length);
+        const { startIndex, endIndex } = this.pagination.getCurrentPageItems();
+        const pagePublications = this.filteredPublications.slice(startIndex, endIndex);
+
+        this.renderPublications(container, pagePublications);
+        this.pagination.render(paginationContainer);
     }
 
     filterPublications(searchTerm, typeFilter, yearFilter) {
@@ -348,6 +295,10 @@ class PublicationsManager {
         });
 
         this.sortPublications();
+        
+        if (this.pagination) {
+            this.pagination.currentPage = 1;
+        }
     }
 
     sortPublications() {
