@@ -32,22 +32,116 @@ const teamData = {
     postdocs: [
         {
             id: 2,
-            name: "Dr. Ana Silva",
+            name: "Miguel Faria",
             role: "Postdoctoral Researcher",
-            position: "Postdoc",
+            position: "Post-doc at IT",
             advisor: "André Martins",
-            bio: "Ana is a postdoctoral researcher specializing in deep learning for natural language processing. She completed her PhD at University of Porto in 2023.",
-            research_interests: ["Deep Learning", "Neural Language Models", "Multilingual NLP"],
-            education: [
-                "PhD in Computer Science, University of Porto, 2023",
-                "MSc in Computer Science, University of Porto, 2019"
-            ],
-            image: "assets/images/ana-silva.jpg",
+            year_started: 2024,
+            bio: "Miguel is a postdoctoral researcher at Instituto de Telecomunicações working on natural language processing and machine learning.",
+            research_interests: ["Natural Language Processing", "Machine Learning", "Deep Learning"],
+            education: [],
+            image: "assets/images/miguel-faria.jpg",
+            links: {},
+            location: {
+                country: "Portugal",
+                city: "Lisbon",
+                coordinates: [38.7223, -9.1393]
+            }
+        },
+        {
+            id: 3,
+            name: "Giuseppe Attanasio",
+            role: "Postdoctoral Researcher",
+            position: "Post-doc at IT",
+            advisor: "André Martins",
+            year_started: 2024,
+            bio: "Giuseppe is a postdoctoral researcher specializing in natural language processing and machine learning applications.",
+            research_interests: ["Natural Language Processing", "Machine Learning", "Computational Linguistics"],
+            education: [],
+            image: "assets/images/giuseppe-attanasio.jpg",
             links: {
-                github: "https://github.com/ana-silva",
-                linkedin: "https://linkedin.com/in/ana-silva-nlp",
-                scholar: "https://scholar.google.com/citations?user=xxxxx"
+                website: "https://gattanasio.cc/"
             },
+            location: {
+                country: "Italy",
+                city: "Milan",
+                coordinates: [45.4642, 9.1900]
+            }
+        },
+        {
+            id: 4,
+            name: "Marcos Treviso",
+            role: "Postdoctoral Researcher",
+            position: "Post-doc at IT",
+            advisor: "André Martins",
+            year_started: 2023,
+            bio: "Marcos is a postdoctoral researcher at IT. He completed his PhD at IST in 2023 and now continues his research in NLP and structured prediction.",
+            research_interests: ["Natural Language Processing", "Structured Prediction", "Machine Translation"],
+            education: [
+                "PhD at IST, 2019-2023"
+            ],
+            image: "assets/images/marcos-treviso.jpg",
+            links: {
+                website: "http://mtreviso.github.io"
+            },
+            location: {
+                country: "Brazil",
+                city: "São Paulo",
+                coordinates: [-23.5558, -46.6396]
+            }
+        },
+        {
+            id: 5,
+            name: "Ben Peters",
+            role: "Postdoctoral Researcher",
+            position: "Post-doc at IT",
+            advisor: "André Martins",
+            year_started: 2022,
+            bio: "Ben is a postdoctoral researcher at IT. He completed his PhD at IST in 2023 and specializes in computational linguistics and NLP.",
+            research_interests: ["Computational Linguistics", "Natural Language Processing", "Syntax"],
+            education: [
+                "PhD at IST, 2018-2023"
+            ],
+            image: "assets/images/ben-peters.jpg",
+            links: {},
+            location: {
+                country: "United States",
+                city: "Boston",
+                coordinates: [42.3601, -71.0589]
+            }
+        }
+    ],
+    phds: [
+        {
+            id: 6,
+            name: "Beatriz Canaverde",
+            role: "PhD Student",
+            position: "PhD Student at IST",
+            advisor: "André Martins",
+            year_started: 2025,
+            bio: "Beatriz is a PhD student at Instituto Superior Técnico working on natural language processing.",
+            research_interests: ["Natural Language Processing", "Machine Learning"],
+            education: [],
+            image: "assets/images/beatriz-canaverde.jpg",
+            links: {},
+            location: {
+                country: "Portugal",
+                city: "Lisbon",
+                coordinates: [38.7223, -9.1393]
+            }
+        },
+        {
+            id: 7,
+            name: "Miguel Ramos",
+            role: "PhD Student",
+            position: "PhD Student at IST",
+            advisor: "André Martins",
+            year_started: 2024,
+            bio: "Miguel is a PhD student at Instituto Superior Técnico focusing on machine learning and NLP.",
+            research_interests: ["Machine Learning", "Natural Language Processing"],
+            education: [],
+            image: "assets/images/miguel-ramos.jpg",
+            links: {},
             location: {
                 country: "Portugal",
                 city: "Porto",
@@ -55,260 +149,111 @@ const teamData = {
             }
         },
         {
-            id: 3,
-            name: "Dr. Marco Rossi",
-            role: "Postdoctoral Researcher",
-            position: "Postdoc",
-            advisor: "André Martins",
-            bio: "Marco is a postdoctoral researcher working on structured prediction and optimization. He received his PhD from University of Milan in 2022.",
-            research_interests: ["Structured Prediction", "Optimization", "Graph Neural Networks"],
-            education: [
-                "PhD in Computer Science, University of Milan, 2022",
-                "MSc in Computer Engineering, Politecnico di Milano, 2018"
-            ],
-            image: "assets/images/marco-rossi.jpg",
-            links: {
-                github: "https://github.com/marco-rossi",
-                linkedin: "https://linkedin.com/in/marco-rossi-cs"
-            },
-            location: {
-                country: "Italy",
-                city: "Milan",
-                coordinates: [45.4642, 9.1900]
-            }
-        }
-    ],
-    phds: [
-        {
-            id: 4,
-            name: "João Santos",
+            id: 8,
+            name: "Sonal Sannigrahi",
             role: "PhD Student",
-            position: "PhD Student",
-            advisor: "André Martins",
-            year_started: 2022,
-            bio: "João is a PhD student working on neural machine translation and structured prediction. He previously worked as a software engineer before joining the lab.",
-            research_interests: ["Machine Translation", "Structured Prediction", "Cross-lingual Transfer"],
-            education: [
-                "MSc in Computer Science, Instituto Superior Técnico, 2022",
-                "BSc in Computer Engineering, University of Coimbra, 2020"
-            ],
-            image: "assets/images/joao-santos.jpg",
-            links: {
-                github: "https://github.com/joao-santos",
-                linkedin: "https://linkedin.com/in/joao-santos-nlp"
-            },
-            location: {
-                country: "Portugal",
-                city: "Coimbra",
-                coordinates: [40.2033, -8.4103]
-            }
-        },
-        {
-            id: 5,
-            name: "Maria Costa",
-            role: "PhD Student",
-            position: "PhD Student",
-            advisor: "André Martins",
-            year_started: 2021,
-            bio: "Maria is a PhD student specializing in sparse neural models and efficient NLP. She holds an FCT doctoral fellowship.",
-            research_interests: ["Sparse Models", "Efficient NLP", "Model Compression"],
-            education: [
-                "MSc in Data Science, Nova University Lisbon, 2021",
-                "BSc in Mathematics, University of Lisbon, 2019"
-            ],
-            image: "assets/images/maria-costa.jpg",
-            links: {
-                github: "https://github.com/maria-costa",
-                website: "https://maria-costa.github.io"
-            },
-            location: {
-                country: "Portugal",
-                city: "Lisbon",
-                coordinates: [38.7223, -9.1393]
-            }
-        },
-        {
-            id: 6,
-            name: "Pierre Dubois",
-            role: "PhD Student",
-            position: "PhD Student",
+            position: "PhD Student at IST",
             advisor: "André Martins",
             year_started: 2023,
-            bio: "Pierre is a PhD student focusing on text classification and multilingual NLP. He joined from École Normale Supérieure in Paris.",
-            research_interests: ["Text Classification", "Multilingual NLP", "Transfer Learning"],
-            education: [
-                "MSc in Machine Learning, École Normale Supérieure, 2023",
-                "BSc in Computer Science, Sorbonne University, 2021"
-            ],
-            image: "assets/images/pierre-dubois.jpg",
+            bio: "Sonal is a PhD student at Instituto Superior Técnico working on natural language processing and machine learning.",
+            research_interests: ["Natural Language Processing", "Machine Learning", "Deep Learning"],
+            education: [],
+            image: "assets/images/sonal-sannigrahi.jpg",
             links: {
-                github: "https://github.com/pierre-dubois",
-                linkedin: "https://linkedin.com/in/pierre-dubois-ml"
+                website: "https://sonalsannigrahi.github.io/"
             },
             location: {
-                country: "France",
-                city: "Paris",
-                coordinates: [48.8566, 2.3522]
-            }
-        },
-        {
-            id: 7,
-            name: "Yuki Tanaka",
-            role: "PhD Student",
-            position: "PhD Student",
-            advisor: "André Martins",
-            year_started: 2022,
-            bio: "Yuki is a PhD student working on attention mechanisms and transformer models. She previously worked at a tech company in Tokyo.",
-            research_interests: ["Attention Mechanisms", "Transformer Models", "Interpretability"],
-            education: [
-                "MSc in Computer Science, University of Tokyo, 2022",
-                "BSc in Information Science, Kyoto University, 2020"
-            ],
-            image: "assets/images/yuki-tanaka.jpg",
-            links: {
-                github: "https://github.com/yuki-tanaka",
-                website: "https://yuki-tanaka.github.io"
-            },
-            location: {
-                country: "Japan",
-                city: "Tokyo",
-                coordinates: [35.6762, 139.6503]
-            }
-        }
-    ],
-    mscs: [
-        {
-            id: 8,
-            name: "Luis Pereira",
-            role: "MSc Student",
-            position: "MSc Student",
-            advisor: "André Martins",
-            year_started: 2024,
-            thesis_topic: "Neural Parsing with Latent Variables",
-            bio: "Luis is an MSc student working on neural parsing. He's interested in incorporating linguistic structure into neural models.",
-            research_interests: ["Parsing", "Latent Variable Models", "Syntax"],
-            education: [
-                "BSc in Computer Engineering, Instituto Superior Técnico, 2024"
-            ],
-            image: "assets/images/luis-pereira.jpg",
-            links: {
-                github: "https://github.com/luis-pereira",
-                linkedin: "https://linkedin.com/in/luis-pereira-cs"
-            },
-            location: {
-                country: "Portugal",
-                city: "Lisbon",
-                coordinates: [38.7223, -9.1393]
+                country: "India",
+                city: "Mumbai",
+                coordinates: [19.0760, 72.8777]
             }
         },
         {
             id: 9,
-            name: "Elena Rodriguez",
-            role: "MSc Student",
-            position: "MSc Student",
-            advisor: "Ana Silva",
-            year_started: 2024,
-            thesis_topic: "Cross-lingual Transfer for Low-Resource Languages",
-            bio: "Elena is an MSc student working on cross-lingual transfer learning. She's particularly interested in Romance languages.",
-            research_interests: ["Cross-lingual Transfer", "Low-Resource Languages", "Multilingual Models"],
-            education: [
-                "BSc in Linguistics, University of Barcelona, 2024"
-            ],
-            image: "assets/images/elena-rodriguez.jpg",
-            links: {
-                github: "https://github.com/elena-rodriguez"
-            },
+            name: "Emmanouil Zaranis",
+            role: "PhD Student",
+            position: "PhD Student at IST",
+            advisor: "André Martins",
+            year_started: 2023,
+            bio: "Emmanouil is a PhD student at Instituto Superior Técnico specializing in computational linguistics.",
+            research_interests: ["Computational Linguistics", "Natural Language Processing"],
+            education: [],
+            image: "assets/images/emmanouil-zaranis.jpg",
+            links: {},
             location: {
-                country: "Spain",
-                city: "Barcelona",
-                coordinates: [41.3851, 2.1734]
+                country: "Greece",
+                city: "Athens",
+                coordinates: [37.9838, 23.7275]
             }
         },
         {
             id: 10,
-            name: "Ahmed Hassan",
-            role: "MSc Student",
-            position: "MSc Student",
-            advisor: "Marco Rossi",
-            year_started: 2024,
-            thesis_topic: "Graph Neural Networks for Multilingual Parsing",
-            bio: "Ahmed is an MSc student working on graph neural networks for NLP. He has a background in computer engineering and mathematics.",
-            research_interests: ["Graph Neural Networks", "Multilingual Parsing", "Arabic NLP"],
-            education: [
-                "BSc in Computer Engineering, Cairo University, 2024"
-            ],
-            image: "assets/images/ahmed-hassan.jpg",
-            links: {
-                website: "https://ahmed-hassan.github.io"
-            },
+            name: "Pavlo Vasylenko",
+            role: "PhD Student",
+            position: "PhD Student at IST",
+            advisor: "André Martins",
+            co_advisor: "Marcos Treviso",
+            year_started: 2023,
+            bio: "Pavlo is a PhD student at Instituto Superior Técnico, co-supervised with Marcos Treviso.",
+            research_interests: ["Natural Language Processing", "Machine Learning"],
+            education: [],
+            image: "assets/images/pavlo-vasylenko.jpg",
+            links: {},
             location: {
-                country: "Egypt",
-                city: "Cairo",
-                coordinates: [30.0444, 31.2357]
+                country: "Ukraine",
+                city: "Kyiv",
+                coordinates: [50.4501, 30.5234]
             }
         },
         {
             id: 11,
-            name: "Sara Kim",
-            role: "MSc Student",
-            position: "MSc Student",
+            name: "Sophia Sklaviadis",
+            role: "PhD Student",
+            position: "PhD Student at IST",
             advisor: "André Martins",
-            year_started: 2025,
-            thesis_topic: "Attention Mechanisms for Low-Resource Languages",
-            bio: "Sara is an MSc student working on attention mechanisms. She's interested in applying NLP techniques to Korean and other East Asian languages.",
-            research_interests: ["Attention Mechanisms", "Korean NLP", "Low-Resource Languages"],
-            education: [
-                "BSc in Computer Science, Seoul National University, 2024"
-            ],
-            image: "assets/images/sara-kim.jpg",
-            links: {
-                linkedin: "https://linkedin.com/in/sara-kim-nlp"
-            },
+            year_started: 2023,
+            bio: "Sophia is a PhD student at Instituto Superior Técnico working on natural language processing.",
+            research_interests: ["Natural Language Processing", "Computational Linguistics"],
+            education: [],
+            image: "assets/images/sophia-sklaviadis.jpg",
+            links: {},
             location: {
-                country: "South Korea",
-                city: "Seoul",
-                coordinates: [37.5665, 126.9780]
+                country: "Greece",
+                city: "Thessaloniki",
+                coordinates: [40.6401, 22.9444]
             }
         },
         {
             id: 12,
-            name: "Max Weber",
-            role: "MSc Student",
-            position: "MSc Student",
+            name: "Margarida Campos",
+            role: "PhD Student",
+            position: "PhD Student at IST",
             advisor: "André Martins",
-            year_started: 2024,
-            thesis_topic: "Adversarial Training for Robust NLP",
-            bio: "Max is an MSc student working on adversarial training methods. He has a strong background in machine learning and optimization.",
-            research_interests: ["Adversarial Training", "Robustness", "Optimization"],
-            education: [
-                "BSc in Computer Science, Technical University of Munich, 2024"
-            ],
-            image: "assets/images/max-weber.jpg",
-            links: {
-                github: "https://github.com/max-weber"
-            },
+            co_advisor: "Mário Figueiredo",
+            bio: "Margarida is a PhD student co-supervised with Mário Figueiredo.",
+            research_interests: ["Machine Learning", "Signal Processing", "Natural Language Processing"],
+            education: [],
+            image: "assets/images/margarida-campos.jpg",
+            links: {},
             location: {
-                country: "Germany",
-                city: "Munich",
-                coordinates: [48.1351, 11.5820]
+                country: "Portugal",
+                city: "Lisbon",
+                coordinates: [38.7223, -9.1393]
             }
-        }
-    ],
-    alumni: [
+        },
         {
             id: 13,
-            name: "Dr. Carlos Lima",
-            role: "Alumni",
-            position: "Research Scientist at Google Research",
-            degree: "PhD",
-            graduation_year: 2023,
-            thesis_title: "Graph Neural Networks for Syntactic Parsing",
+            name: "Saul Santos",
+            role: "PhD Student",
+            position: "PhD Student at IST",
             advisor: "André Martins",
-            current_position: "Research Scientist at Google Research",
-            bio: "Carlos completed his PhD in 2023 and now works at Google Research on multilingual NLP systems.",
-            image: "assets/images/carlos-lima.jpg",
+            co_advisor: "Daniel McNamee",
+            bio: "Saul is a PhD student co-supervised with Daniel McNamee from Champalimaud Foundation.",
+            research_interests: ["Neuroscience", "Natural Language Processing", "Computational Biology"],
+            education: [],
+            image: "assets/images/saul-santos.jpg",
             links: {
-                linkedin: "https://linkedin.com/in/carlos-lima-research"
+                website: "https://ssantos97.github.io/"
             },
             location: {
                 country: "Portugal",
@@ -318,60 +263,121 @@ const teamData = {
         },
         {
             id: 14,
-            name: "Dr. Anna Kowalski",
-            role: "Alumni",
-            position: "Research Scientist at Meta AI",
-            degree: "Postdoc",
-            graduation_year: 2023,
+            name: "Duarte Alves",
+            role: "PhD Student",
+            position: "PhD Student at IST",
             advisor: "André Martins",
-            current_position: "Research Scientist at Meta AI",
-            bio: "Anna was a postdoc from 2021-2023 and now works at Meta AI on multimodal learning systems.",
-            image: "assets/images/anna-kowalski.jpg",
-            links: {
-                website: "https://anna-kowalski.github.io"
-            },
+            year_started: 2023,
+            bio: "Duarte is a PhD student at Instituto Superior Técnico working on natural language processing.",
+            research_interests: ["Natural Language Processing", "Machine Learning"],
+            education: [],
+            image: "assets/images/duarte-alves.jpg",
+            links: {},
             location: {
-                country: "Poland",
-                city: "Warsaw",
-                coordinates: [52.2297, 21.0122]
+                country: "Portugal",
+                city: "Coimbra",
+                coordinates: [40.2033, -8.4103]
             }
         },
         {
             id: 15,
-            name: "Ravi Patel",
-            role: "Alumni",
-            position: "Research Scientist at DeepMind",
-            degree: "MSc",
-            graduation_year: 2024,
-            thesis_title: "Transformer Models with Explicit Syntactic Bias",
+            name: "António Farinhas",
+            role: "PhD Student",
+            position: "PhD Student at IST",
             advisor: "André Martins",
-            current_position: "Research Scientist at DeepMind",
-            bio: "Ravi completed his MSc in 2024 and joined DeepMind to work on large language models.",
-            image: "assets/images/ravi-patel.jpg",
+            year_started: 2021,
+            bio: "António is a PhD student at Instituto Superior Técnico with expertise in natural language processing and machine learning.",
+            research_interests: ["Natural Language Processing", "Machine Learning", "Deep Learning"],
+            education: [
+                "MSc at IST, 2020"
+            ],
+            image: "assets/images/antonio-farinhas.jpg",
             links: {
-                github: "https://github.com/ravi-patel"
+                website: "https://antonio-farinhas.github.io/"
             },
             location: {
-                country: "India",
-                city: "Mumbai",
-                coordinates: [19.0760, 72.8777]
+                country: "Portugal",
+                city: "Lisbon",
+                coordinates: [38.7223, -9.1393]
             }
         },
         {
             id: 16,
-            name: "Sophie Chen",
-            role: "Alumni",
-            position: "Research Scientist at OpenAI",
-            degree: "MSc",
-            graduation_year: 2023,
-            thesis_title: "Continual Learning in Natural Language Processing",
-            advisor: "Ana Silva",
-            current_position: "Research Scientist at OpenAI",
-            bio: "Sophie completed her MSc in 2023 and now works at OpenAI on safety and alignment research.",
-            image: "assets/images/sophie-chen.jpg",
+            name: "Haau-Sing Li",
+            role: "PhD Student",
+            position: "ELLIS PhD at TU Darmstadt University",
+            advisor: "André Martins",
+            co_advisor: "Iryna Gurevych",
+            year_started: 2021,
+            bio: "Haau-Sing is an ELLIS PhD student at TU Darmstadt University, co-advised with Iryna Gurevych.",
+            research_interests: ["Natural Language Processing", "Machine Learning", "Computational Linguistics"],
+            education: [],
+            image: "assets/images/haau-sing-li.jpg",
             links: {
-                website: "https://sophie-chen.github.io",
-                linkedin: "https://linkedin.com/in/sophie-chen-ai"
+                website: "https://lhaausing.github.io/"
+            },
+            location: {
+                country: "Germany",
+                city: "Darmstadt",
+                coordinates: [49.8728, 8.6512]
+            }
+        },
+        {
+            id: 17,
+            name: "Patrick Fernandes",
+            role: "PhD Student",
+            position: "PhD Student at CMU/IST",
+            advisor: "André Martins",
+            co_advisor: "Graham Neubig",
+            year_started: 2020,
+            bio: "Patrick is a PhD student at CMU/IST, co-advised with Graham Neubig.",
+            research_interests: ["Machine Translation", "Natural Language Processing", "Deep Learning"],
+            education: [],
+            image: "assets/images/patrick-fernandes.jpg",
+            links: {
+                website: "https://coderpat.github.io/"
+            },
+            location: {
+                country: "Portugal",
+                city: "Lisbon",
+                coordinates: [38.7223, -9.1393]
+            }
+        },
+        {
+            id: 18,
+            name: "Nuno Guerreiro",
+            role: "PhD Student",
+            position: "PhD Student at IST",
+            advisor: "André Martins",
+            co_advisor: "Pierre Colombo",
+            year_started: 2020,
+            bio: "Nuno is a PhD student at IST, co-advised with Pierre Colombo at University of Paris Saclay.",
+            research_interests: ["Machine Translation", "Natural Language Processing", "Quality Estimation"],
+            education: [],
+            image: "assets/images/nuno-guerreiro.jpg",
+            links: {
+                website: "https://nunonmg.github.io/"
+            },
+            location: {
+                country: "Portugal",
+                city: "Lisbon",
+                coordinates: [38.7223, -9.1393]
+            }
+        },
+        {
+            id: 19,
+            name: "Peiqin Lin",
+            role: "PhD Student",
+            position: "ELLIS PhD at LMU Munich",
+            advisor: "André Martins",
+            co_advisor: "Hinrich Schutze",
+            year_started: 2021,
+            bio: "Peiqin is an ELLIS PhD student at LMU Munich, co-supervised with Hinrich Schutze.",
+            research_interests: ["Natural Language Processing", "Machine Learning", "Computational Linguistics"],
+            education: [],
+            image: "assets/images/peiqin-lin.jpg",
+            links: {
+                website: "https://lpq29743.github.io/"
             },
             location: {
                 country: "China",
@@ -380,46 +386,276 @@ const teamData = {
             }
         },
         {
-            id: 17,
-            name: "Dr. Thomas Mueller",
-            role: "Alumni",
-            position: "Principal Researcher at Microsoft Research",
-            degree: "PhD",
-            graduation_year: 2022,
-            thesis_title: "Efficient Attention Mechanisms for Long Sequences",
+            id: 20,
+            name: "Hugo Pitorro",
+            role: "Researcher",
+            position: "Researcher at IT",
             advisor: "André Martins",
-            current_position: "Principal Researcher at Microsoft Research",
-            bio: "Thomas completed his PhD in 2022 and is now a principal researcher at Microsoft Research working on efficient transformer architectures.",
-            image: "assets/images/thomas-mueller.jpg",
+            co_advisor: "Marcos Treviso",
+            year_started: 2024,
+            bio: "Hugo is a researcher at IT, co-supervised with Marcos Treviso.",
+            research_interests: ["Natural Language Processing", "Machine Learning"],
+            education: [],
+            image: "assets/images/hugo-pitorro.jpg",
             links: {
-                website: "https://thomas-mueller.github.io",
-                scholar: "https://scholar.google.com/citations?user=xxxxx"
+                website: "https://pitorro.de/"
             },
             location: {
-                country: "Germany",
-                city: "Berlin",
-                coordinates: [52.5200, 13.4050]
+                country: "Portugal",
+                city: "Lisbon",
+                coordinates: [38.7223, -9.1393]
+            }
+        }
+    ],
+    mscs: [
+        {
+            id: 21,
+            name: "Nuno Gonçalves",
+            role: "MSc Student",
+            position: "MSc Student at IST",
+            advisor: "André Martins",
+            co_advisor: "Marcos Treviso",
+            year_started: 2024,
+            bio: "Nuno is an MSc student at IST, co-supervised with Marcos Treviso.",
+            research_interests: ["Natural Language Processing", "Machine Learning"],
+            education: [],
+            image: "assets/images/nuno-goncalves.jpg",
+            links: {},
+            location: {
+                country: "Portugal",
+                city: "Braga",
+                coordinates: [41.5518, -8.4229]
+            }
+        }
+    ],
+    alumni: [
+        {
+            id: 22,
+            name: "Sweta Agrawal",
+            role: "Alumni",
+            position: "Research Scientist at Google",
+            degree: "Postdoc",
+            graduation_year: 2025,
+            advisor: "André Martins",
+            current_position: "Research Scientist at Google",
+            bio: "Sweta was a postdoc at IT from 2024-2025 and now works at Google as a Research Scientist.",
+            image: "assets/images/sweta-agrawal.jpg",
+            links: {
+                website: "https://sweta20.github.io/"
+            },
+            location: {
+                country: "India",
+                city: "Delhi",
+                coordinates: [28.7041, 77.1025]
             }
         },
         {
-            id: 18,
-            name: "Isabella Rossi",
+            id: 23,
+            name: "Chunchuan Lyu",
             role: "Alumni",
-            position: "Research Scientist at Amazon Science",
-            degree: "MSc",
+            position: "Former Postdoc",
+            degree: "Postdoc",
             graduation_year: 2022,
-            thesis_title: "Neural Machine Translation for Low-Resource Languages",
-            advisor: "Pierre Dubois",
-            current_position: "Research Scientist at Amazon Science",
-            bio: "Isabella completed her MSc in 2022 and now works at Amazon Science on multilingual e-commerce applications.",
-            image: "assets/images/isabella-rossi.jpg",
+            advisor: "André Martins",
+            period: "2021-2022",
+            current_position: "Industry Position",
+            bio: "Chunchuan was a postdoc at IT from 2021-2022.",
+            image: "assets/images/chunchuan-lyu.jpg",
+            links: {},
+            location: {
+                country: "China",
+                city: "Shanghai",
+                coordinates: [31.2304, 121.4737]
+            }
+        },
+        {
+            id: 24,
+            name: "Chryssa Zerva",
+            role: "Alumni",
+            position: "Assistant Professor at Instituto Superior Técnico",
+            degree: "Postdoc",
+            graduation_year: 2023,
+            advisor: "André Martins",
+            period: "2021-2023",
+            current_position: "Assistant Professor at Instituto Superior Técnico",
+            bio: "Chryssa was a postdoc at IT from 2021-2023 and is now an Assistant Professor at Instituto Superior Técnico.",
+            image: "assets/images/chryssa-zerva.jpg",
             links: {
-                linkedin: "https://linkedin.com/in/isabella-rossi-ml"
+                linkedin: "https://www.linkedin.com/in/chryssa-zerva-7bb4a966"
             },
             location: {
-                country: "Italy",
-                city: "Rome",
-                coordinates: [41.9028, 12.4964]
+                country: "Greece",
+                city: "Athens",
+                coordinates: [37.9838, 23.7275]
+            }
+        },
+        {
+            id: 25,
+            name: "Vlad Niculae",
+            role: "Alumni",
+            position: "Assistant Professor at University of Amsterdam",
+            degree: "Postdoc",
+            graduation_year: 2020,
+            advisor: "André Martins",
+            period: "2018-2020",
+            current_position: "Assistant Professor at University of Amsterdam",
+            bio: "Vlad was a postdoc at IT from 2018-2020 and is now an Assistant Professor at University of Amsterdam.",
+            image: "assets/images/vlad-niculae.jpg",
+            links: {
+                website: "http://vene.ro"
+            },
+            location: {
+                country: "Romania",
+                city: "Bucharest",
+                coordinates: [44.4268, 26.1025]
+            }
+        },
+        {
+            id: 26,
+            name: "Erick Fonseca",
+            role: "Alumni",
+            position: "Data Scientist at Kaufland",
+            degree: "Postdoc",
+            graduation_year: 2020,
+            advisor: "André Martins",
+            period: "2018-2020",
+            current_position: "Data Scientist at Kaufland",
+            bio: "Erick was a postdoc at IT from 2018-2020 and is now a Data Scientist at Kaufland.",
+            image: "assets/images/erick-fonseca.jpg",
+            links: {
+                website: "http://www.nilc.icmc.usp.br/nilc/pessoas/erickrf"
+            },
+            location: {
+                country: "Brazil",
+                city: "São Paulo",
+                coordinates: [-23.5558, -46.6396]
+            }
+        },
+        {
+            id: 27,
+            name: "Taisiya Glushkova",
+            role: "Alumni",
+            position: "PhD Graduate",
+            degree: "PhD",
+            graduation_year: 2024,
+            advisor: "André Martins",
+            co_advisor: "Chryssa Zerva",
+            period: "2020-2024",
+            current_position: "Industry Position",
+            bio: "Taisiya completed her PhD at IST from 2020-2024, co-advised with Chryssa Zerva.",
+            image: "assets/images/taisiya-glushkova.jpg",
+            links: {},
+            location: {
+                country: "Bulgaria",
+                city: "Sofia",
+                coordinates: [42.6977, 23.3219]
+            }
+        },
+        {
+            id: 28,
+            name: "Pedro Martins",
+            role: "Alumni",
+            position: "Software Engineer at SAP",
+            degree: "PhD",
+            graduation_year: 2022,
+            advisor: "André Martins",
+            co_advisor: "Zita Marinho",
+            period: "2018-2022",
+            current_position: "Software Engineer at SAP",
+            bio: "Pedro completed his PhD at IST from 2018-2022, co-advised with Zita Marinho from Google DeepMind, and now works at SAP.",
+            image: "assets/images/pedro-martins.jpg",
+            links: {},
+            location: {
+                country: "Portugal",
+                city: "Lisbon",
+                coordinates: [38.7223, -9.1393]
+            }
+        },
+        {
+            id: 29,
+            name: "Tsvetomila Mihaylova",
+            role: "Alumni",
+            position: "Researcher at Aalto University",
+            degree: "PhD",
+            graduation_year: 2022,
+            advisor: "André Martins",
+            co_advisor: "Vlad Niculae",
+            period: "2018-2022",
+            current_position: "Researcher at Aalto University",
+            bio: "Tsvetomila completed her PhD at IST from 2018-2022, co-advised with Vlad Niculae, and now works at Aalto University.",
+            image: "assets/images/tsvetomila-mihaylova.jpg",
+            links: {
+                website: "https://tsvm.github.io"
+            },
+            location: {
+                country: "Bulgaria",
+                city: "Sofia",
+                coordinates: [42.6977, 23.3219]
+            }
+        },
+        {
+            id: 30,
+            name: "Gonçalo Correia",
+            role: "Alumni",
+            position: "Researcher at Priberam",
+            degree: "PhD (ELLIS)",
+            graduation_year: 2022,
+            advisor: "André Martins",
+            co_advisor: "Vlad Niculae",
+            period: "2018-2022",
+            current_position: "Researcher at Priberam",
+            bio: "Gonçalo completed his ELLIS PhD at IST from 2018-2022, co-advised with Vlad Niculae, and now works at Priberam.",
+            image: "assets/images/goncalo-correia.jpg",
+            links: {
+                website: "https://goncalomcorreia.github.io"
+            },
+            location: {
+                country: "Portugal",
+                city: "Lisbon",
+                coordinates: [38.7223, -9.1393]
+            }
+        },
+        {
+            id: 31,
+            name: "Gonçalo Faria",
+            role: "Alumni",
+            position: "PhD Student at University of Washington",
+            degree: "Researcher",
+            graduation_year: 2024,
+            advisor: "André Martins",
+            period: "2023-2024",
+            current_position: "PhD Student at University of Washington",
+            bio: "Gonçalo was a researcher at IT from 2023-2024 and is now a PhD student at the University of Washington.",
+            image: "assets/images/goncalo-faria.jpg",
+            links: {
+                website: "https://www.goncalofaria.com/"
+            },
+            location: {
+                country: "Portugal",
+                city: "Lisbon",
+                coordinates: [38.7223, -9.1393]
+            }
+        },
+        {
+            id: 32,
+            name: "Zita Marinho",
+            role: "Alumni",
+            position: "Head of Research at Priberam Labs",
+            degree: "PhD",
+            graduation_year: 2018,
+            advisor: "André Martins",
+            co_advisor: "Geoff Gordon, Sidd Srinivasa",
+            period: "2013-2018",
+            current_position: "Head of Research at Priberam Labs",
+            bio: "Zita completed her PhD at CMU/IST from 2013-2018, co-advised with Geoff Gordon and Sidd Srinivasa, and is now Head of Research at Priberam Labs.",
+            image: "assets/images/zita-marinho.jpg",
+            links: {
+                website: "http://www.cs.cmu.edu/~zmarinho"
+            },
+            location: {
+                country: "Portugal",
+                city: "Lisbon",
+                coordinates: [38.7223, -9.1393]
             }
         }
     ]
