@@ -89,7 +89,7 @@
                 </div>
             </div>
             <div class="relative">
-                <img class="rounded-2xl shadow-lg ring-1 ring-slate-200" alt="Lisbon illustration" src="assets/figs/lisbon.webp" />
+                <img class="rounded-2xl shadow-lg ring-1 ring-slate-200" title="Scenic View of Lisbon with São Jorge Castle at Sunset" alt="Panoramic view of Lisbon, Portugal, featuring colorful hillside buildings and the historic São Jorge Castle, overlooking the Tagus River at sunset." src="assets/figs/lisbon.webp" />
                 <div class="absolute -bottom-4 -right-4 bg-white/90 backdrop-blur px-4 py-2 rounded-xl shadow border border-slate-200 text-sm">Olá from Lisbon 🇵🇹</div>
             </div>
         </div>
@@ -824,6 +824,11 @@
                         cityGroups[city] = [];
                     }
                     cityGroups[city].push(member);
+                });
+
+                // Sort each city's members
+                Object.keys(cityGroups).forEach(city => {
+                    cityGroups[city].sort((a, b) => a.name.localeCompare(b.name));
                 });
 
                 // Build tooltip content

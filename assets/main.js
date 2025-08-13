@@ -274,10 +274,38 @@ class PublicationsManager {
             const pubElement = document.createElement('div');
             pubElement.className = 'publication-card bg-white p-6 rounded-lg shadow-sm hover:shadow-lg transition-shadow border border-slate-200';
             
+            // Type badge styling
+            const typeColors = {
+                'conference': 'bg-blue-100 text-blue-800',
+                'journal': 'bg-green-100 text-green-800',
+                'preprint': 'bg-orange-100 text-orange-800'
+            };
+
+            // Generate links
+            const links = Object.entries(pub.links || {}).map(([type, url]) => {
+                const icons = {
+                    'paper': 'fas fa-file',
+                    'code': 'fab fa-github',
+                    'demo': 'fas fa-play',
+                    'bibtex': 'fas fa-quote-right'
+                };
+                
+                return `
+                    <a href="${url}" class="inline-flex items-center px-2 py-1 bg-slate-100 text-slate-700 rounded text-xs hover:bg-slate-200 transition-colors" target="_blank" rel="noopener">
+                        <i class="${icons[type]} mr-1"></i>
+                        ${type.charAt(0).toUpperCase() + type.slice(1)}
+                    </a>
+                `;
+            }).join('');
+            
             pubElement.innerHTML = `
-                <h3 class="font-semibold text-lg mb-2 text-slate-900">${pub.title}</h3>
-                <p class="text-sm text-slate-600 mb-3">${pub.authors}</p>
-                <p class="text-sm text-slate-700 leading-relaxed">${pub.abstract}</p>
+                <h3 class="font-semibold text-lg text-slate-900 mb-3">${pub.title}</h3>
+                <p class="text-sm text-slate-600 mb-2">${pub.authors}</p>
+                <p class="text-sm text-slate-600"><strong>${pub.venue}</strong> • ${pub.year}</p>
+                <p class="text-sm text-slate-700 leading-relaxed mb-4 mt-4">${pub.abstract}</p>
+                <div class="flex flex-wrap gap-2">
+                    ${links}
+                </div>
             `;
             container.appendChild(pubElement);
         });
