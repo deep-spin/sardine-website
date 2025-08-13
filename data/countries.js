@@ -5,202 +5,202 @@ const COUNTRY_DATABASE = {
     // Colors for countries (automatically assigned from a curated palette)
     colors: {
         // Europe
-        'Albania': '#0f766e',     // Teal-700
-        'Austria': '#6366f1',     // Indigo
-        'Belarus': '#14532d',     // Green-800
-        'Belgium': '#ec4899',     // Pink
-        'Bosnia and Herzegovina': '#059669', // Emerald-700
-        'Bulgaria': '#9333ea',    // Purple-600
-        'Croatia': '#d97706',     // Amber-600
-        'Cyprus': '#9f1239',      // Rose-800
-        'Czech Republic': '#ea580c', // Orange-600
-        'Denmark': '#14b8a6',     // Teal
-        'Estonia': '#15803d',     // Green-700
-        'Finland': '#a855f7',     // Violet
-        'France': '#3b82f6',      // Blue
-        'Germany': '#8b5cf6',     // Purple
-        'Greece': '#0891b2',      // Cyan-600
-        'Hungary': '#2563eb',     // Blue-600
-        'Iceland': '#be185d',     // Pink-700
-        'Ireland': '#b45309',     // Amber-700
-        'Italy': '#22c55e',       // Green
-        'Latvia': '#7c3aed',      // Purple-700
-        'Lithuania': '#0e7490',   // Cyan-700
-        'Luxembourg': '#155e75',  // Cyan-800
-        'Malta': '#92400e',       // Amber-800
-        'Moldova': '#7c2d12',     // Orange-800
-        'Montenegro': '#4338ca',  // Indigo-700
-        'Netherlands': '#f59e0b',  // Amber
-        'North Macedonia': '#be123c', // Rose-700
-        'Norway': '#f43f5e',      // Rose
-        'Poland': '#dc2626',      // Red-600
-        'Portugal': '#ef4444',     // Red
-        'Romania': '#16a34a',     // Green-600
-        'Russia': '#581c87',      // Purple-800
-        'Serbia': '#65a30d',      // Lime-700
-        'Slovakia': '#1d4ed8',    // Blue-700
-        'Slovenia': '#c2410c',    // Orange-700
-        'Spain': '#f97316',       // Orange
-        'Sweden': '#10b981',      // Emerald
-        'Switzerland': '#84cc16', // Lime
-        'Ukraine': '#1e3a8a',     // Blue-800
-        'United Kingdom': '#06b6d4', // Cyan
+        'Albania': '#ef4444',
+        'Austria': '#ef4444',
+        'Belarus': '#ef4444',
+        'Belgium': '#ef4444',
+        'Bosnia and Herzegovina': '#ef4444',
+        'Bulgaria': '#ef4444',
+        'Croatia': '#ef4444',
+        'Cyprus': '#ef4444',
+        'Czech Republic': '#ef4444',
+        'Denmark': '#ef4444',
+        'Estonia': '#ef4444',
+        'Finland': '#ef4444',
+        'France': '#ef4444',
+        'Germany': '#ef4444',
+        'Greece': '#ef4444',
+        'Hungary': '#ef4444',
+        'Iceland': '#ef4444',
+        'Ireland': '#ef4444',
+        'Italy': '#ef4444',
+        'Latvia': '#ef4444',
+        'Lithuania': '#ef4444',
+        'Luxembourg': '#ef4444',
+        'Malta': '#ef4444',
+        'Moldova': '#ef4444',
+        'Montenegro': '#ef4444',
+        'Netherlands': '#ef4444',
+        'North Macedonia': '#ef4444',
+        'Norway': '#ef4444',
+        'Poland': '#ef4444',
+        'Portugal': '#ef4444',
+        'Romania': '#ef4444',
+        'Russia': '#ef4444',
+        'Serbia': '#ef4444',
+        'Slovakia': '#ef4444',
+        'Slovenia': '#ef4444',
+        'Spain': '#ef4444',
+        'Sweden': '#ef4444',
+        'Switzerland': '#ef4444',
+        'Ukraine': '#ef4444',
+        'United Kingdom': '#ef4444',
         
         // Asia
-        'Afghanistan': '#ea580c', // Orange-600
-        'Armenia': '#be123c',     // Rose-700
-        'Azerbaijan': '#7c2d12',  // Orange-800
-        'Bahrain': '#059669',     // Emerald-700
-        'Bangladesh': '#a855f7',  // Violet
-        'Bhutan': '#0e7490',      // Cyan-700
-        'Cambodia': '#f43f5e',    // Rose
-        'China': '#ef4444',       // Red
-        'Georgia': '#0f766e',     // Teal-700
-        'India': '#22c55e',       // Green
-        'Indonesia': '#8b5cf6',   // Purple
-        'Iran': '#2563eb',        // Blue-600
-        'Iraq': '#16a34a',        // Green-600
-        'Israel': '#1d4ed8',      // Blue-700
-        'Japan': '#f97316',       // Orange
-        'Jordan': '#c2410c',      // Orange-700
-        'Kazakhstan': '#1e3a8a',  // Blue-800
-        'Kuwait': '#4338ca',      // Indigo-700
-        'Kyrgyzstan': '#581c87',  // Purple-800
-        'Laos': '#14b8a6',        // Teal
-        'Lebanon': '#d97706',     // Amber-600
-        'Malaysia': '#84cc16',    // Lime
-        'Maldives': '#be185d',    // Pink-700
-        'Mongolia': '#9f1239',    // Rose-800
-        'Myanmar': '#10b981',     // Emerald
-        'Nepal': '#7c3aed',       // Purple-700
-        'North Korea': '#166534', // Green-600 dark
-        'Oman': '#b45309',        // Amber-700
-        'Pakistan': '#dc2626',    // Red-600
-        'Palestine': '#15803d',   // Green-700
-        'Philippines': '#ec4899', // Pink
-        'Qatar': '#65a30d',       // Lime-700
-        'Saudi Arabia': '#7c3aed', // Purple-700
-        'Singapore': '#6366f1',   // Indigo
-        'South Korea': '#3b82f6', // Blue
-        'Sri Lanka': '#b45309',   // Amber-700
-        'Syria': '#0891b2',       // Cyan-600
-        'Tajikistan': '#155e75',  // Cyan-800
-        'Thailand': '#06b6d4',    // Cyan
-        'Turkey': '#9333ea',      // Purple-600
-        'Turkmenistan': '#92400e', // Amber-800
-        'UAE': '#be185d',         // Pink-700
-        'Uzbekistan': '#14532d',  // Green-800
-        'Vietnam': '#f59e0b',     // Amber
-        'Yemen': '#0e7490',       // Cyan-700
+        'Afghanistan': '#ef4444',
+        'Armenia': '#ef4444',
+        'Azerbaijan': '#ef4444',
+        'Bahrain': '#ef4444',
+        'Bangladesh': '#ef4444',
+        'Bhutan': '#ef4444',
+        'Cambodia': '#ef4444',
+        'China': '#ef4444',
+        'Georgia': '#ef4444',
+        'India': '#ef4444',
+        'Indonesia': '#ef4444',
+        'Iran': '#ef4444',
+        'Iraq': '#ef4444',
+        'Israel': '#ef4444',
+        'Japan': '#ef4444',
+        'Jordan': '#ef4444',
+        'Kazakhstan': '#ef4444',
+        'Kuwait': '#ef4444',
+        'Kyrgyzstan': '#ef4444',
+        'Laos': '#ef4444',
+        'Lebanon': '#ef4444',
+        'Malaysia': '#ef4444',
+        'Maldives': '#ef4444',
+        'Mongolia': '#ef4444',
+        'Myanmar': '#ef4444',
+        'Nepal': '#ef4444',
+        'North Korea': '#ef4444',
+        'Oman': '#ef4444',
+        'Pakistan': '#ef4444',
+        'Palestine': '#ef4444',
+        'Philippines': '#ef4444',
+        'Qatar': '#ef4444',
+        'Saudi Arabia': '#ef4444',
+        'Singapore': '#ef4444',
+        'South Korea': '#ef4444',
+        'Sri Lanka': '#ef4444',
+        'Syria': '#ef4444',
+        'Tajikistan': '#ef4444',
+        'Thailand': '#ef4444',
+        'Turkey': '#ef4444',
+        'Turkmenistan': '#ef4444',
+        'UAE': '#ef4444',
+        'Uzbekistan': '#ef4444',
+        'Vietnam': '#ef4444',
+        'Yemen': '#ef4444',
         
         // Africa
-        'Algeria': '#06b6d4',     // Cyan
-        'Angola': '#9333ea',      // Purple-600
-        'Benin': '#1e3a8a',       // Blue-800
-        'Botswana': '#2563eb',    // Blue-600
-        'Burkina Faso': '#7c3aed', // Purple-700
-        'Burundi': '#0f766e',     // Teal-700
-        'Cameroon': '#be185d',    // Pink-700
-        'Cape Verde': '#9f1239',  // Rose-800
-        'Central African Republic': '#65a30d', // Lime-700
-        'Chad': '#b45309',        // Amber-700
-        'Comoros': '#7c3aed',     // Purple-700
-        'Democratic Republic of Congo': '#4338ca', // Indigo-700
-        'Djibouti': '#b45309',    // Amber-700
-        'Egypt': '#f97316',       // Orange
-        'Equatorial Guinea': '#0f766e', // Teal-700
-        'Eritrea': '#be185d',     // Pink-700
-        'Ethiopia': '#6366f1',    // Indigo
-        'Gabon': '#be123c',       // Rose-700
-        'Gambia': '#92400e',      // Amber-800
-        'Ghana': '#10b981',       // Emerald
-        'Guinea': '#581c87',      // Purple-800
-        'Guinea-Bissau': '#155e75', // Cyan-800
-        'Ivory Coast': '#7c2d12', // Orange-800
-        'Kenya': '#22c55e',       // Green
-        'Lesotho': '#059669',     // Emerald-700
-        'Liberia': '#1e3a8a',     // Blue-800
-        'Libya': '#ec4899',       // Pink
-        'Madagascar': '#d97706',  // Amber-600
-        'Malawi': '#4338ca',      // Indigo-700
-        'Mali': '#15803d',        // Green-700
-        'Mauritius': '#c2410c',   // Orange-700
-        'Morocco': '#8b5cf6',     // Purple
-        'Mozambique': '#0891b2',  // Cyan-600
-        'Namibia': '#16a34a',     // Green-600
-        'Niger': '#0e7490',       // Cyan-700
-        'Nigeria': '#3b82f6',     // Blue
-        'Republic of Congo': '#059669', // Emerald-700
-        'Rwanda': '#a855f7',      // Violet
-        'Sao Tome and Principe': '#166534', // Green-600 dark
-        'Senegal': '#1d4ed8',     // Blue-700
-        'Seychelles': '#0e7490',  // Cyan-700
-        'Sierra Leone': '#14532d', // Green-800
-        'Somalia': '#65a30d',     // Lime-700
-        'South Africa': '#ef4444', // Red
-        'Sudan': '#84cc16',       // Lime
-        'Swaziland': '#be123c',   // Rose-700
-        'Tanzania': '#f43f5e',    // Rose
-        'Togo': '#7c2d12',        // Orange-800
-        'Tunisia': '#f59e0b',     // Amber
-        'Uganda': '#14b8a6',      // Teal
-        'Zambia': '#dc2626',      // Red-600
-        'Zimbabwe': '#ea580c',    // Orange-600
+        'Algeria': '#ef4444',
+        'Angola': '#ef4444',
+        'Benin': '#ef4444',
+        'Botswana': '#ef4444',
+        'Burkina Faso': '#ef4444',
+        'Burundi': '#ef4444',
+        'Cameroon': '#ef4444',
+        'Cape Verde': '#ef4444',
+        'Central African Republic': '#ef4444',
+        'Chad': '#ef4444',
+        'Comoros': '#ef4444',
+        'Democratic Republic of Congo': '#ef4444',
+        'Djibouti': '#ef4444',
+        'Egypt': '#ef4444',
+        'Equatorial Guinea': '#ef4444',
+        'Eritrea': '#ef4444',
+        'Ethiopia': '#ef4444',
+        'Gabon': '#ef4444',
+        'Gambia': '#ef4444',
+        'Ghana': '#ef4444',
+        'Guinea': '#ef4444',
+        'Guinea-Bissau': '#ef4444',
+        'Ivory Coast': '#ef4444',
+        'Kenya': '#ef4444',
+        'Lesotho': '#ef4444',
+        'Liberia': '#ef4444',
+        'Libya': '#ef4444',
+        'Madagascar': '#ef4444',
+        'Malawi': '#ef4444',
+        'Mali': '#ef4444',
+        'Mauritius': '#ef4444',
+        'Morocco': '#ef4444',
+        'Mozambique': '#ef4444',
+        'Namibia': '#ef4444',
+        'Niger': '#ef4444',
+        'Nigeria': '#ef4444',
+        'Republic of Congo': '#ef4444',
+        'Rwanda': '#ef4444',
+        'Sao Tome and Principe': '#ef4444',
+        'Senegal': '#ef4444',
+        'Seychelles': '#ef4444',
+        'Sierra Leone': '#ef4444',
+        'Somalia': '#ef4444',
+        'South Africa': '#ef4444',
+        'Sudan': '#ef4444',
+        'Swaziland': '#ef4444',
+        'Tanzania': '#ef4444',
+        'Togo': '#ef4444',
+        'Tunisia': '#ef4444',
+        'Uganda': '#ef4444',
+        'Zambia': '#ef4444',
+        'Zimbabwe': '#ef4444',
         
         // Americas
-        'Antigua and Barbuda': '#1e3a8a', // Blue-800
-        'Argentina': '#8b5cf6',   // Purple
-        'Bahamas': '#581c87',     // Purple-800
-        'Barbados': '#4338ca',    // Indigo-700
-        'Belize': '#1d4ed8',      // Blue-700
-        'Bolivia': '#10b981',     // Emerald
-        'Brazil': '#22c55e',      // Green
-        'Canada': '#f97316',      // Orange
-        'Chile': '#06b6d4',       // Cyan
-        'Colombia': '#ec4899',    // Pink
-        'Costa Rica': '#2563eb',  // Blue-600
-        'Cuba': '#15803d',        // Green-700
-        'Dominica': '#7c2d12',    // Orange-800
-        'Dominican Republic': '#b45309', // Amber-700
-        'Ecuador': '#6366f1',     // Indigo
-        'El Salvador': '#d97706', // Amber-600
-        'French Guiana': '#ea580c', // Orange-600
-        'Grenada': '#059669',     // Emerald-700
-        'Guatemala': '#c2410c',   // Orange-700
-        'Guyana': '#a855f7',      // Violet
-        'Haiti': '#0e7490',       // Cyan-700
-        'Honduras': '#0891b2',    // Cyan-600
-        'Jamaica': '#7c3aed',     // Purple-700
-        'Mexico': '#3b82f6',      // Blue
-        'Nicaragua': '#9333ea',   // Purple-600
-        'Panama': '#16a34a',      // Green-600
-        'Paraguay': '#f43f5e',    // Rose
-        'Peru': '#f59e0b',        // Amber
-        'Puerto Rico': '#be185d', // Pink-700
-        'Saint Kitts and Nevis': '#14532d', // Green-800
-        'Saint Lucia': '#0f766e', // Teal-700
-        'Saint Vincent and the Grenadines': '#be123c', // Rose-700
-        'Suriname': '#dc2626',    // Red-600
-        'Trinidad and Tobago': '#65a30d', // Lime-700
-        'United States': '#ef4444', // Red
-        'Uruguay': '#14b8a6',     // Teal
-        'Venezuela': '#84cc16',   // Lime
+        'Antigua and Barbuda': '#ef4444',
+        'Argentina': '#ef4444',
+        'Bahamas': '#ef4444',
+        'Barbados': '#ef4444',
+        'Belize': '#ef4444',
+        'Bolivia': '#ef4444',
+        'Brazil': '#ef4444',
+        'Canada': '#ef4444',
+        'Chile': '#ef4444',
+        'Colombia': '#ef4444',
+        'Costa Rica': '#ef4444',
+        'Cuba': '#ef4444',
+        'Dominica': '#ef4444',
+        'Dominican Republic': '#ef4444',
+        'Ecuador': '#ef4444',
+        'El Salvador': '#ef4444',
+        'French Guiana': '#ef4444',
+        'Grenada': '#ef4444',
+        'Guatemala': '#ef4444',
+        'Guyana': '#ef4444',
+        'Haiti': '#ef4444',
+        'Honduras': '#ef4444',
+        'Jamaica': '#ef4444',
+        'Mexico': '#ef4444',
+        'Nicaragua': '#ef4444',
+        'Panama': '#ef4444',
+        'Paraguay': '#ef4444',
+        'Peru': '#ef4444',
+        'Puerto Rico': '#ef4444',
+        'Saint Kitts and Nevis': '#ef4444',
+        'Saint Lucia': '#ef4444',
+        'Saint Vincent and the Grenadines': '#ef4444',
+        'Suriname': '#ef4444',
+        'Trinidad and Tobago': '#ef4444',
+        'United States': '#ef4444',
+        'Uruguay': '#ef4444',
+        'Venezuela': '#ef4444',
         
         // Oceania
-        'Australia': '#ef4444',   // Red
-        'Fiji': '#22c55e',        // Green
-        'Kiribati': '#14b8a6',    // Teal
-        'Marshall Islands': '#10b981', // Emerald
-        'Micronesia': '#84cc16',  // Lime
-        'Nauru': '#f43f5e',       // Rose
-        'New Zealand': '#f97316', // Orange
-        'Palau': '#6366f1',       // Indigo
-        'Papua New Guinea': '#3b82f6', // Blue
-        'Samoa': '#f59e0b',       // Amber
-        'Solomon Islands': '#8b5cf6', // Purple
-        'Tonga': '#ec4899',       // Pink
-        'Tuvalu': '#a855f7',      // Violet
-        'Vanuatu': '#06b6d4',     // Cyan
+        'Australia': '#ef4444',
+        'Fiji': '#ef4444',
+        'Kiribati': '#ef4444',
+        'Marshall Islands': '#ef4444',
+        'Micronesia': '#ef4444',
+        'Nauru': '#ef4444',
+        'New Zealand': '#ef4444',
+        'Palau': '#ef4444',
+        'Papua New Guinea': '#ef4444',
+        'Samoa': '#ef4444',
+        'Solomon Islands': '#ef4444',
+        'Tonga': '#ef4444',
+        'Tuvalu': '#ef4444',
+        'Vanuatu': '#ef4444',
     },
     
     // Coordinates for all countries [latitude, longitude]
