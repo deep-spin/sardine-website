@@ -907,3 +907,20 @@ select:focus {
     filter: none;
   }
 }
+
+/* ========================================
+   14. FIXED MIN-HEIGHT FOR NICE LOADING
+   ======================================== */
+
+#publicationsList {
+  min-height: 800px;
+}
+
+#newsList {
+  min-height: 800px;
+}
+
+#projectsTabContent {
+  min-height: 800px;
+}
+
