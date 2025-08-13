@@ -115,16 +115,54 @@ class NewsManager {
         container.innerHTML = '';
 
         latestNews.forEach(news => {
-            const newsItem = document.createElement('div');
-            newsItem.className = 'border-b border-slate-200 last:border-b-0 pb-6 last:pb-0';
+            const newsItem = document.createElement('article');
+            newsItem.className = 'mb-8 pb-6 border-b border-slate-200 last:border-b-0 last:pb-0';
+            
+            // Type icon mapping
+            const typeIcons = {
+                'conference': 'fas fa-microphone',
+                'publication': 'fas fa-file-alt',
+                'award': 'fas fa-trophy',
+                'funding': 'fas fa-euro-sign',
+                'event': 'fas fa-calendar-alt',
+                'team': 'fas fa-users',
+                'release': 'fas fa-rocket',
+                'service': 'fas fa-handshake'
+            };
             
             newsItem.innerHTML = `
-                <div class="flex items-start justify-between mb-2">
-                    <h3 class="font-semibold text-lg text-slate-900 pr-4">${news.title}</h3>
-                    <span class="text-sm text-slate-500 whitespace-nowrap">${SardineWebsite.formatDate(news.date)}</span>
+                <!-- Header -->
+                <header class="mb-4">
+                    <div class="flex items-center gap-4 text-sm text-slate-500 mb-2">
+                        <time class="flex items-center gap-1">
+                            <i class="fas fa-calendar text-xs"></i>
+                            ${SardineWebsite.formatDate(news.date)}
+                        </time>
+                        <span class="flex items-center gap-1">
+                            <i class="${typeIcons[news.type] || 'fas fa-info-circle'} text-xs"></i>
+                            ${news.type.charAt(0).toUpperCase() + news.type.slice(1)}
+                        </span>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 leading-tight hover:text-sardine-blue transition-colors">
+                        ${news.title}
+                    </h3>
+                </header>
+                
+                <!-- Content -->
+                <div class="news-content text-slate-700 prose prose-slate max-w-none">
+                    ${news.content}
                 </div>
-                <p class="text-slate-700 leading-relaxed">${news.content}</p>
-                ${news.type === 'publication' ? '<div class="mt-2"><span class="badge badge-publication">Publication</span></div>' : ''}
+                
+                <!-- Footer -->
+                <footer class="mt-2 pt-3">
+                    <div class="flex items-center justify-between">
+                        <div class="flex flex-wrap gap-2">
+                            ${news.tags.map(tag => 
+                                `<span class="px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded-full">#${tag}</span>`
+                            ).join('')}
+                        </div>
+                    </div>
+                </footer>
             `;
             container.appendChild(newsItem);
         });
@@ -143,16 +181,54 @@ class NewsManager {
         container.innerHTML = '';
 
         pageNews.forEach(news => {
-            const newsItem = document.createElement('div');
-            newsItem.className = 'news-item';
+            const newsItem = document.createElement('article');
+            newsItem.className = 'mb-12 pb-8 border-b border-slate-200 last:border-b-0';
+            
+            // Type icon mapping
+            const typeIcons = {
+                'conference': 'fas fa-microphone',
+                'publication': 'fas fa-file-alt',
+                'award': 'fas fa-trophy',
+                'funding': 'fas fa-euro-sign',
+                'event': 'fas fa-calendar-alt',
+                'team': 'fas fa-users',
+                'release': 'fas fa-rocket',
+                'service': 'fas fa-handshake'
+            };
             
             newsItem.innerHTML = `
-                <div class="flex items-start justify-between mb-3">
-                    <h3 class="font-semibold text-xl text-slate-900 pr-4">${news.title}</h3>
-                    <span class="text-sm text-slate-500 whitespace-nowrap">${SardineWebsite.formatDate(news.date)}</span>
+                <!-- Header -->
+                <header class="mb-6">
+                    <div class="flex items-center gap-4 text-sm text-slate-500 mb-2">
+                        <time class="flex items-center gap-1">
+                            <i class="fas fa-calendar text-xs"></i>
+                            ${SardineWebsite.formatDate(news.date)}
+                        </time>
+                        <span class="flex items-center gap-1">
+                            <i class="${typeIcons[news.type] || 'fas fa-info-circle'} text-xs"></i>
+                            ${news.type.charAt(0).toUpperCase() + news.type.slice(1)}
+                        </span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-900 leading-tight hover:text-sardine-blue transition-colors cursor-pointer">
+                        ${news.title}
+                    </h3>
+                </header>
+                
+                <!-- Content -->
+                <div class="news-content text-slate-700 prose prose-slate max-w-none">
+                    ${news.content}
                 </div>
-                <p class="text-slate-700 leading-relaxed mb-3">${news.content}</p>
-                ${news.type === 'publication' ? '<div><span class="badge badge-publication">Publication</span></div>' : ''}
+                
+                <!-- Footer -->
+                <footer class="mt-2 pt-4">
+                    <div class="flex items-center justify-between">
+                        <div class="flex flex-wrap gap-2">
+                            ${news.tags.map(tag => 
+                                `<span class="px-3 py-1 bg-slate-100 text-slate-600 text-sm rounded-full">#${tag}</span>`
+                            ).join('')}
+                        </div>
+                    </div>
+                </footer>
             `;
             container.appendChild(newsItem);
         });
@@ -222,7 +298,7 @@ class PublicationsManager {
 
             const links = Object.entries(pub.links || {}).map(([type, url]) => {
                 const icons = {
-                    'paper': 'fas fa-file-pdf',
+                    'paper': 'fas fa-file',
                     'code': 'fab fa-github',
                     'demo': 'fas fa-play',
                     'bibtex': 'fas fa-quote-right'

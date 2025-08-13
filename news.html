@@ -7,7 +7,7 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%22100%22>🐟</text></svg>">
     <meta name="description" content="SARDINE Lab — Structure AwaRe moDelIng for Natural LanguagE">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -33,7 +33,7 @@
             <div class="flex items-center justify-between h-16">
                 <a href="index.html" class="flex items-center gap-2 group">
                     <img width="128" src="assets/figs/logo-sardine.png" alt="SARDINE Lab Logo">
-                    <span class="font-semibold text-slate-900 group-hover:text-sardine-blue transition-colors">SARDINE Lab</span>
+                    <span class="font-semibold text-slate-900">SARDINE Lab</span>
                 </a>
                 <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
                     <a href="index.html" class="navlink  text-slate-600 hover:text-slate-900 transition-colors">Home</a><a href="news.html" class="navlink active text-slate-600 hover:text-slate-900 transition-colors">News</a><a href="publications.html" class="navlink  text-slate-600 hover:text-slate-900 transition-colors">Publications</a><a href="projects.html" class="navlink  text-slate-600 hover:text-slate-900 transition-colors">Projects</a>
@@ -67,27 +67,89 @@
     <section class="bg-white border-b border-slate-200">
         <div class="max-w-6xl mx-auto px-4 py-6">
             <div class="flex flex-wrap gap-4 items-center justify-between">
-                <!-- Type Filters -->
-                <div class="flex flex-wrap gap-2">
-                    <button id="filter-all" class="filter-btn active" onclick="filterNews('all')">All News</button>
-                    <button id="filter-publication" class="filter-btn" onclick="filterNews('publication')">Publications</button>
-                    <button id="filter-award" class="filter-btn" onclick="filterNews('award')">Awards</button>
-                    <button id="filter-funding" class="filter-btn" onclick="filterNews('funding')">Funding</button>
-                    <button id="filter-event" class="filter-btn" onclick="filterNews('event')">Events</button>
-                    <button id="filter-team" class="filter-btn" onclick="filterNews('team')">Team</button>
+                <!-- Filter Dropdowns -->
+                <div class="flex flex-wrap gap-4 items-center">
+                    <!-- Type Filter -->
+                    <div class="flex items-center gap-2">
+                        <label for="typeFilter" class="text-sm font-medium text-slate-700">Type:</label>
+                        <select id="typeFilter" class="px-3 py-2 border border-slate-300 rounded-lg text-sm min-w-[120px] focus:ring-2 focus:ring-sardine-blue focus:border-sardine-blue">
+                            <option value="all">All Types</option>
+                            <option value="award">Awards</option>
+                            <option value="conference">Conferences</option>
+                            <option value="event">Events</option>
+                            <option value="funding">Funding</option>
+                            <option value="publication">Publications</option>
+                            <option value="release">Releases</option>
+                            <option value="service">Service</option>
+                            <option value="team">Team</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Year Filter -->
+                    <div class="flex items-center gap-2">
+                        <label for="yearFilter" class="text-sm font-medium text-slate-700">Year:</label>
+                        <select id="yearFilter" class="px-3 py-2 border border-slate-300 rounded-lg text-sm min-w-[100px] focus:ring-2 focus:ring-sardine-blue focus:border-sardine-blue">
+                            <option value="all">All Years</option>
+                            <!-- Years will be populated by JavaScript -->
+                        </select>
+                    </div>
+                    
+                    <!-- Sort -->
+                    <div class="flex items-center gap-2">
+                        <label for="sortSelect" class="text-sm font-medium text-slate-700">Sort:</label>
+                        <select id="sortSelect" class="px-3 py-2 border border-slate-300 rounded-lg text-sm min-w-[140px] focus:ring-2 focus:ring-sardine-blue focus:border-sardine-blue">
+                            <option value="date-desc">Date (Newest)</option>
+                            <option value="date-asc">Date (Oldest)</option>
+                            <option value="title-asc">Title (A-Z)</option>
+                            <option value="title-desc">Title (Z-A)</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Items per page -->
+                    <div class="flex items-center gap-2">
+                        <label for="itemsPerPage" class="text-sm font-medium text-slate-700">Show:</label>
+                        <select id="itemsPerPage" class="px-3 py-2 border border-slate-300 rounded-lg text-sm min-w-[80px] focus:ring-2 focus:ring-sardine-blue focus:border-sardine-blue">
+                            <option value="10">10</option>
+                            <option value="20" selected>20</option>
+                            <option value="50">50</option>
+                            <option value="all">All</option>
+                        </select>
+                    </div>
                 </div>
+                
                 <!-- Search -->
-                <div class="flex-grow max-w-md">
-                    <input type="text" id="searchInput" placeholder="Search news..." class="search-input">
+                <div class="flex flex-1 ml-4">
+                    <div class="relative flex-1 max-w-lg">
+                        <input type="text" id="searchInput" placeholder="Search news..." class="search-input w-full pl-10">
+                        <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400"></i>
+                    </div>
+                    <button id="resetFilters"  title="Reset filters" class="px-4 py-2 text-sm text-slate-600 hover:text-slate-900 transition-colors">
+                        <i class="fas fa-undo mr-1"></i>
+                    </button>
                 </div>
+
             </div>
         </div>
     </section>
 
     <!-- News List -->
-    <main id="mainNewsContainer" class="max-w-6xl mx-auto px-4 py-12">
+    <main class="max-w-6xl mx-auto px-4 py-12">
+        <!-- Results Info -->
+        <div class="flex items-center justify-between mb-6">
+            <div id="resultsInfo" class="text-sm text-slate-600">
+                <!-- Results count will be populated by JavaScript -->
+            </div>
+            <div id="pageInfo" class="text-sm text-slate-600">
+                <!-- Page info will be populated by JavaScript -->
+            </div>
+        </div>
+
         <div id="newsList" class="space-y-6">
             <!-- News items will be populated by JavaScript -->
+            <div class="text-center py-12 text-slate-500">
+                <i class="fas fa-spinner fa-spin text-2xl mb-2"></i>
+                <p>Loading news...</p>
+            </div>
         </div>
         
         <!-- No Results -->
@@ -98,9 +160,9 @@
         </div>
 
         <!-- Pagination -->
-        <nav id="pagination" class="mt-12 flex items-center justify-center">
+        <div id="paginationContainer" class="mt-12">
             <!-- Pagination will be populated by JavaScript -->
-        </nav>
+        </div>
     </main>
 
     <!-- Footer -->
@@ -116,20 +178,23 @@
     <script src="data/news.js"></script>
     <script src="assets/main.js"></script>
     <script>
-        // News page functionality
+        // Enhanced News page functionality
         class NewsPage {
             constructor() {
                 this.newsManager = new NewsManager(newsData);
-                this.currentFilter = 'all';
+                this.currentTypeFilter = 'all';
+                this.currentYearFilter = 'all';
                 this.currentSearch = '';
+                this.currentSort = 'date-desc';
+                this.itemsPerPage = 20;
                 
                 // Initialize pagination
                 this.pagination = new PaginationManager({
-                    itemsPerPage: 10,
+                    itemsPerPage: this.itemsPerPage,
                     onPageChange: (page) => {
                         this.renderNews();
                         // Scroll to top of news list
-                        document.getElementById('mainNewsContainer').scrollIntoView({ 
+                        document.getElementById('newsList').scrollIntoView({ 
                             behavior: 'smooth', 
                             block: 'start' 
                         });
@@ -142,7 +207,9 @@
 
             init() {
                 this.setupEventListeners();
-                this.renderNews();
+                this.populateYearFilter();
+                this.updateStatistics();
+                this.filterAndRender();
             }
 
             setupEventListeners() {
@@ -150,12 +217,83 @@
                 const searchInput = document.getElementById('searchInput');
                 const debouncedSearch = SardineWebsite.debounce((value) => {
                     this.currentSearch = value;
+                    this.pagination.currentPage = 1;
                     this.filterAndRender();
                 }, 300);
 
                 searchInput.addEventListener('input', (e) => {
                     debouncedSearch(e.target.value);
                 });
+
+                // Type filter dropdown
+                const typeFilter = document.getElementById('typeFilter');
+                typeFilter.addEventListener('change', (e) => {
+                    this.currentTypeFilter = e.target.value;
+                    this.pagination.currentPage = 1;
+                    this.filterAndRender();
+                });
+
+                // Year filter dropdown
+                const yearFilter = document.getElementById('yearFilter');
+                yearFilter.addEventListener('change', (e) => {
+                    this.currentYearFilter = e.target.value;
+                    this.pagination.currentPage = 1;
+                    this.filterAndRender();
+                });
+
+                // Sort dropdown
+                const sortSelect = document.getElementById('sortSelect');
+                sortSelect.addEventListener('change', (e) => {
+                    this.currentSort = e.target.value;
+                    this.pagination.currentPage = 1;
+                    this.sortAndRender();
+                });
+
+                // Items per page dropdown
+                const itemsPerPageSelect = document.getElementById('itemsPerPage');
+                itemsPerPageSelect.addEventListener('change', (e) => {
+                    const value = e.target.value;
+                    this.itemsPerPage = value === 'all' ? this.newsManager.filteredNews.length : parseInt(value);
+                    this.pagination.setItemsPerPage(this.itemsPerPage);
+                    this.renderNews();
+                });
+
+                // Reset filters button
+                const resetButton = document.getElementById('resetFilters');
+                resetButton.addEventListener('click', () => {
+                    this.resetFilters();
+                });
+            }
+
+            populateYearFilter() {
+                const yearFilter = document.getElementById('yearFilter');
+                const years = [...new Set(newsData.map(news => new Date(news.date).getFullYear()))].sort((a, b) => b - a);
+                
+                // Clear existing options except "All Years"
+                yearFilter.innerHTML = '<option value="all">All Years</option>';
+                
+                years.forEach(year => {
+                    const option = document.createElement('option');
+                    option.value = year.toString();
+                    option.textContent = year.toString();
+                    yearFilter.appendChild(option);
+                });
+            }
+
+            updateStatistics() {
+                const stats = {
+                    total: newsData.length,
+                    conference: newsData.filter(n => n.type === 'conference').length,
+                    publication: newsData.filter(n => n.type === 'publication').length,
+                    award: newsData.filter(n => n.type === 'award').length,
+                    filtered: this.newsManager.filteredNews.length
+                };
+
+                // document.getElementById('totalCount').textContent = stats.total;
+                // document.getElementById('conferenceCount').textContent = stats.conference;
+                // document.getElementById('publicationCount').textContent = stats.publication;
+                // document.getElementById('awardCount').textContent = stats.award;
+                // document.getElementById('filteredCount').textContent = stats.filtered;
             }
 
             filterAndRender() {
@@ -163,8 +301,15 @@
                 let filteredNews = newsData;
 
                 // Filter by type
-                if (this.currentFilter !== 'all') {
-                    filteredNews = filteredNews.filter(news => news.type === this.currentFilter);
+                if (this.currentTypeFilter !== 'all') {
+                    filteredNews = filteredNews.filter(news => news.type === this.currentTypeFilter);
+                }
+
+                // Filter by year
+                if (this.currentYearFilter !== 'all') {
+                    filteredNews = filteredNews.filter(news => 
+                        new Date(news.date).getFullYear().toString() === this.currentYearFilter
+                    );
                 }
 
                 // Filter by search term
@@ -178,38 +323,126 @@
                 }
 
                 this.newsManager.filteredNews = filteredNews;
-                this.pagination.currentPage = 1;
+                this.setSortCriteria();
+                this.sortNews();
                 this.renderNews();
+                this.updateResultsInfo();
+                this.updateStatistics();
+                this.updatePageInfo();
+            }
+
+            sortAndRender() {
+                this.setSortCriteria();
+                this.sortNews();
+                this.renderNews();
+            }
+
+            setSortCriteria() {
+                const [field, order] = this.currentSort.split('-');
+                this.sortBy = field;
+                this.sortOrder = order;
+            }
+
+            sortNews() {
+                this.newsManager.filteredNews.sort((a, b) => {
+                    let valueA, valueB;
+                    
+                    if (this.sortBy === 'date') {
+                        valueA = new Date(a.date);
+                        valueB = new Date(b.date);
+                    } else if (this.sortBy === 'title') {
+                        valueA = a.title.toLowerCase();
+                        valueB = b.title.toLowerCase();
+                    }
+                    
+                    if (this.sortOrder === 'asc') {
+                        return valueA > valueB ? 1 : -1;
+                    } else {
+                        return valueA < valueB ? 1 : -1;
+                    }
+                });
+            }
+
+            updateResultsInfo() {
+                const resultsInfo = document.getElementById('resultsInfo');
+                const count = this.newsManager.filteredNews.length;
+                const total = newsData.length;
+                
+                let message = '';
+                if (count === total) {
+                    message = `Showing all ${total} news items`;
+                } else {
+                    message = `Showing ${count} of ${total} news items`;
+                }
+
+                // Add active filters info
+                const activeFilters = [];
+                if (this.currentTypeFilter !== 'all') {
+                    activeFilters.push(`Type: ${this.currentTypeFilter}`);
+                }
+                if (this.currentYearFilter !== 'all') {
+                    activeFilters.push(`Year: ${this.currentYearFilter}`);
+                }
+                if (this.currentSearch) {
+                    activeFilters.push(`Search: "${this.currentSearch}"`);
+                }
+
+                if (activeFilters.length > 0) {
+                    message += ` (${activeFilters.join(', ')})`;
+                }
+
+                resultsInfo.textContent = message;
+            }
+
+            updatePageInfo() {
+                const pageInfo = document.getElementById('pageInfo');
+                const pageData = this.pagination.getPageInfo();
+                
+                if (pageData.totalPages <= 1) {
+                    pageInfo.textContent = '';
+                } else {
+                    pageInfo.textContent = `Page ${pageData.currentPage} of ${pageData.totalPages} (${pageData.startItem}-${pageData.endItem})`;
+                }
             }
 
             renderNews() {
                 const newsContainer = document.getElementById('newsList');
-                const paginationContainer = document.getElementById('pagination');
                 const noResults = document.getElementById('noResults');
+                const paginationContainer = document.getElementById('paginationContainer');
 
                 if (this.newsManager.filteredNews.length === 0) {
                     newsContainer.innerHTML = '';
-                    paginationContainer.innerHTML = '';
                     noResults.classList.remove('hidden');
+                    paginationContainer.innerHTML = '';
+                    this.updatePageInfo();
                     return;
                 }
 
                 noResults.classList.add('hidden');
                 this.newsManager.renderAllNews(newsContainer, paginationContainer);
+                this.updatePageInfo();
             }
-        }
 
-        // Filter function called by buttons
-        function filterNews(type) {
-            // Update button states
-            document.querySelectorAll('.filter-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            document.getElementById(`filter-${type}`).classList.add('active');
+            resetFilters() {
+                // Reset all filters
+                this.currentTypeFilter = 'all';
+                this.currentYearFilter = 'all';
+                this.currentSearch = '';
+                this.currentSort = 'date-desc';
+                this.itemsPerPage = 20;
+                this.pagination.currentPage = 1;
+                this.pagination.setItemsPerPage(this.itemsPerPage);
 
-            // Update filter and render
-            newsPage.currentFilter = type;
-            newsPage.filterAndRender();
+                // Reset UI elements
+                document.getElementById('typeFilter').value = 'all';
+                document.getElementById('yearFilter').value = 'all';
+                document.getElementById('searchInput').value = '';
+                document.getElementById('sortSelect').value = 'date-desc';
+                document.getElementById('itemsPerPage').value = '20';
+
+                // Re-render
+                this.filterAndRender();
+            }
         }
 
         // Initialize news page

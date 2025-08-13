@@ -6,7 +6,7 @@
     <title>SARDINE Lab</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%22100%22>🐟</text></svg>">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -288,162 +288,159 @@
     <script src="data/news.js"></script>
     <script src="data/publications.js"></script>
     <script src="data/projects.js"></script>
+    <script src="data/photos.js"></script> 
     <script src="data/team.js"></script>
+    <script src="data/countries.js"></script> 
     <script src="assets/main.js"></script>
     
     <script>
 
-        // Group photos data
-        const groupPhotos = [
-            { id: 1, year: "2024", description: "End of year gathering", filename: "group7.jpg" },
-            { id: 2, year: "2024", description: "Gathering at ACL in Miami", filename: "group6.jpg" },
-            { id: 3, year: "2023", description: "Project milestone celebration", filename: "group5.jpg" },
-            { id: 4, year: "2023", description: "Post-pandemic reunion", filename: "group3.jpg" },
-            { id: 5, year: "2022", description: "Summer lab retreat", filename: "group4.jpg" },
-            { id: 6, year: "2020", description: "Enjoying EMNLP at Punta Cana", filename: "group2.jpg" },
-            { id: 7, year: "2019", description: "SARDINEs at Quinta da Regaleira", filename: "group1.jpg" },
-            { id: 8, year: "2018", description: "Early days of SARDINE Lab (aka DeepSPIN)", filename: "group0.jpg" },
-        ];
+        // ========================================
+        // 1. DATA & CONFIGURATION
+        // ========================================
 
+        // Global state
         let currentPhotoIndex = 0;
 
-        // Initialize page content when DOM is loaded
+        // ========================================
+        // 2. MAIN INITIALIZATION
+        // ========================================
+
+        // Main initialization when DOM is loaded
         document.addEventListener('DOMContentLoaded', function() {
-            // Initialize news manager and render latest news
+            initializeHomePage();
+            initPhotoSlider();
+            setupKeyboardNavigation();
+        });
+
+        function initializeHomePage() {
+            renderLatestNews();
+            renderRecentPublications();
+            renderCurrentProjects();
+            renderTeamSection();
+        }
+
+        // ========================================
+        // 3. CONTENT RENDERING FUNCTIONS
+        // ========================================
+
+        function renderLatestNews() {
             if (typeof newsData !== 'undefined') {
                 const newsManager = new NewsManager(newsData);
                 const latestNewsContainer = document.getElementById('latestNews');
                 newsManager.renderLatestNews(latestNewsContainer, 3);
             }
+        }
 
-            // Initialize publications manager and render recent publications
+        function renderRecentPublications() {
             if (typeof publicationsData !== 'undefined') {
                 const publicationsManager = new PublicationsManager(publicationsData);
                 const recentPubsContainer = document.getElementById('recentPublications');
                 publicationsManager.renderRecentPublications(recentPubsContainer, 3);
-                
-                // Update publication count
-                // document.getElementById('pubCount').textContent = publicationsData.length;
             }
+        }
 
-            // Render current projects
-            if (typeof projectsData !== 'undefined') {
-                renderCurrentProjects();
-            }
-
-            // Render team members and world map
-            if (typeof teamData !== 'undefined') {
-                renderTeam();
-                
-                // Update team count
-                const totalMembers = Object.values(teamData).reduce((total, group) => {
-                    return total + (Array.isArray(group) ? group.length : 0);
-                }, 0);
-                // document.getElementById('teamCount').textContent = totalMembers;
-            }
-        });
-
-        // Projects rendering function
         function renderCurrentProjects() {
+            if (typeof projectsData === 'undefined') return;
+            
             const projectsContainer = document.getElementById('currentProjects');
-            const currentProjects = getCurrentProjects();
+            const currentProjects = getCurrentProjects(2); // Limit to 2 projects
             
             projectsContainer.innerHTML = '';
 
             currentProjects.forEach(project => {
-                const projectCard = document.createElement('div');
-                projectCard.className = 'bg-slate-50 p-8 rounded-2xl border border-slate-200 hover:shadow-lg transition-shadow';
-                
-                const teamMembers = project.team_members ? 
-                    `<p class="text-sm text-slate-600 mb-3"><strong>Team:</strong> ${project.team_members.join(', ')}</p>` : '';
-                
-                const collaborators = project.collaborators ? 
-                    `<p class="text-sm text-slate-600 mb-3"><strong>Collaborators:</strong> ${project.collaborators.join(', ')}</p>` : '';
-                
-                const website = project.website ? 
-                    `<a href="${project.website}" target="_blank" rel="noopener" class="inline-flex items-center gap-1 text-sardine-blue hover:underline text-sm font-medium">
-                        <span>Project Website</span>
-                        <i class="fas fa-external-link-alt text-xs"></i>
-                    </a>` : '';
-
-                projectCard.innerHTML = `
-                    <div class="grid lg:grid-cols-3 gap-6">
-                        <div class="lg:col-span-2">
-                            <div class="flex items-start justify-between mb-4">
-                                <div>
-                                    <h3 class="text-2xl font-bold text-slate-900 mb-2">${project.name}</h3>
-                                    <h4 class="text-lg text-slate-700 mb-3">${project.title}</h4>
-                                </div>
-                                <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">Current</span>
-                            </div>
-                            <p class="text-slate-700 leading-relaxed mb-4">${project.description}</p>
-                            ${website}
-                        </div>
-                        <div class="bg-white p-6 rounded-xl border border-slate-200">
-                            <h5 class="font-semibold text-slate-900 mb-3">Project Details</h5>
-                            <div class="space-y-2 text-sm">
-                                <p><strong>Funding:</strong> ${project.funding}</p>
-                                <p><strong>Period:</strong> ${project.period}</p>
-                                <p><strong>PI:</strong> ${project.pi}</p>
-                                ${teamMembers}
-                                ${collaborators}
-                            </div>
-                            <div class="mt-4">
-                                <h6 class="font-medium text-slate-700 mb-2">Keywords</h6>
-                                <div class="flex flex-wrap gap-1">
-                                    ${project.keywords.map(keyword => 
-                                        `<span class="px-2 py-1 bg-sardine-blue/10 text-sardine-blue rounded text-xs">${keyword}</span>`
-                                    ).join('')}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                `;
-                
+                const projectCard = createProjectCard(project);
                 projectsContainer.appendChild(projectCard);
             });
         }
 
-        // Team rendering function
-        function renderTeam() {
+        function createProjectCard(project) {
+            const projectCard = document.createElement('div');
+            projectCard.className = 'bg-slate-50 p-8 rounded-2xl border border-slate-200 hover:shadow-lg transition-shadow';
+            
+            const teamMembers = project.team_members ? 
+                `<p class="text-sm text-slate-600 mb-3"><strong>Team:</strong> ${project.team_members.join(', ')}</p>` : '';
+            
+            const collaborators = project.collaborators ? 
+                `<p class="text-sm text-slate-600 mb-3"><strong>Collaborators:</strong> ${project.collaborators.join(', ')}</p>` : '';
+            
+            const website = project.website ? 
+                `<a href="${project.website}" target="_blank" rel="noopener" class="inline-flex items-center gap-1 text-sardine-blue hover:underline text-sm font-medium">
+                    <span>Project Website</span>
+                    <i class="fas fa-external-link-alt text-xs"></i>
+                </a>` : '';
+
+            projectCard.innerHTML = `
+                <div class="grid lg:grid-cols-3 gap-6">
+                    <div class="lg:col-span-2">
+                        <div class="flex items-start justify-between mb-4">
+                            <div>
+                                <h3 class="text-2xl font-bold text-slate-900 mb-2">${project.name}</h3>
+                                <h4 class="text-lg text-slate-700 mb-3">${project.title}</h4>
+                            </div>
+                            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">Current</span>
+                        </div>
+                        <p class="text-slate-700 leading-relaxed mb-4">${project.description}</p>
+                        ${website}
+                    </div>
+                    <div class="bg-white p-6 rounded-xl border border-slate-200">
+                        <h5 class="font-semibold text-slate-900 mb-3">Project Details</h5>
+                        <div class="space-y-2 text-sm">
+                            <p><strong>Funding:</strong> ${project.funding}</p>
+                            <p><strong>Period:</strong> ${project.period}</p>
+                            <p><strong>PI:</strong> ${project.pi}</p>
+                            ${teamMembers}
+                            ${collaborators}
+                        </div>
+                        <div class="mt-4">
+                            <h6 class="font-medium text-slate-700 mb-2">Keywords</h6>
+                            <div class="flex flex-wrap gap-1">
+                                ${project.keywords.map(keyword => 
+                                    `<span class="px-2 py-1 bg-sardine-blue/10 text-sardine-blue rounded text-xs">${keyword}</span>`
+                                ).join('')}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            return projectCard;
+        }
+
+        // ========================================
+        // 4. TEAM SECTION RENDERING
+        // ========================================
+
+        function renderTeamSection() {
+            if (typeof teamData === 'undefined') return;
+            
             const teamContainer = document.getElementById('teamMembers');
             const currentTeam = getCurrentTeam();
             
             teamContainer.innerHTML = '';
 
-            // Principal Investigator
-            if (currentTeam.pi && currentTeam.pi.length > 0) {
-                const piSection = createTeamSection('Principal Investigator', currentTeam.pi, 'large');
-                teamContainer.appendChild(piSection);
-            }
-
-            // Postdocs
-            if (currentTeam.postdocs && currentTeam.postdocs.length > 0) {
-                const postdocSection = createTeamSection('Postdocs', currentTeam.postdocs, 'medium');
-                teamContainer.appendChild(postdocSection);
-            }
-
-            // PhD Students
-            if (currentTeam.phds && currentTeam.phds.length > 0) {
-                const phdSection = createTeamSection('PhD Students', currentTeam.phds, 'small');
-                teamContainer.appendChild(phdSection);
-            }
-
-            // MSc Students
-            if (currentTeam.mscs && currentTeam.mscs.length > 0) {
-                const mscSection = createTeamSection('MSc Students', currentTeam.mscs, 'tiny');
-                teamContainer.appendChild(mscSection);
-            }
-
-            // Alumni
+            // Render each team category
+            renderTeamCategory(teamContainer, 'Principal Investigator', currentTeam.pi, 'large');
+            renderTeamCategory(teamContainer, 'Postdocs', currentTeam.postdocs, 'medium');
+            renderTeamCategory(teamContainer, 'PhD Students', currentTeam.phds, 'small');
+            renderTeamCategory(teamContainer, 'MSc Students', currentTeam.mscs, 'tiny');
+            
+            // Render alumni
             const alumni = getAlumni();
             if (alumni && alumni.length > 0) {
                 const alumniSection = createAlumniSection('Alumni', alumni);
                 teamContainer.appendChild(alumniSection);
             }
 
-            // Render world map
+            // Initialize world map after team is rendered
             setTimeout(renderWorldMap, 100);
+        }
+
+        function renderTeamCategory(container, title, members, size) {
+            if (members && members.length > 0) {
+                const section = createTeamSection(title, members, size);
+                container.appendChild(section);
+            }
         }
 
         function createTeamSection(title, members, size) {
@@ -549,26 +546,32 @@
             }
         }
 
+        // ========================================
+        // 5. PHOTO SLIDER FUNCTIONALITY
+        // ========================================
 
-        // Initialize slider
         function initPhotoSlider() {
+            if (typeof GROUP_PHOTOS === 'undefined') {
+                console.warn('Group photos requirements not met.');
+                return;
+            }
+
             generateThumbnails();
-            updatePhoto(0);
+            updatePhoto(0, true);
             updateCounter();
-            
-            // Add touch/swipe support
             addSwipeSupport();
         }
 
-        // Generate thumbnail navigation
         function generateThumbnails() {
             const thumbnailTrack = document.getElementById('thumbnailTrack');
+            if (!thumbnailTrack) return;
+            
             thumbnailTrack.innerHTML = '';
             
-            groupPhotos.forEach((photo, index) => {
+            GROUP_PHOTOS.forEach((photo, index) => {
                 const thumbnail = document.createElement('div');
                 thumbnail.className = `thumbnail ${index === 0 ? 'active' : ''}`;
-                thumbnail.onclick = () => updatePhoto(index);
+                thumbnail.onclick = () => updatePhoto(index, false);
                 
                 thumbnail.innerHTML = `
                     <img src="assets/figs/${photo.filename}" alt="Group photo ${photo.year}" loading="lazy">
@@ -578,19 +581,22 @@
             });
         }
 
-        // Update main photo
-        function updatePhoto(index) {
+        function updatePhoto(index, fromInit = false) {
             currentPhotoIndex = index;
-            const photo = groupPhotos[index];
+            const photo = GROUP_PHOTOS[index];
             
             // Update main image
             const mainImg = document.getElementById('currentPhoto');
-            mainImg.src = `assets/figs/${photo.filename}`;
-            mainImg.alt = `SARDINE Lab Group Photo - ${photo.year}`;
+            if (mainImg) {
+                mainImg.src = `assets/figs/${photo.filename}`;
+                mainImg.alt = `SARDINE Lab Group Photo - ${photo.year}`;
+            }
             
             // Update caption
-            document.getElementById('photoDate').textContent = photo.year;
-            document.getElementById('photoDescription').textContent = photo.description;
+            const photoDate = document.getElementById('photoDate');
+            const photoDescription = document.getElementById('photoDescription');
+            if (photoDate) photoDate.textContent = photo.year;
+            if (photoDescription) photoDescription.textContent = photo.description;
             
             // Update thumbnails
             document.querySelectorAll('.thumbnail').forEach((thumb, i) => {
@@ -598,32 +604,35 @@
             });
             
             updateCounter();
-            // scrollThumbnailIntoView(index);
-        }
 
-        // Navigation functions
-        function changePhoto(direction) {
-            const newIndex = currentPhotoIndex + direction;
-            
-            if (newIndex >= 0 && newIndex < groupPhotos.length) {
-                updatePhoto(newIndex);
-            } else if (newIndex < 0) {
-                updatePhoto(groupPhotos.length - 1); // Loop to last
-            } else {
-                updatePhoto(0); // Loop to first
+            // Scroll to thumbnail if user action
+            if (!fromInit) {
+                scrollThumbnailIntoView(index);
             }
         }
 
-        // Update counter
-        function updateCounter() {
-            document.getElementById('currentIndex').textContent = currentPhotoIndex + 1;
-            document.getElementById('totalPhotos').textContent = groupPhotos.length;
+        function changePhoto(direction) {
+            const newIndex = currentPhotoIndex + direction;
+            
+            if (newIndex >= 0 && newIndex < GROUP_PHOTOS.length) {
+                updatePhoto(newIndex, false);
+            } else if (newIndex < 0) {
+                updatePhoto(GROUP_PHOTOS.length - 1, false); // Loop to last
+            } else {
+                updatePhoto(0, false); // Loop to first
+            }
         }
 
-        // Scroll thumbnail into view
+        function updateCounter() {
+            const currentIndexEl = document.getElementById('currentIndex');
+            const totalPhotosEl = document.getElementById('totalPhotos');
+            if (currentIndexEl) currentIndexEl.textContent = currentPhotoIndex + 1;
+            if (totalPhotosEl) totalPhotosEl.textContent = GROUP_PHOTOS.length;
+        }
+
         function scrollThumbnailIntoView(index) {
             const thumbnailTrack = document.getElementById('thumbnailTrack');
-            const thumbnail = thumbnailTrack.children[index];
+            const thumbnail = thumbnailTrack?.children[index];
             
             if (thumbnail) {
                 thumbnail.scrollIntoView({
@@ -634,9 +643,10 @@
             }
         }
 
-        // Add swipe support for mobile
         function addSwipeSupport() {
             const photoContainer = document.querySelector('.main-photo-container');
+            if (!photoContainer) return;
+            
             let startX = 0;
             let startY = 0;
             
@@ -663,72 +673,59 @@
             });
         }
 
-        // Keyboard navigation
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowLeft') {
-                changePhoto(-1);
-            } else if (e.key === 'ArrowRight') {
-                changePhoto(1);
-            }
-        });
+        function setupKeyboardNavigation() {
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft') {
+                    changePhoto(-1);
+                } else if (e.key === 'ArrowRight') {
+                    changePhoto(1);
+                }
+            });
+        }
 
-        // Initialize when DOM is loaded
-        document.addEventListener('DOMContentLoaded', initPhotoSlider);
+        // ========================================
+        // 6. WORLD MAP FUNCTIONALITY
+        // ========================================
 
-        // World map rendering function
         function renderWorldMap() {
             const mapImg = document.getElementById('worldMap');
             const pinsWrap = document.getElementById('pins');
             
-            if (!mapImg || !pinsWrap || typeof teamData === 'undefined') return;
+            if (!mapImg || !pinsWrap || typeof teamData === 'undefined' || typeof COUNTRY_DATABASE === 'undefined') {
+                console.warn('World map requirements not met:', {
+                    mapImg: !!mapImg,
+                    pinsWrap: !!pinsWrap,
+                    teamData: typeof teamData !== 'undefined',
+                    countryDatabase: typeof COUNTRY_DATABASE !== 'undefined'
+                });
+                return;
+            }
 
             // Collect all team members with location data
             const allMembers = [];
             Object.keys(teamData).forEach(role => {
                 if (teamData[role] && Array.isArray(teamData[role])) {
                     teamData[role].forEach(member => {
-                        if (member.location && member.location.coordinates) {
+                        if (member.location && member.location.country) {
                             allMembers.push({
                                 ...member,
-                                role: role,
-                                lat: member.location.coordinates[0],
-                                lon: member.location.coordinates[1]
+                                role: role
                             });
                         }
                     });
                 }
             });
 
-            // Country color mapping
-            const countryColors = {
-                'Portugal': '#ef4444',
-                'Spain': '#f97316', 
-                'France': '#3b82f6',
-                'Italy': '#22c55e',
-                'Germany': '#8b5cf6',
-                'Japan': '#f59e0b',
-                'South Korea': '#ec4899',
-                'Egypt': '#06b6d4',
-                'Poland': '#84cc16',
-                'India': '#f43f5e',
-                'China': '#6366f1'
-            };
-
-            // Geographic projection function - Fixed for better accuracy
+            // Geographic projection function
             function project(lat, lon, width, height) {
-                // Convert to more accurate map projection
-                
-                // This accounts for the specific world map image being used
                 const mapLeft = -170;
                 const mapRight = 180;
                 const mapTop = 80;
                 const mapBottom = -60;
                 
-                // Clamp coordinates to map bounds
                 lat = Math.max(mapBottom, Math.min(mapTop, lat));
                 lon = Math.max(mapLeft, Math.min(mapRight, lon));
 
-                // Simple equirectangular projection with adjustments
                 const x = ((lon - mapLeft) / (mapRight - mapLeft)) * width;
                 const y = ((mapTop - lat) / (mapTop - mapBottom)) * height;
                 
@@ -745,99 +742,142 @@
                 const width = rect.width;
                 const height = rect.height;
 
-                // Group members by location
-                const locationGroups = {};
+                // Group members by country
+                const countryGroups = {};
                 allMembers.forEach(member => {
-                    const key = `${member.lat},${member.lon}`;
-                    if (!locationGroups[key]) {
-                        locationGroups[key] = {
-                            lat: member.lat,
-                            lon: member.lon,
-                            country: member.location.country,
-                            city: member.location.city,
+                    const country = member.location.country;
+                    if (!countryGroups[country]) {
+                        countryGroups[country] = {
+                            country: country,
                             members: []
                         };
                     }
-                    locationGroups[key].members.push(member);
+                    countryGroups[country].members.push(member);
                 });
 
-                // Create pins
-                Object.values(locationGroups).forEach((group) => {
-                    const { x, y } = project(group.lat, group.lon, width, height);
+                // Create tooltip element
+                const tooltip = document.createElement('div');
+                tooltip.className = 'map-tooltip';
+                tooltip.style.display = 'none';
+                document.body.appendChild(tooltip);
+
+                // Create pins for each country
+                Object.values(countryGroups).forEach((group) => {
+                    const country = group.country;
                     
-                    if (x < 0 || x > width || y < 0 || y > height) return;
+                    // Get coordinates and color from database
+                    const coordinates = COUNTRY_DATABASE.coordinates[country];
+                    const color = COUNTRY_DATABASE.colors[country] || '#64748b';
                     
-                    const pin = document.createElement('div');
-                    pin.className = 'absolute group cursor-pointer';
-                    pin.style.left = `${x}px`;
-                    pin.style.top = `${y}px`;
-                    pin.style.transform = 'translate(-50%, -50%)';
-                    pin.style.zIndex = '10';
+                    if (!coordinates) {
+                        console.warn(`No coordinates found for country: ${country}`);
+                        return;
+                    }
                     
-                    const color = countryColors[group.country] || '#64748b';
-                    const memberCount = group.members.length;
+                    const [lat, lon] = coordinates;
+                    const { x, y } = project(lat, lon, width, height);
                     
-                    pin.innerHTML = `
-                        <div class="relative">
-                            <!-- Pin dot -->
-                            <div class="map-pin" style="background-color: ${color};">
-                            </div>
-                            
-                            <!-- Member count badge for multiple members -->
-                            ${memberCount > 1 ? `
-                                <div class="member-count-badge">
-                                    ${memberCount}
-                                </div>
-                            ` : ''}
-                            
-                            <!-- Tooltip -->
-                            <div class="pin-tooltip">
-                                <div class="font-semibold mb-1">${group.city}, ${group.country}</div>
-                                ${group.members.map(m => `<div class="text-xs">${m.name} (${m.role.slice(0, -1)})</div>`).join('')}
-                            </div>
-                        </div>
-                    `;
+                    if (x < 0 || x > width || y < 0 || y > height) {
+                        console.log(`${country} is outside map bounds: x=${x}, y=${y}`);
+                        return;
+                    }
                     
+                    const pin = createCountryPin(group, x, y, color, tooltip);
                     pinsWrap.appendChild(pin);
                 });
 
-                // Create legend
-                // createMapLegend(locationGroups);
+                console.log(`World map rendered: ${Object.keys(countryGroups).length} countries with pins`);
             }
 
-            function createMapLegend(locationGroups) {
-                const existingLegend = document.querySelector('.map-legend');
-                if (existingLegend) existingLegend.remove();
-
-                const countryCounts = {};
-                Object.values(locationGroups).forEach(group => {
-                    countryCounts[group.country] = (countryCounts[group.country] || 0) + group.members.length;
-                });
-
-                const legend = document.createElement('div');
-                legend.className = 'map-legend absolute bottom-4 right-4 bg-white/95 backdrop-blur-sm p-4 rounded-lg border border-slate-200 shadow-lg max-w-xs';
-                legend.innerHTML = `
-                    <h3 class="font-semibold text-sm mb-3 text-slate-900">Team Origins</h3>
-                    <div class="space-y-2">
-                        ${Object.entries(countryCounts).map(([country, count]) => `
-                            <div class="flex items-center gap-2 text-xs">
-                                <div class="w-3 h-3 rounded-full border border-white shadow-sm" style="background-color: ${countryColors[country] || '#64748b'}"></div>
-                                <span class="text-slate-700">${country} (${count})</span>
-                            </div>
-                        `).join('')}
-                    </div>
-                    <div class="mt-3 pt-2 border-t border-slate-200">
-                        <div class="text-xs text-slate-500">
-                            <strong>${Object.keys(countryCounts).length}</strong> countries • 
-                            <strong>${Object.values(countryCounts).reduce((a, b) => a + b, 0)}</strong> members
-                        </div>
-                    </div>
+            function createCountryPin(group, x, y, color, tooltip) {
+                const pin = document.createElement('div');
+                pin.className = 'absolute';
+                pin.style.left = `${x}px`;
+                pin.style.top = `${y}px`;
+                pin.style.transform = 'translate(-50%, -50%)';
+                pin.style.zIndex = '10';
+                
+                pin.innerHTML = `
+                    <div class="map-pin" style="background-color: ${color};"></div>
                 `;
 
-                pinsWrap.appendChild(legend);
+                // Add hover events
+                pin.addEventListener('mouseenter', (e) => {
+                    showTooltip(group, tooltip, e);
+                });
+
+                pin.addEventListener('mouseleave', () => {
+                    tooltip.style.display = 'none';
+                });
+                
+                return pin;
             }
 
-            // Place pins when map loads
+            function showTooltip(group, tooltip, event) {
+                const memberCount = group.members.length;
+                
+                // Group members by city
+                const cityGroups = {};
+                group.members.forEach(member => {
+                    const city = member.location.city || 'Unknown City';
+                    if (!cityGroups[city]) {
+                        cityGroups[city] = [];
+                    }
+                    cityGroups[city].push(member);
+                });
+
+                // Build tooltip content
+                let tooltipContent = `
+                    <div class="country-name">${group.country} (${memberCount})</div>
+                    <div class="member-list">
+                `;
+
+                Object.keys(cityGroups).forEach(city => {
+                    cityGroups[city].forEach(member => {
+                        tooltipContent += `<div class="member-item">${member.name} (${city})</div>`;
+                    });
+                });
+
+                tooltipContent += '</div>';
+                
+                tooltip.innerHTML = tooltipContent;
+                tooltip.style.display = 'block';
+                
+                // Position tooltip
+                positionTooltip(tooltip, event);
+                
+                // Update position on mouse move
+                const mouseMoveHandler = (e) => positionTooltip(tooltip, e);
+                document.addEventListener('mousemove', mouseMoveHandler);
+                
+                // Clean up on mouse leave
+                const mouseLeaveHandler = () => {
+                    document.removeEventListener('mousemove', mouseMoveHandler);
+                    document.removeEventListener('mouseleave', mouseLeaveHandler);
+                };
+                document.addEventListener('mouseleave', mouseLeaveHandler, { once: true });
+            }
+
+            function positionTooltip(tooltip, event) {
+                const tooltipRect = tooltip.getBoundingClientRect();
+                let left = event.clientX + 15;
+                let top = event.clientY - 10;
+                
+                // Adjust if tooltip would go off screen
+                if (left + tooltipRect.width > window.innerWidth) {
+                    left = event.clientX - tooltipRect.width - 15;
+                }
+                if (top + tooltipRect.height > window.innerHeight) {
+                    top = event.clientY - tooltipRect.height - 10;
+                }
+                if (left < 0) left = 10;
+                if (top < 0) top = 10;
+                
+                tooltip.style.left = `${left}px`;
+                tooltip.style.top = `${top}px`;
+            }
+
+            // Initialize pins when map loads
             if (mapImg.complete) {
                 setTimeout(placePins, 100);
             } else {
@@ -853,6 +893,13 @@
                 resizeTimeout = setTimeout(placePins, 250);
             });
         }
+
+        // ========================================
+        // 7. GLOBAL FUNCTIONS (called from HTML)
+        // ========================================
+
+        // These functions are called by HTML elements, so they need to be global
+        window.changePhoto = changePhoto;
     </script>
 </body>
 </html>

@@ -25,7 +25,6 @@ const teamData = {
             location: {
                 country: "Portugal",
                 city: "Lisbon",
-                coordinates: [38.7223, -9.1393]
             }
         }
     ],
@@ -45,7 +44,6 @@ const teamData = {
             location: {
                 country: "Portugal",
                 city: "Lisbon",
-                coordinates: [38.7223, -9.1393]
             }
         },
         {
@@ -65,7 +63,6 @@ const teamData = {
             location: {
                 country: "Italy",
                 city: "Milan",
-                coordinates: [45.4642, 9.1900]
             }
         },
         {
@@ -87,7 +84,6 @@ const teamData = {
             location: {
                 country: "Brazil",
                 city: "São Paulo",
-                coordinates: [-23.5558, -46.6396]
             }
         },
         {
@@ -107,7 +103,6 @@ const teamData = {
             location: {
                 country: "United States",
                 city: "Boston",
-                coordinates: [42.3601, -71.0589]
             }
         }
     ],
@@ -127,7 +122,6 @@ const teamData = {
             location: {
                 country: "Portugal",
                 city: "Lisbon",
-                coordinates: [38.7223, -9.1393]
             }
         },
         {
@@ -145,7 +139,6 @@ const teamData = {
             location: {
                 country: "Portugal",
                 city: "Porto",
-                coordinates: [41.1579, -8.6291]
             }
         },
         {
@@ -165,7 +158,6 @@ const teamData = {
             location: {
                 country: "India",
                 city: "Mumbai",
-                coordinates: [19.0760, 72.8777]
             }
         },
         {
@@ -183,7 +175,6 @@ const teamData = {
             location: {
                 country: "Greece",
                 city: "Athens",
-                coordinates: [37.9838, 23.7275]
             }
         },
         {
@@ -202,7 +193,6 @@ const teamData = {
             location: {
                 country: "Ukraine",
                 city: "Kyiv",
-                coordinates: [50.4501, 30.5234]
             }
         },
         {
@@ -220,7 +210,6 @@ const teamData = {
             location: {
                 country: "Greece",
                 city: "Thessaloniki",
-                coordinates: [40.6401, 22.9444]
             }
         },
         {
@@ -238,7 +227,6 @@ const teamData = {
             location: {
                 country: "Portugal",
                 city: "Lisbon",
-                coordinates: [38.7223, -9.1393]
             }
         },
         {
@@ -258,7 +246,6 @@ const teamData = {
             location: {
                 country: "Portugal",
                 city: "Lisbon",
-                coordinates: [38.7223, -9.1393]
             }
         },
         {
@@ -276,7 +263,6 @@ const teamData = {
             location: {
                 country: "Portugal",
                 city: "Coimbra",
-                coordinates: [40.2033, -8.4103]
             }
         },
         {
@@ -298,7 +284,6 @@ const teamData = {
             location: {
                 country: "Portugal",
                 city: "Lisbon",
-                coordinates: [38.7223, -9.1393]
             }
         },
         {
@@ -319,7 +304,6 @@ const teamData = {
             location: {
                 country: "Germany",
                 city: "Darmstadt",
-                coordinates: [49.8728, 8.6512]
             }
         },
         {
@@ -340,7 +324,6 @@ const teamData = {
             location: {
                 country: "Portugal",
                 city: "Lisbon",
-                coordinates: [38.7223, -9.1393]
             }
         },
         {
@@ -361,7 +344,6 @@ const teamData = {
             location: {
                 country: "Portugal",
                 city: "Lisbon",
-                coordinates: [38.7223, -9.1393]
             }
         },
         {
@@ -382,7 +364,6 @@ const teamData = {
             location: {
                 country: "China",
                 city: "Beijing",
-                coordinates: [39.9042, 116.4074]
             }
         },
         {
@@ -403,7 +384,6 @@ const teamData = {
             location: {
                 country: "Portugal",
                 city: "Lisbon",
-                coordinates: [38.7223, -9.1393]
             }
         }
     ],
@@ -424,7 +404,6 @@ const teamData = {
             location: {
                 country: "Portugal",
                 city: "Braga",
-                coordinates: [41.5518, -8.4229]
             }
         }
     ],
@@ -446,7 +425,6 @@ const teamData = {
             location: {
                 country: "India",
                 city: "Delhi",
-                coordinates: [28.7041, 77.1025]
             }
         },
         {
@@ -465,7 +443,6 @@ const teamData = {
             location: {
                 country: "China",
                 city: "Shanghai",
-                coordinates: [31.2304, 121.4737]
             }
         },
         {
@@ -486,7 +463,6 @@ const teamData = {
             location: {
                 country: "Greece",
                 city: "Athens",
-                coordinates: [37.9838, 23.7275]
             }
         },
         {
@@ -507,7 +483,6 @@ const teamData = {
             location: {
                 country: "Romania",
                 city: "Bucharest",
-                coordinates: [44.4268, 26.1025]
             }
         },
         {
@@ -528,7 +503,6 @@ const teamData = {
             location: {
                 country: "Brazil",
                 city: "São Paulo",
-                coordinates: [-23.5558, -46.6396]
             }
         },
         {
@@ -548,7 +522,6 @@ const teamData = {
             location: {
                 country: "Bulgaria",
                 city: "Sofia",
-                coordinates: [42.6977, 23.3219]
             }
         },
         {
@@ -568,7 +541,6 @@ const teamData = {
             location: {
                 country: "Portugal",
                 city: "Lisbon",
-                coordinates: [38.7223, -9.1393]
             }
         },
         {
@@ -590,7 +562,6 @@ const teamData = {
             location: {
                 country: "Bulgaria",
                 city: "Sofia",
-                coordinates: [42.6977, 23.3219]
             }
         },
         {
@@ -612,7 +583,6 @@ const teamData = {
             location: {
                 country: "Portugal",
                 city: "Lisbon",
-                coordinates: [38.7223, -9.1393]
             }
         },
         {
@@ -633,7 +603,6 @@ const teamData = {
             location: {
                 country: "Portugal",
                 city: "Lisbon",
-                coordinates: [38.7223, -9.1393]
             }
         },
         {
@@ -655,7 +624,6 @@ const teamData = {
             location: {
                 country: "Portugal",
                 city: "Lisbon",
-                coordinates: [38.7223, -9.1393]
             }
         }
     ]
@@ -692,7 +660,6 @@ function getTeamLocations() {
                     name: member.name,
                     country: member.location.country,
                     city: member.location.city,
-                    coordinates: member.location.coordinates,
                     role: member.role
                 });
             }

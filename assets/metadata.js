@@ -33,18 +33,19 @@ const SARDINE_METADATA = {
     socialNetworks: [
         {
             name: "GitHub",
-            url: "https://github.com/sardine-lab",
+            url: "https://github.com/deep-spin",
             icon: "fab fa-github"
         },
+        
         {
             name: "Twitter",
-            url: "#",
+            url: "https://x.com/deep_spin",
             icon: "fab fa-twitter"
         },
         {
-            name: "LinkedIn", 
-            url: "#",
-            icon: "fab fa-linkedin"
+            name: "BlueSky", 
+            url: "https://web-cdn.bsky.app/profile/sardine-lab-it.bsky.social",
+            icon: "fab fa-bluesky"
         },
         {
             name: "Email",
@@ -90,7 +91,7 @@ class MetadataManager {
             <div class="flex items-center justify-between h-16">
                 <a href="index.html" class="flex items-center gap-2 group">
                     <img width="${this.metadata.site.logo.width}" src="${this.metadata.site.logo.path}" alt="${this.metadata.site.logo.alt}">
-                    <span class="font-semibold text-slate-900 group-hover:text-sardine-blue transition-colors">${this.metadata.site.name}</span>
+                    <span class="font-semibold text-slate-900">${this.metadata.site.name}</span>
                 </a>
                 <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
                     ${this.metadata.navigation.map(item => 

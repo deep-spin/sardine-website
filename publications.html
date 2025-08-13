@@ -7,7 +7,7 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%22100%22>🐟</text></svg>">
     <meta name="description" content="SARDINE Lab — Structure AwaRe moDelIng for Natural LanguagE">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -113,15 +113,16 @@
                 </div>
                 
                 <!-- Search -->
-                <div class="flex gap-4 items-center">
-                    <div class="relative">
-                        <input type="text" id="searchInput" placeholder="Search publications..." class="search-input max-w-md pl-10">
+                <div class="flex flex-1 ml-4">
+                    <div class="relative flex-1 max-w-lg">
+                        <input type="text" id="searchInput" placeholder="Search publications..." class="search-input w-full pl-10">
                         <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400"></i>
                     </div>
-                    <button id="resetFilters" class="px-4 py-2 text-sm text-slate-600 hover:text-slate-900 transition-colors">
-                        <i class="fas fa-undo mr-1"></i>Reset
+                    <button id="resetFilters" title="Reset filters" class="px-4 py-2 text-sm text-slate-600 hover:text-slate-900 transition-colors">
+                        <i class="fas fa-undo mr-1"></i>
                     </button>
                 </div>
+
             </div>
         </div>
     </section>

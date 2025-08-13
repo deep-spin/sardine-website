@@ -9,7 +9,7 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%22100%22>🐟</text></svg>">
     
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -38,7 +38,7 @@
             <div class="flex items-center justify-between h-16">
                 <a href="index.html" class="flex items-center gap-2 group">
                     <img width="128" src="assets/figs/logo-sardine.png" alt="SARDINE Lab Logo">
-                    <span class="font-semibold text-slate-900 group-hover:text-sardine-blue transition-colors">SARDINE Lab</span>
+                    <span class="font-semibold text-slate-900">SARDINE Lab</span>
                 </a>
                 <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
                     <a href="index.html" class="navlink  text-slate-600 hover:text-slate-900 transition-colors">Home</a><a href="news.html" class="navlink  text-slate-600 hover:text-slate-900 transition-colors">News</a><a href="publications.html" class="navlink  text-slate-600 hover:text-slate-900 transition-colors">Publications</a><a href="projects.html" class="navlink active text-slate-600 hover:text-slate-900 transition-colors">Projects</a>
@@ -70,29 +70,40 @@
 
     <!-- Projects Content -->
     <main class="max-w-6xl mx-auto px-4 py-12">
-        <!-- Current Projects -->
-        <section class="mb-16">
-            <h2 class="text-2xl font-bold text-slate-900 mb-8">Current Projects</h2>
-            <div id="currentProjectsList" class="space-y-8">
-                <!-- Current projects will be populated by JavaScript -->
-                <div class="text-center py-8 text-slate-500">
-                    <i class="fas fa-spinner fa-spin text-2xl mb-2"></i>
-                    <p>Loading current projects...</p>
-                </div>
-            </div>
-        </section>
+        <!-- Tabs Navigation -->
+        <div class="flex border-b border-slate-200 mb-8">
+            <button id="currentTab" class="tab-btn active px-6 py-3 font-medium text-slate-900 border-b-2 border-sardine-blue">
+                Current Projects
+            </button>
+            <button id="pastTab" class="tab-btn px-6 py-3 font-medium text-slate-600 hover:text-slate-900 border-b-2 border-transparent hover:border-slate-300 transition-colors">
+                Past Projects
+            </button>
+        </div>
 
-        <!-- Past Projects -->
-        <section>
-            <h2 class="text-2xl font-bold text-slate-900 mb-8">Past Projects</h2>
-            <div id="pastProjectsList" class="space-y-8">
-                <!-- Past projects will be populated by JavaScript -->
-                <div class="text-center py-8 text-slate-500">
-                    <i class="fas fa-spinner fa-spin text-2xl mb-2"></i>
-                    <p>Loading past projects...</p>
+        <!-- Tab Content -->
+        <div class="tab-content">
+            <!-- Current Projects Tab -->
+            <div id="currentProjectsTab" class="tab-panel active">
+                <div id="currentProjectsList" class="space-y-8">
+                    <!-- Current projects will be populated by JavaScript -->
+                    <div class="text-center py-8 text-slate-500">
+                        <i class="fas fa-spinner fa-spin text-2xl mb-2"></i>
+                        <p>Loading current projects...</p>
+                    </div>
                 </div>
             </div>
-        </section>
+
+            <!-- Past Projects Tab -->
+            <div id="pastProjectsTab" class="tab-panel hidden">
+                <div id="pastProjectsList" class="space-y-8">
+                    <!-- Past projects will be populated by JavaScript -->
+                    <div class="text-center py-8 text-slate-500">
+                        <i class="fas fa-spinner fa-spin text-2xl mb-2"></i>
+                        <p>Loading past projects...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
     <!-- Footer -->
@@ -108,8 +119,43 @@
     <script src="assets/main.js"></script>
     
     <script>
+        // Tab functionality
+        function initTabs() {
+            const currentTab = document.getElementById('currentTab');
+            const pastTab = document.getElementById('pastTab');
+            const currentPanel = document.getElementById('currentProjectsTab');
+            const pastPanel = document.getElementById('pastProjectsTab');
+
+            function switchToTab(activeTab, activePanel, inactiveTab, inactivePanel) {
+                // Update tab buttons
+                activeTab.classList.add('active');
+                activeTab.classList.remove('text-slate-600', 'hover:text-slate-900', 'border-transparent', 'hover:border-slate-300');
+                activeTab.classList.add('text-slate-900', 'border-sardine-blue');
+
+                inactiveTab.classList.remove('active');
+                inactiveTab.classList.remove('text-slate-900', 'border-sardine-blue');
+                inactiveTab.classList.add('text-slate-600', 'hover:text-slate-900', 'border-transparent', 'hover:border-slate-300');
+
+                // Update panels
+                activePanel.classList.remove('hidden');
+                activePanel.classList.add('active');
+                inactivePanel.classList.add('hidden');
+                inactivePanel.classList.remove('active');
+            }
+
+            currentTab.addEventListener('click', () => {
+                switchToTab(currentTab, currentPanel, pastTab, pastPanel);
+            });
+
+            pastTab.addEventListener('click', () => {
+                switchToTab(pastTab, pastPanel, currentTab, currentPanel);
+            });
+        }
+
         // Projects page functionality
         document.addEventListener('DOMContentLoaded', function() {
+            initTabs();
+            
             if (typeof projectsData !== 'undefined') {
                 renderAllProjects();
             }
@@ -126,9 +172,10 @@
 
             if (projects.length === 0) {
                 container.innerHTML = `
-                    <div class="text-center py-8 text-slate-500">
+                    <div class="text-center py-12 text-slate-500">
                         <i class="fas fa-folder-open text-4xl mb-4"></i>
-                        <p>No ${status} projects found</p>
+                        <p class="text-lg">No ${status} projects found</p>
+                        <p class="text-sm mt-2">Check back later for updates!</p>
                     </div>
                 `;
                 return;

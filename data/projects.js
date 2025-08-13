@@ -93,13 +93,18 @@ const projectsData = {
 };
 
 // Function to get current projects
-function getCurrentProjects() {
-    return projectsData.current;
+function getCurrentProjects(limit = null) {
+    if (limit === null)
+        return projectsData.current
+    return projectsData.current.slice(0, limit);
 }
 
+
 // Function to get past projects
-function getPastProjects() {
-    return projectsData.past;
+function getPastProjects(limit = null) {
+    if (limit === null)
+        return projectsData.past
+    return projectsData.past.slice(0, limit);
 }
 
 // Function to get all projects
