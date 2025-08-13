@@ -118,6 +118,7 @@ class MetadataManager {
     // Update footer
     updateFooter() {
         const footer = document.querySelector('footer .max-w-6xl');
+        let currentYear = new Date().getFullYear();
         if (!footer) return;
 
         footer.innerHTML = `
@@ -158,7 +159,7 @@ class MetadataManager {
             </div>
             <div class="border-t border-slate-800 mt-8 pt-8 text-center text-sm text-slate-500">
                 <div class="max-w-6xl mx-auto px-4 flex items-center justify-between">
-                    <span>&copy; 2025 ${this.metadata.site.name}. All rights reserved.</span>
+                    <span>&copy; ${currentYear} ${this.metadata.site.name}. All rights reserved.</span>
                     <span>Made with ${this.metadata.site.icon} in Lisbon.</span>
                 </div>
             </div>

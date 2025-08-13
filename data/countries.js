@@ -1,8 +1,7 @@
 // Complete country database with coordinates and colors
-// Add this to your data folder as data/countries.js
 
 const COUNTRY_DATABASE = {
-    // Colors for countries (automatically assigned from a curated palette)
+    // Colors for countries
     colors: {
         // Europe
         'Albania': '#ef4444',
@@ -203,8 +202,7 @@ const COUNTRY_DATABASE = {
         'Vanuatu': '#ef4444',
     },
     
-    // Coordinates for all countries [latitude, longitude]
-    // Edit manually [y, x]
+    // Coordinates for all countries [y, x]
     // higher y => top
     // higher x => right
     coordinates: {

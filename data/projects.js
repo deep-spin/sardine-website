@@ -3,7 +3,7 @@
 const projectsData = {
     current: [
         {
-            id: 1,
+            id: 5,
             name: "DECOLLAGE",
             title: "Deep Cognition Learning for Language Generation",
             description: "Large-scale language models have led to impressive results in many NLP tasks, exhibiting transfer and few-shot learning capabilities. When interacting with such systems, users commonly find them capable of reasoning, planning, and explaining their decisions, often in convincing ways. However, despite the enormous advances in the last years, current deep learning models for NLP are still very limited in fundamental ways and many important ingredients are still missing to achieve a satisfactory level of 'intelligence'. Some of these limitations partly stem from their monolithic architectures, which are good for some perceptual tasks, but unsuitable for tasks requiring higher-level cognition.",
@@ -19,7 +19,7 @@ const projectsData = {
             ]
         },
         {
-            id: 2,
+            id: 4,
             name: "UTTER",
             title: "Unified Transcription and Translation",
             description: "Unified Transcription and Translation.",
@@ -53,25 +53,7 @@ const projectsData = {
     ],
     past: [
         {
-            id: 4,
-            name: "DeepSPIN",
-            title: "Deep Structured Prediction in Natural Language Processing",
-            description: "This project aims to develop new methods for structured prediction in natural language processing, with a focus on deep learning approaches. We explore novel architectures and training methods for tasks such as syntactic parsing, semantic role labeling, and machine translation.",
-            funding: "ERC Starting Grant",
-            period: "2018-2023",
-            status: "current",
-            website: "https://deep-spin.github.io",
-            pi: "André Martins",
-            team_members: ["Vlad Niculae", "Erick Fonseca", "Ben Peters", "Gonçalo Correia", "Tsvetomila Mihaylova", "Marcos Treviso", "Pedro Martins"],
-            keywords: ["structured prediction", "deep learning", "parsing", "machine translation"],
-            publications: [
-                "Sparse and Structured Neural Machine Translation",
-                "Attention Mechanisms for Text Classification",
-                "Deep Reinforcement Learning for Structured Prediction"
-            ]
-        },
-        {
-            id: 5,
+            id: 2,
             name: "MAIA",
             title: "Multilingual AI Agent Assistants for Customer Service",
             description: "This collaborative project with Unbabel focuses on developing multilingual AI assistants for customer service applications. We work on cross-lingual transfer learning, multilingual natural language understanding, and human-AI interaction for customer support scenarios.",
@@ -88,7 +70,25 @@ const projectsData = {
                 "Multilingual Sparse Models for Natural Language Understanding",
                 "Few-shot Learning for Natural Language Processing Tasks"
             ]
-        }
+        },
+        {
+            id: 1,
+            name: "DeepSPIN",
+            title: "Deep Structured Prediction in Natural Language Processing",
+            description: "This project aims to develop new methods for structured prediction in natural language processing, with a focus on deep learning approaches. We explore novel architectures and training methods for tasks such as syntactic parsing, semantic role labeling, and machine translation.",
+            funding: "ERC Starting Grant",
+            period: "2018-2023",
+            status: "current",
+            website: "https://deep-spin.github.io",
+            pi: "André Martins",
+            team_members: ["Vlad Niculae", "Erick Fonseca", "Ben Peters", "Gonçalo Correia", "Tsvetomila Mihaylova", "Marcos Treviso", "Pedro Martins"],
+            keywords: ["structured prediction", "deep learning", "parsing", "machine translation"],
+            publications: [
+                "Sparse and Structured Neural Machine Translation",
+                "Attention Mechanisms for Text Classification",
+                "Deep Reinforcement Learning for Structured Prediction"
+            ]
+        },
     ]
 };
 

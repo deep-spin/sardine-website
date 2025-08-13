@@ -30,7 +30,7 @@ const publicationsData = [
         }
     }, 
     {
-        id: 1,
+        id: 65,
         title: "AdaSplash: Adaptive Sparse Flash Attention",
         authors: "Nuno Gonçalves, Marcos Treviso, André F. T. Martins",
         venue: "ICML 2025 (oral)",
@@ -43,7 +43,7 @@ const publicationsData = [
         }
     },
     {
-        id: 2,
+        id: 64,
         title: "∞-Video: A Training-Free Approach to Long Video Understanding via Continuous-Time Memory Consolidation",
         authors: "Saul Santos, António Farinhas, Daniel C McNamee, André F. T. Martins",
         venue: "ICML 2025",
@@ -56,7 +56,7 @@ const publicationsData = [
         }
     },
     {
-        id: 3,
+        id: 63,
         title: "A Context-aware Framework for Translation-mediated Conversations",
         authors: "José Pombal, Sweta Agrawal, Patrick Fernandes, Emmanouil Zaranis, André F. T. Martins",
         venue: "TACL",
@@ -69,7 +69,7 @@ const publicationsData = [
         }
     },
     {
-        id: 4,
+        id: 62,
         title: "Did Translation Models Get More Robust Without Anyone Even Noticing?",
         authors: "Ben Peters, André F. T. Martins",
         venue: "ACL 2025",
@@ -82,7 +82,7 @@ const publicationsData = [
         }
     },
     {
-        id: 5,
+        id: 61,
         title: "Watching the watchers: Exposing gender disparities in machine translation quality estimation",
         authors: "Emmanouil Zaranis, Giuseppe Attanasio, Sweta Agrawal, André F. T. Martins",
         venue: "ACL 2025",
@@ -95,7 +95,7 @@ const publicationsData = [
         }
     },
     {
-        id: 6,
+        id: 60,
         title: "Different Speech Translation Models Encode and Translate Speaker Gender Differently",
         authors: "Dennis Fucci, Marco Gaido, Matteo Negri, Luisa Bentivogli, Andre Martins, Giuseppe Attanasio",
         venue: "ACL 2025",
@@ -108,7 +108,7 @@ const publicationsData = [
         }
     },
     {
-        id: 7,
+        id: 59,
         title: "LLMs instead of Human Judges? A Large Scale Empirical Study across 20 NLP Evaluation Tasks",
         authors: "Anna Bavaresco, Raffaella Bernardi, Leonardo Bertolazzi, Desmond Elliott, Raquel Fernández, Albert Gatt, Esam Ghaleb, Mario Giulianelli, Michael Hanna, Alexander Koller, Andre Martins, Philipp Mondorf, Vera Neplenbroek, Sandro Pezzelle, Barbara Plank, David Schlangen, Alessandro Suglia, Aditya K Surikuchi, Ece Takmaz, Alberto Testoni",
         venue: "ACL 2025",
@@ -121,7 +121,7 @@ const publicationsData = [
         }
     },
     {
-        id: 8,
+        id: 58,
         title: "Global MMLU: Understanding and Addressing Cultural and Linguistic Biases in Multilingual Evaluation",
         authors: "Shivalika Singh, Angelika Romanou, Clémentine Fourrier, David Ifeoluwa Adelani, Jian Gang Ngui, Daniel Vila-Suero, Peerat Limkonchotiwat, Kelly Marchisio, Wei Qi Leong, Yosephine Susanto, Raymond Ng, Shayne Longpre, Sebastian Ruder, Wei-Yin Ko, Antoine Bosselut, Alice Oh, Andre Martins, Leshem Choshen, Daphne Ippolito, Enzo Ferrante, Marzieh Fadaee, Beyza Ermis, Sara Hooker",
         venue: "ACL 2025",
@@ -134,7 +134,7 @@ const publicationsData = [
         }
     },
     {
-        id: 9,
+        id: 57,
         title: "Discrete latent structure in neural networks",
         authors: "Vlad Niculae, Caio Corro, Nikita Nangia, Tsvetomila Mihaylova, André F. T. Martins",
         venue: "Foundations and Trends in Signal Processing",
@@ -147,7 +147,7 @@ const publicationsData = [
         }
     },
     {
-        id: 10,
+        id: 56,
         title: "Sparse Activations as Conformal Predictors",
         authors: "Margarida Campos, João Calém, Sophia Sklaviadis, Mário A. T. Figueiredo, André F. T. Martins",
         venue: "AISTATS 2025",
@@ -160,7 +160,7 @@ const publicationsData = [
         }
     },
     {
-        id: 11,
+        id: 55,
         title: "Modern Hopfield Networks with Continuous-Time Memories",
         authors: "Saul Santos, António Farinhas, Daniel C McNamee, André FT Martins",
         venue: "ICLR Workshop on New Frontiers in Associative Memories",
@@ -173,7 +173,7 @@ const publicationsData = [
         }
     },
     {
-        id: 12,
+        id: 54,
         title: "XAMPLER: Learning to retrieve cross-lingual in-context examples",
         authors: "Peiqin Lin, André FT Martins, Hinrich Schütze",
         venue: "Findings of NAACL 2025",
@@ -188,7 +188,7 @@ const publicationsData = [
 
     // 2024
     {
-        id: 13,
+        id: 53,
         title: "Reranking Laws for Language Generation: A Communication-Theoretic Perspective",
         authors: "António Farinhas, Haau-Sing Li, André F. T. Martins",
         venue: "NeurIPS 2024 (spotlight)",
@@ -201,7 +201,7 @@ const publicationsData = [
         }
     },
     {
-        id: 14,
+        id: 52,
         title: "QUEST: Quality-Aware Metropolis-Hastings Sampling for Machine Translation",
         authors: "Gonçalo R. A. Faria, Sweta Agrawal, António Farinhas, Ricardo Rei, José G. C. de Souza, André F. T. Martins",
         venue: "NeurIPS 2024",
@@ -214,7 +214,7 @@ const publicationsData = [
         }
     },
     {
-        id: 15,
+        id: 51,
         title: "Can Automatic Metrics Assess High-Quality Translations?",
         authors: "Sweta Agrawal, António Farinhas, Ricardo Rei, André F.T. Martins",
         venue: "EMNLP 2024",
@@ -227,7 +227,7 @@ const publicationsData = [
         }
     },
     {
-        id: 16,
+        id: 50,
         title: "Modeling User Preferences with Automatic Metrics: Creating a High-Quality Preference Dataset for Machine Translation",
         authors: "Sweta Agrawal, José G. C. de Souza, Ricardo Rei, António Farinhas, Gonçalo Faria, Patrick Fernandes, Nuno M Guerreiro, André F.T. Martins",
         venue: "EMNLP 2024",
@@ -240,7 +240,7 @@ const publicationsData = [
         }
     },
     {
-        id: 17,
+        id: 49,
         title: "Analyzing Context Contributions in LLM-based Machine Translation",
         authors: "Emmanouil Zaranis, Nuno M. Guerreiro, Andre Martins",
         venue: "Findings of EMNLP 2024",
@@ -253,7 +253,7 @@ const publicationsData = [
         }
     },
     {
-        id: 18,
+        id: 48,
         title: "xTower: A Multilingual LLM for Explaining and Correcting Translation Errors",
         authors: "Marcos V. Treviso, Nuno M. Guerreiro, Sweta Agrawal, Ricardo Rei, José Pombal, Tania Vaz, Helena Wu, Beatriz Silva, Daan van Stigt, André F.T. Martins",
         venue: "Findings of EMNLP 2024",
@@ -266,7 +266,7 @@ const publicationsData = [
         }
     },
     {
-        id: 19,
+        id: 47,
         title: "How Effective are State Space Models for Machine Translation?",
         authors: "Hugo Pitorro, Pavlo Vasylenko, Marcos Treviso, André F.T. Martins",
         venue: "WMT 2024",
@@ -279,7 +279,7 @@ const publicationsData = [
         }
     },
     {
-        id: 20,
+        id: 46,
         title: "Tower: An Open Multilingual Large Language Model for Translation-Related Tasks",
         authors: "Duarte M. Alves, José Pombal, Nuno M. Guerreiro, Pedro H. Martins, João Alves, Amin Farajian, Ben Peters, Ricardo Rei, Patrick Fernandes, Sweta Agrawal, Pierre Colombo, José G.C. de Souza, André F.T. Martins",
         venue: "COLM 2024 (oral)",
@@ -292,7 +292,7 @@ const publicationsData = [
         }
     },
     {
-        id: 21,
+        id: 45,
         title: "Conformal Prediction for Natural Language Processing: A Survey",
         authors: "Margarida M. Campos, António Farinhas, Chrysoula Zerva, Mário A.T. Figueiredo, André F.T. Martins",
         venue: "TACL",
@@ -305,7 +305,7 @@ const publicationsData = [
         }
     },
     {
-        id: 22,
+        id: 44,
         title: "Conformalizing Machine Translation Evaluation",
         authors: "Chryssa Zerva, André F. T. Martins",
         venue: "TACL",
@@ -318,7 +318,7 @@ const publicationsData = [
         }
     },
     {
-        id: 23,
+        id: 43,
         title: "Assessing the Role of Context in Chat Translation Evaluation: Is Context Helpful and Under What Conditions?",
         authors: "Sweta Agarwal, Amin Farajian, Patrick Fernandes, Ricardo Rei, André F. T. Martins",
         venue: "TACL",
@@ -331,7 +331,7 @@ const publicationsData = [
         }
     },
     {
-        id: 24,
+        id: 42,
         title: "Sparse and Structured Hopfield Networks",
         authors: "Saul Santos, Vlad Niculae, Daniel C. McNamee, André F. T. Martins",
         venue: "ICML 2024 (spotlight)",
@@ -344,7 +344,7 @@ const publicationsData = [
         }
     },
     {
-        id: 25,
+        id: 41,
         title: "Aligning Neural Machine Translation Models: Human Feedback in Training and Inference",
         authors: "Miguel Moura Ramos, Patrick Fernandes, António Farinhas, André F. T. Martins",
         venue: "EAMT 2024",
@@ -357,7 +357,7 @@ const publicationsData = [
         }
     },
     {
-        id: 26,
+        id: 40,
         title: "Non-exchangeable Conformal Risk Control",
         authors: "António Farinhas, Chryssa Zerva, Dennis Ulmer, André F. T. Martins",
         venue: "ICLR 2024",
@@ -370,7 +370,7 @@ const publicationsData = [
         }
     },
     {
-        id: 27,
+        id: 39,
         title: "Non-exchangeable Conformal Language Generation with Nearest Neighbors",
         authors: "Dennis Ulmer, Chryssa Zerva, André F. T. Martins",
         venue: "EACL 2024",
@@ -383,7 +383,7 @@ const publicationsData = [
         }
     },
     {
-        id: 28,
+        id: 38,
         title: "mPLM-Sim: Unveiling Better Cross-Lingual Similarity and Transfer in Multilingual Pretrained Language Models",
         authors: "Peiqin Lin, Chengzhi Hu, Zheyu Zhang, André F. T. Martins, Hinrich Schütze",
         venue: "EACL 2024",
@@ -396,7 +396,7 @@ const publicationsData = [
         }
     },
     {
-        id: 29,
+        id: 37,
         title: "xCOMET: Transparent Machine Translation Evaluation through Fine-grained Error Detection",
         authors: "Nuno M. Guerreiro, Ricardo Rei, Daan van Stigt, Luisa Coheur, Pierre Colombo, André F. T. Martins",
         venue: "TACL",
@@ -411,7 +411,7 @@ const publicationsData = [
 
     // 2023
     {
-        id: 30,
+        id: 36,
         title: "Sparse Modern Hopfield Networks",
         authors: "André F. T. Martins, Vlad Niculae, Daniel C. McNamee",
         venue: "NeurIPS Workshop on Associative Memories & Hopfield Networks",
@@ -424,7 +424,7 @@ const publicationsData = [
         }
     },
     {
-        id: 31,
+        id: 35,
         title: "The Devil Is in the Errors: Leveraging Large Language Models for Fine-grained Machine Translation Evaluation",
         authors: "Patrick Fernandes, Daniel Deutsch, Mara Finkelstein, Parker Riley, André Martins, Graham Neubig, Ankush Garg, Jonathan Clark, Markus Freitag, Orhan Firat",
         venue: "WMT 2023",
@@ -437,7 +437,7 @@ const publicationsData = [
         }
     },
     {
-        id: 32,
+        id: 34,
         title: "Steering Large Language Models for Machine Translation with Finetuning and In-Context Learning",
         authors: "Duarte M. Alves, Nuno M. Guerreiro, João Alves, José Pombal, Ricardo Rei, José G. C. de Souza, Pierre Colombo, André F. T. Martins",
         venue: "Findings of EMNLP 2023",
@@ -463,7 +463,7 @@ const publicationsData = [
         }
     },
     {
-        id: 34,
+        id: 32,
         title: "An Empirical Study of Translation Hypothesis Ensembling with Large Language Models",
         authors: "António Farinhas, José G. C. de Souza, André F. T. Martins",
         venue: "EMNLP 2023",
@@ -476,7 +476,7 @@ const publicationsData = [
         }
     },
     {
-        id: 35,
+        id: 31,
         title: "Bridging the gap: A survey on integrating (human) feedback for natural language generation",
         authors: "Patrick Fernandes, Aman Madaan, Emmy Liu, António Farinhas, Pedro H. Martins, Amanda Bertsch, José G. C. de Souza, Shuyan Zhou, Tongshuang Wu, Graham Neubig, André F. T. Martins",
         venue: "TACL",
@@ -489,7 +489,7 @@ const publicationsData = [
         }
     },
     {
-        id: 36,
+        id: 30,
         title: "Hallucinations in large multilingual translation models",
         authors: "Nuno M. Guerreiro, Duarte Alves, Jonas Waldendorf, Barry Haddow, Alexandra Birch, Pierre Colombo, André F. T. Martins",
         venue: "TACL",
@@ -502,7 +502,7 @@ const publicationsData = [
         }
     },
     {
-        id: 37,
+        id: 29,
         title: "When Does Translation Require Context? A Data-driven, Multilingual Exploration",
         authors: "Patrick Fernandes, Kayo Yin, Emmy Liu, André F. T. Martins, Graham Neubig",
         venue: "ACL 2023",
@@ -515,7 +515,7 @@ const publicationsData = [
         }
     },
     {
-        id: 38,
+        id: 28,
         title: "Python Code Generation by Asking Clarification Questions",
         authors: "Haau-Sing Li, Mohsen Mesgar, André F. T. Martins, Iryna Gurevych",
         venue: "ACL 2023",
@@ -528,7 +528,7 @@ const publicationsData = [
         }
     },
     {
-        id: 39,
+        id: 27,
         title: "CREST: A Joint Framework for Rationalization and Counterfactual Text Generation",
         authors: "Marcos Treviso, Alexis Ross, Nuno M. Guerreiro, André F. T. Martins",
         venue: "ACL 2023",
@@ -541,7 +541,7 @@ const publicationsData = [
         }
     },
     {
-        id: 40,
+        id: 26,
         title: "Glot500: Scaling Multilingual Corpora and Language Models to 500 Languages",
         authors: "Ayyoob ImaniGooghari, Peiqin Lin, Amir Hossein Kargaran, Silvia Severini, Masoud Jalili Sabet, Nora Kassner, Chunlan Ma, Helmut Schmid, André F. T. Martins, François Yvon, Hinrich Schütze",
         venue: "ACL 2023",
@@ -554,7 +554,7 @@ const publicationsData = [
         }
     },
     {
-        id: 41,
+        id: 25,
         title: "The inside story: Towards better understanding of machine translation neural evaluation metrics",
         authors: "Ricardo Rei, Nuno M. Guerreiro, Marcos Treviso, Luisa Coheur, Alon Lavie, André F. T. Martins",
         venue: "ACL 2023",
@@ -567,7 +567,7 @@ const publicationsData = [
         }
     },
     {
-        id: 42,
+        id: 24,
         title: "Optimal transport for unsupervised hallucination detection in neural machine translation",
         authors: "Nuno M. Guerreiro, Pierre Colombo, Pablo Piantanida, André F. T. Martins",
         venue: "ACL 2023",
@@ -580,7 +580,7 @@ const publicationsData = [
         }
     },
     {
-        id: 43,
+        id: 23,
         title: "Empirical Assessment of kNN-MT for Real-World Translation Scenarios",
         authors: "Pedro H. Martins, João Alves, Tânia Vaz, Madalena Gonçalves, Beatriz Silva, Marianna Buchicchio, José G. C. de Souza, André F. T. Martins",
         venue: "EAMT 2023",
@@ -593,7 +593,7 @@ const publicationsData = [
         }
     },
     {
-        id: 44,
+        id: 22,
         title: "BLEU Meets COMET: Combining Lexical and Neural Metrics Towards Robust Machine Translation Evaluation",
         authors: "Taisiya Glushkova, Chrysoula Zerva, André F. T. Martins",
         venue: "EAMT 2023",
@@ -606,7 +606,7 @@ const publicationsData = [
         }
     },
     {
-        id: 45,
+        id: 21,
         title: "Efficient methods for natural language processing: a survey",
         authors: "Marcos Treviso, Tianchu Ji, Ji-Ung Lee, Betty van Aken, Qingqing Cao, Manuel R. Ciosici, Michael Hassid, Kenneth Heafield, Sara Hooker, Pedro H. Martins, André F. T. Martins, Peter Milder, Colin Raffel, Edwin Simpson, Noam Slonim, Niranjan Balasubramanian, Leon Derczynski, Roy Schwartz",
         venue: "TACL",
@@ -619,7 +619,7 @@ const publicationsData = [
         }
     },
     {
-        id: 46,
+        id: 20,
         title: "Looking for a needle in a haystack: A comprehensive study of hallucinations in neural machine translation",
         authors: "Nuno M. Guerreiro, Elena Voita, André F. T. Martins",
         venue: "EACL 2023",
@@ -634,7 +634,7 @@ const publicationsData = [
 
     // 2022
     {
-        id: 47,
+        id: 19,
         title: "Learning to Scaffold: Optimizing Model Explanations for Teaching",
         authors: "Patrick Fernandes, Marcos Treviso, Danish Pruthi, André F. T. Martins, Graham Neubig",
         venue: "NeurIPS 2022",
@@ -647,7 +647,7 @@ const publicationsData = [
         }
     },
     {
-        id: 48,
+        id: 18,
         title: "Chunk-based Nearest Neighbor Machine Translation",
         authors: "Pedro Martins, Zita Marinho, André F. T. Martins",
         venue: "EMNLP 2022",
@@ -660,7 +660,7 @@ const publicationsData = [
         }
     },
     {
-        id: 49,
+        id: 17,
         title: "Disentangling Uncertainty in Machine Translation Evaluation",
         authors: "Chrysoula Zerva, Taisiya Glushkova, André F. T. Martins",
         venue: "EMNLP 2022",
@@ -673,7 +673,7 @@ const publicationsData = [
         }
     },
     {
-        id: 50,
+        id: 16,
         title: "Modeling Structure with Undirected Neural Networks",
         authors: "Tsvetomila Mihaylova, Vlad Niculae, André F. T. Martins",
         venue: "ICML 2022",
@@ -686,7 +686,7 @@ const publicationsData = [
         }
     },
     {
-        id: 51,
+        id: 15,
         title: "Quality-Aware Decoding for Neural Machine Translation",
         authors: "Patrick Fernandes, António Farinhas, Ricardo Rei, José G. C. Souza, Perez Ogayo, Graham Neubig, André F. T. Martins",
         venue: "NAACL 2022",
@@ -699,7 +699,7 @@ const publicationsData = [
         }
     },
     {
-        id: 52,
+        id: 14,
         title: "Beyond characters: Subword-level morpheme segmentation",
         authors: "Ben Peters, André F. T. Martins",
         venue: "SIGMORPHON 2022",
@@ -712,7 +712,7 @@ const publicationsData = [
         }
     },
     {
-        id: 53,
+        id: 13,
         title: "Searching for COMETINHO: The Little Metric That Could",
         authors: "Ricardo Rei, Ana C. Farinha, José G. C. Souza, P. G. Ramos, André F. T. Martins, Luisa Coheur, Alon Lavie",
         venue: "EAMT 2022",
@@ -725,7 +725,7 @@ const publicationsData = [
         }
     },
     {
-        id: 54,
+        id: 12,
         title: "∞-former: Infinite Memory Transformer",
         authors: "Pedro Martins, Zita Marinho, André F. T. Martins",
         venue: "ACL 2022",
@@ -738,7 +738,7 @@ const publicationsData = [
         }
     },
     {
-        id: 55,
+        id: 11,
         title: "Efficient Machine Translation Domain Adaptation",
         authors: "Pedro H. Martins, Zita Marinho, André F. T. Martins",
         venue: "ACL Workshop on Semiparametric Methods in NLP",
@@ -751,7 +751,7 @@ const publicationsData = [
         }
     },
     {
-        id: 56,
+        id: 10,
         title: "Predicting attention sparsity in transformers",
         authors: "Marcos Treviso, António Góis, Patrick Fernandes, Erick Fonseca, André F. T. Martins",
         venue: "SPNLP 2022",
@@ -764,7 +764,7 @@ const publicationsData = [
         }
     },
     {
-        id: 57,
+        id: 9,
         title: "Sparse Communication via Mixed Distributions",
         authors: "António Farinhas, Wilker Aziz, Vlad Niculae, André F. T. Martins",
         venue: "ICLR 2022 (oral)",
@@ -777,7 +777,7 @@ const publicationsData = [
         }
     },
     {
-        id: 58,
+        id: 8,
         title: "Differentiable Causal Discovery Under Latent Interventions",
         authors: "Gonçalo R. A. Faria, André F. T. Martins, Mário A. T. Figueiredo",
         venue: "CLeaR 2022",
@@ -790,7 +790,7 @@ const publicationsData = [
         }
     },
     {
-        id: 59,
+        id: 7,
         title: "Sparse Continuous Distributions and Fenchel-Young Losses",
         authors: "André F. T. Martins, Marcos Treviso, António Farinhas, Pedro M. Q. Aguiar, Mário A. T. Figueiredo, Mathieu Blondel, Vlad Niculae",
         venue: "JMLR",
@@ -808,7 +808,7 @@ const publicationsData = [
 
     // 2021
     {
-        id: 60,
+        id: 6,
         title: "Uncertainty-Aware Machine Translation Evaluation",
         authors: "Taisiya Glushkova, Chrysoula Zerva, Ricardo Rei, André F. T. Martins",
         venue: "Findings of EMNLP 2021",
@@ -821,7 +821,7 @@ const publicationsData = [
         }
     },
     {
-        id: 61,
+        id: 5,
         title: "SPECTRA: Sparse Structured Text Rationalization",
         authors: "Nuno M. Guerreiro, André F. T. Martins",
         venue: "EMNLP 2021",
@@ -836,7 +836,7 @@ const publicationsData = [
 
     // 2020
     {
-        id: 62,
+        id: 4,
         title: "Sparse and Continuous Attention Mechanisms",
         authors: "André F. T. Martins, António Farinhas, Marcos Treviso, Vlad Niculae, Pedro M. Q. Aguiar, Mário A. T. Figueiredo",
         venue: "NeurIPS 2020 (spotlight)",
@@ -849,7 +849,7 @@ const publicationsData = [
         }
     },
     {
-        id: 63,
+        id: 3,
         title: "Efficient Marginalization of Discrete and Structured Latent Variables via Sparsity",
         authors: "Gonçalo M. Correia, Vlad Niculae, Wilker Aziz, André F. T. Martins",
         venue: "NeurIPS 2020 (spotlight)",
@@ -864,7 +864,7 @@ const publicationsData = [
 
     // Add key earlier papers
     {
-        id: 64,
+        id: 2,
         title: "From Softmax to Sparsemax: A Sparse Model of Attention and Multi-Label Classification",
         authors: "André F. T. Martins, Ramon Astudillo",
         venue: "ICML 2016",
@@ -877,7 +877,7 @@ const publicationsData = [
         }
     },
     {
-        id: 65,
+        id: 1,
         title: "Concise Integer Linear Programming Formulations for Dependency Parsing",
         authors: "André F. T. Martins, Noah A. Smith, Eric P. Xing",
         venue: "ACL 2009",
