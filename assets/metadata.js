@@ -5,17 +5,22 @@ const SARDINE_METADATA = {
     site: {
         name: "SARDINE Lab",
         fullName: "Structure AwaRe moDelIng for Natural LanguagE",
+        icon: "🐟",
         logo: {
-            path: "assets/figs/logo-sardine.png",
+            path: "assets/figs/logo.png",
             alt: "SARDINE Lab Logo",
-            width: "128"
+            width: "220"
         },
-        icon: "🐟"
+        logoDark: {
+            path: "assets/figs/logo-dark.png",
+            alt: "SARDINE Lab Logo",
+            width: "200"
+        }
     },
 
     // Contact information
     contact: {
-        email: "contact@sardine-lab.org",
+        email: "contact@sardinelab.org",
         address: "Av. Rovisco Pais 1, 1049-001 Lisboa",
         location: "Lisbon, Portugal"
     },
@@ -90,8 +95,8 @@ class MetadataManager {
         header.innerHTML = `
             <div class="flex items-center justify-between h-16">
                 <a href="index.html" class="flex items-center gap-2 group">
-                    <img width="${this.metadata.site.logo.width}" src="${this.metadata.site.logo.path}" alt="${this.metadata.site.logo.alt}">
-                    <span class="font-semibold text-slate-900">${this.metadata.site.name}</span>
+                    <img width="${this.metadata.site.logo.width}" src="${this.metadata.site.logo.path}" title="${this.metadata.site.name}" alt="${this.metadata.site.logo.alt}">
+                    <!--<span class="font-semibold text-slate-900">${this.metadata.site.name}</span>-->
                 </a>
                 <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
                     ${this.metadata.navigation.map(item => 
@@ -125,8 +130,9 @@ class MetadataManager {
             <div class="px-4 grid gap-8 md:grid-cols-3">
                 <div>
                     <div class="flex items-center gap-2 mb-3">
-                        <span class="text-2xl">${this.metadata.site.icon}</span>
-                        <span class="font-semibold">${this.metadata.site.name}</span>
+                        <img width="${this.metadata.site.logoDark.width}" src="${this.metadata.site.logoDark.path}" title="${this.metadata.site.name}" alt="${this.metadata.site.logo.alt}">
+                        <!--<span class="text-2xl">${this.metadata.site.icon}</span>-->
+                        <!--<span class="font-semibold">${this.metadata.site.name}</span>-->
                     </div>
                     <p class="text-sm text-slate-400">${this.metadata.site.fullName}</p>
                     <p class="text-sm text-slate-400 mt-2">
@@ -157,7 +163,7 @@ class MetadataManager {
                     </div>
                 </div>
             </div>
-            <div class="border-t border-slate-800 mt-8 pt-8 text-center text-sm text-slate-500">
+            <div class="border-t border-sky-900 mt-8 pt-8 text-center text-sm text-slate-500">
                 <div class="max-w-6xl mx-auto px-4 flex items-center justify-between">
                     <span>&copy; ${currentYear} ${this.metadata.site.name}. All rights reserved.</span>
                     <span>Made with ${this.metadata.site.icon} in Lisbon.</span>

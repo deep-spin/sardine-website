@@ -17,9 +17,9 @@
             theme: {
                 extend: {
                     colors: {
-                        'sardine-blue': '#1e40af',
-                        'sardine-light': '#3b82f6',
-                        'ocean': '#0369a1'
+                        'sardine-blue': '#007a94',
+                        'sardine-light': '#00a4c3',
+                        'ocean': '#00a4c3'
                     }
                 }
             }
@@ -35,8 +35,8 @@
         <div class="max-w-6xl mx-auto px-4">
             <div class="flex items-center justify-between h-16">
                 <a href="index.html" class="flex items-center gap-2 group">
-                    <img width="128" src="assets/figs/logo-sardine.png" alt="SARDINE Lab Logo">
-                    <span class="font-semibold text-slate-900 group-hover:text-sardine-blue transition-colors">SARDINE Lab</span>
+                    <img width="220" src="assets/figs/logo.png" alt="SARDINE Lab Logo">
+                    <!-- <span class="font-semibold text-slate-900 group-hover:text-sardine-blue transition-colors">SARDINE Lab</span> -->
                 </a>
                 <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
                     <a href="index.html" class="navlink active text-slate-600 hover:text-slate-900 transition-colors">Home</a><a href="news.html" class="navlink  text-slate-600 hover:text-slate-900 transition-colors">News</a><a href="publications.html" class="navlink  text-slate-600 hover:text-slate-900 transition-colors">Publications</a><a href="projects.html" class="navlink  text-slate-600 hover:text-slate-900 transition-colors">Projects</a>
@@ -71,7 +71,7 @@
                     Structure AwaRe moDelIng for Natural LanguagE — a research group focused on Natural Language Processing, Deep Learning, Structured Prediction, and Sparse Modeling.
                 </p>
                 <p class="text-slate-700 mb-6">
-                    We are based at <a class="text-sardine-blue hover:underline font-medium" href="https://www.it.pt/" target="_blank">Instituto de Telecomunicações</a> and <a class="text-sardine-blue hover:underline font-medium" href="https://tecnico.ulisboa.pt/" target="_blank">Instituto Superior Técnico</a> in the sunny Lisbon ☀️, Portugal 🇵🇹, led by <a class="text-sardine-blue hover:underline font-medium" href="https://andre-martins.github.io/" target="_blank">André Martins</a> 🧙‍♂️.
+                    We are based at <a class="text-sardine-blue hover:underline font-medium" href="https://www.it.pt/" target="_blank">Instituto de Telecomunicações</a> and <a class="text-sardine-blue hover:underline font-medium" href="https://tecnico.ulisboa.pt/" target="_blank">Instituto Superior Técnico</a> in the sunny Lisbon ☀️, Portugal 🇵🇹.
                 </p>
                 <div class="flex flex-wrap gap-3">
                     <a href="#team" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white text-sardine-blue font-semibold border border-sardine-blue/20 hover:bg-sardine-blue/5 transition">
@@ -254,9 +254,9 @@
     <section id="origin-map" class="py-16 bg-slate-50">
         <div class="max-w-6xl mx-auto px-4">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-slate-900 mb-4">Our Global Team</h2>
+                <h2 class="text-3xl font-bold text-slate-900 mb-4">SARDINEs Around the World</h2>
                 <div class="w-24 h-1 bg-sardine-blue mx-auto mb-8"></div>
-                <p class="text-lg text-slate-600">Team members come from around the world!</p>
+                <!-- <p class="text-lg text-slate-600">Team members come from around the world!</p> -->
             </div>
             <div class="relative aspect-[2/1] w-full rounded-2xl border border-slate-200 overflow-hidden bg-slate-100">
                 <img id="worldMap" alt="World map" class="absolute inset-0 w-full h-full object-cover opacity-90" 
@@ -276,8 +276,59 @@
     </section>
 
 
+    <!-- Join Us Section -->
+    <section id="join" class="py-16 bg-gradient-to-b from-sardine-blue/5 to-white border-t border-slate-200/60">
+      <div class="max-w-6xl mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">
+        <!-- Text -->
+        <div>
+          <div class="flex items-center gap-3 mb-3">
+            <h2 class="text-3xl md:text-4xl font-bold text-slate-900">Want to Join Us?</h2>
+            <span class="text-3xl" aria-hidden="true">🐟</span>
+          </div>
+          <p class="text-lg text-slate-700 mb-6">
+            We're always excited to hear from curious minds who love language, learning, and structure.
+            If you're into NLP, deep learning, structured prediction, or sparse modeling, come swim with us! 
+          </p>
+
+          <!-- 
+          <div class="bg-white border border-slate-200 rounded-2xl p-5 mb-6">
+            <h4 class="font-semibold text-slate-900 mb-3">What to send</h4>
+            <ul class="list-disc pl-5 space-y-1 text-slate-700 text-sm">
+              <li>1-2 paragraph motivation and fit with SARDINE Lab</li>
+              <li>CV + links (e.g., papers, code, website)</li>
+              <li>Preferred start date and role (Postdoc/PhD/MSc/Visitor)</li>
+              <li>Any funding sources you have or plan to apply for</li>
+            </ul>
+          </div> 
+            -->
+
+          <div class="flex flex-wrap gap-3">
+            <a href="mailto:contact@sardinelab.org?subject=Joining%20SARDINE%20Lab"
+               class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-sardine-blue text-white font-semibold shadow hover:bg-sardine-light transition">
+              <span>Send Us an Email</span>
+              <i class="fa-solid fa-paper-plane"></i>
+            </a>
+            <a href="news.html"
+               class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white text-sardine-blue font-semibold border border-sardine-blue hover:bg-sardine-blue/5 transition">
+              <span>Check Open Calls</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+     
+
+          <div class="relative">
+            <img class="rounded-2xl shadow-lg ring-1 ring-slate-200" alt="Happy sardines working together." src="assets/figs/sardines.png">
+            <p class="text-center mt-2 text-sm text-slate-500">Come swim with us! Research is waaay better in a shoal.</p>
+        </div>
+
+      </div>
+    </section>
+
+
     <!-- Footer -->
-    <footer class="bg-slate-900 text-white py-12">
+    <footer class="bg-sky-950 text-white py-12">
         <div class="max-w-6xl mx-auto">
             <!-- Footer content will be populated by metadata.js -->
         </div>
