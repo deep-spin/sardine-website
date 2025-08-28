@@ -12,6 +12,10 @@ body {
   font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
 }
 
+.bg-footer {
+  background: #144955;
+}
+
 /* ========================================
    2. LAYOUT COMPONENTS
    ======================================== */

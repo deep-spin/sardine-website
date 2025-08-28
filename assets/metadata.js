@@ -163,7 +163,7 @@ class MetadataManager {
                     </div>
                 </div>
             </div>
-            <div class="border-t border-sky-900 mt-8 pt-8 text-center text-sm text-slate-500">
+            <div class="border-t border-cyan-800 mt-8 pt-8 text-center text-sm text-slate-500">
                 <div class="max-w-6xl mx-auto px-4 flex items-center justify-between">
                     <span>&copy; ${currentYear} ${this.metadata.site.name}. All rights reserved.</span>
                     <span>Made with ${this.metadata.site.icon} in Lisbon.</span>
